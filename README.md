@@ -10,12 +10,9 @@ A sample game written with MonoGame that targets UWP (xbox, windows 10/11 deskto
 - WP7 src code research (very quick, no deep learning yet!)
 - I started to adapt the src code for W10M... 
 
-## Status
-Draft (still exploring src Content compilation process... fonts generation, texturec, etc.)
-
 
 ## Requirements
-* MonoGame v3.7 (or higher)
+* MonoGame FrameWork DirectX v3.7 (or higher)
 * [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/) (or 2022 Preview)
 
 
