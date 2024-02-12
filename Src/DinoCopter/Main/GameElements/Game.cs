@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: GameManager.GameElements.Game
-// Assembly: GameManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: B3F40C3B-C6E1-4F5E-A59A-127A12A38B73
-// Assembly location: C:\Users\Admin\Desktop\RE\DinoCopter\GameManager.dll
+﻿// GameManager.GameElements.Game
 
 using GameManager.GameLogic;
 using GameManager.GraphicsSystem;
@@ -859,10 +855,13 @@ namespace GameManager.GameElements
         this.WaterLevel = binaryReader.ReadSingle();
         this.WaterLevelRise = binaryReader.ReadSingle();
         int num3 = binaryReader.ReadInt32();
+        
         for (int index = 0; index < num3; ++index)
           this.Spawns[binaryReader.ReadInt32() - 1].SetMaxPassengersSpawned(binaryReader.ReadInt32());
-        binaryReader.Close();
-        input.Close();
+        
+        binaryReader.Dispose();
+        input.Dispose();
+
         bool flag = true;
         for (int index = 0; (double) index < (double) this.MapSize.X; ++index)
         {

@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: GameManager.GameElements.Dust
-// Assembly: GameManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: B3F40C3B-C6E1-4F5E-A59A-127A12A38B73
-// Assembly location: C:\Users\Admin\Desktop\RE\DinoCopter\GameManager.dll
+﻿// GameManager.GameElements.Dust
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
@@ -58,7 +54,10 @@ namespace GameManager.GameElements
 
     public override void Update(float time)
     {
-      if ((double) this.GetPos().X > (double) GlobalMembers.Game.GetMapSize().X || (double) this.GetPos().Y > (double) GlobalMembers.Game.GetMapSize().Y || (double) this.GetPos().Y + (double) this.GetHeight() < 0.0 || (double) this.GetPos().X + (double) this.GetWidth() < 0.0)
+      if ((double) this.GetPos().X > (double) GlobalMembers.Game.GetMapSize().X 
+                || (double) this.GetPos().Y > (double) GlobalMembers.Game.GetMapSize().Y 
+                || (double) this.GetPos().Y + (double) this.GetHeight() < 0.0 
+                || (double) this.GetPos().X + (double) this.GetWidth() < 0.0)
       {
         this.Remove();
       }

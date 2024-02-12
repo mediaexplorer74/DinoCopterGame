@@ -1,4 +1,4 @@
-﻿// GameManager.DinoCopterGame
+﻿// GameManager.Game1 (DinoCopterGame)
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,7 +38,7 @@ namespace GameManager
         private Button btnCreateProfile;
         private Button btnLoadProfile;
         private Song mainMenuSong;
-        private LevelBuilder levelBuilder = new LevelBuilder();
+        //private LevelBuilder levelBuilder = new LevelBuilder();
         private int level = 1;
 
 
@@ -47,7 +47,7 @@ namespace GameManager
         private static Game1 instance;
 
         private static float deltaTime;
-        private character player;
+        //private character player;
         private bool profileExisting;
         public static Dictionary<int, GameObject> spawnList = new Dictionary<int, GameObject>();
         private static List<GameObject> objectToAdd = new List<GameObject>();
@@ -81,6 +81,7 @@ namespace GameManager
             set => Game1.gameObjects = value;
         }
 
+        /*
         public List<Collider> Colliders
         {
             get
@@ -91,6 +92,7 @@ namespace GameManager
                 return colliders;
             }
         }
+        */
 
         public static Game1 Instance
         {
@@ -124,12 +126,13 @@ namespace GameManager
 
         protected override void Initialize()
         {
-            this.createdb.CreateDatabase();
+            //this.createdb.CreateDatabase();
             base.Initialize();
         }
 
         public void Choselvl()
         {
+            /*
             using (Connection connection = new Connection())
             {
                 connection.OpenCon();
@@ -148,6 +151,7 @@ namespace GameManager
                 }
                 connection.Dispose();
             }
+            */
         }
 
         protected override void LoadContent()
@@ -170,14 +174,15 @@ namespace GameManager
                     MediaPlayer.Play(this.mainMenuSong);
                     MediaPlayer.IsRepeating = true;
                     this.IsMouseVisible = true;
-                    this.btnCreateProfile = new Button(this.Content.Load<Texture2D>("CreateProfileOff"),
-                        new Vector2(100f, 300f), "CreateProfileOff", "CreateProfileOn", 300, 100);
+                    
+                    //this.btnCreateProfile = new Button(this.Content.Load<Texture2D>("CreateProfileOff"),
+                    //    new Vector2(100f, 300f), "CreateProfileOff", "CreateProfileOn", 300, 100);
 
-                    this.btnStartGame = new Button(this.Content.Load<Texture2D>("ContinueOff"),
-                        new Vector2(100f, 500f), "ContinueOff", "ContinueOn", 200, 100);
+                    //this.btnStartGame = new Button(this.Content.Load<Texture2D>("ContinueOff"),
+                    //    new Vector2(100f, 500f), "ContinueOff", "ContinueOn", 200, 100);
 
-                    this.btnExit = new Button(this.Content.Load<Texture2D>("ExitOff"),
-                        new Vector2(100f, 700f), "ExitOff", "ExitOn", 200, 100);
+                    //this.btnExit = new Button(this.Content.Load<Texture2D>("ExitOff"),
+                    //    new Vector2(100f, 700f), "ExitOff", "ExitOn", 200, 100);
                     break;
                 case Game1.GameState.Playing:
                     if (this.paused)
@@ -199,7 +204,7 @@ namespace GameManager
         public void ScalePresentationArea()
         {
             //Work out how much we need to scale our graphics to fill the screen
-            backbufferWidth = GraphicsDevice.PresentationParameters.BackBufferWidth - 0; // 40 - dirty hack for Astoria!
+            backbufferWidth = GraphicsDevice.PresentationParameters.BackBufferWidth - 0; 
             backbufferHeight = GraphicsDevice.PresentationParameters.BackBufferHeight;
 
             float horScaling = backbufferWidth / baseScreenSize.X;
@@ -232,8 +237,10 @@ namespace GameManager
             KeyboardState state1 = Keyboard.GetState();
             MouseState state2 = Mouse.GetState();
             Game1.deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            /*
             switch (this.currentGameState)
             {
+
                 case Game1.GameState.MainMenu:
                     Game1.objectsToRemove.AddRange((IEnumerable<GameObject>)Game1.gameObjects);
                     Game1.spawnList.Clear();
@@ -253,6 +260,7 @@ namespace GameManager
                     
                     if (this.btnStartGame.isClicked)
                         this.currentGameState = Game1.GameState.Playing;
+
                     if (this.btnExit.isClicked)
                         this.Exit();
                     
@@ -279,6 +287,7 @@ namespace GameManager
                         }
                         break;
                     }
+
                 case Game1.GameState.Playing:
                     if (!this.paused)
                     {
@@ -301,13 +310,15 @@ namespace GameManager
                         Game1.objectToAdd.Clear();
                         foreach (GameObject gameObject in Game1.gameObjects)
                             gameObject.Update();
+
                         using (Connection connection = new Connection())
                         {
                             connection.OpenCon();
-                            this.player = connection.GetAllRows<character>().Last<character>();
+                            //this.player = connection.GetAllRows<character>().Last<character>();
                             this.player.Level = this.level;
                             connection.Dispose();
                         }
+
                         using (Connection connection = new Connection())
                         {
                             if ((double)Game1.playerPos.X > 1550.0)
@@ -373,15 +384,16 @@ namespace GameManager
                     if (this.paused)
                     {
                         this.IsMouseVisible = true;
-                        this.btnContinue = new Button(this.Content.Load<Texture2D>("ContinueOff"),
-                            new Vector2(700f, 300f), "ContinueOff", "ContinueOn", 200, 100);
+                        //this.btnContinue = new Button(this.Content.Load<Texture2D>("ContinueOff"),
+                        //    new Vector2(700f, 300f), "ContinueOff", "ContinueOn", 200, 100);
 
-                        this.btnSave = new Button(this.Content.Load<Texture2D>("SaveOff"),
-                            new Vector2(700f, 400f), "SaveOff", "SaveOn", 200, 100);
+                        //this.btnSave = new Button(this.Content.Load<Texture2D>("SaveOff"),
+                        //    new Vector2(700f, 400f), "SaveOff", "SaveOn", 200, 100);
 
-                        this.btnMainMenu = new Button(this.Content.Load<Texture2D>("MainMenuOff"),
-                            new Vector2(700f, 500f), "MainMenuOff", "MainMenuOn", 300, 100);
+                        //this.btnMainMenu = new Button(this.Content.Load<Texture2D>("MainMenuOff"),
+                        //    new Vector2(700f, 500f), "MainMenuOff", "MainMenuOn", 300, 100);
 
+                        
                         this.btnMainMenu.Update(this.Content, state2);
                         this.btnContinue.Update(this.Content, state2);
                         this.btnSave.Update(this.Content, state2);
@@ -395,16 +407,24 @@ namespace GameManager
                             this.currentGameState = Game1.GameState.MainMenu;
                             break;
                         }
+                        
                         break;
                     }
                     break;
             }
+            */
             base.Update(gameTime);
         }
 
-        public void AddGameObject(GameObject go) => Game1.objectToAdd.Add(go);
+        public void AddGameObject(GameObject go)
+        {
+            Game1.objectToAdd.Add(go);
+        }
 
-        public void RemoveGameObject(GameObject go) => Game1.objectsToRemove.Add(go);
+        public void RemoveGameObject(GameObject go)
+        {
+            Game1.objectsToRemove.Add(go);
+        }
 
         protected override void Draw(GameTime gameTime)
         {
@@ -420,15 +440,17 @@ namespace GameManager
                 case Game1.GameState.MainMenu:
                     this.spriteBatch.Draw(this.Content.Load<Texture2D>("MainMenu"),
                         new Rectangle(0, 0, 1600, 900), Color.White);
-                    this.btnExit.Draw(this.spriteBatch);
-                    this.btnStartGame.Draw(this.spriteBatch);
-                    this.btnCreateProfile.Draw(this.spriteBatch);
+                    //this.btnExit.Draw(this.spriteBatch);
+                    //this.btnStartGame.Draw(this.spriteBatch);
+                    //this.btnCreateProfile.Draw(this.spriteBatch);
                     break;
                 case Game1.GameState.Playing:
                     if (!this.paused)
                     {
                         foreach (GameObject gameObject in Game1.gameObjects)
+                        {
                             gameObject.Draw(this.spriteBatch);
+                        }
                     }
                     if (this.paused)
                     {
@@ -436,8 +458,9 @@ namespace GameManager
                             gameObject.Draw(this.spriteBatch);
                         this.spriteBatch.Draw(this.Content.Load<Texture2D>("Paused"),
                             this.pausedRectangle, Color.White);
-                        this.btnMainMenu.Draw(this.spriteBatch);
-                        this.btnContinue.Draw(this.spriteBatch);
+
+                        //this.btnMainMenu.Draw(this.spriteBatch);
+                        //this.btnContinue.Draw(this.spriteBatch);
                         break;
                     }
                     break;
