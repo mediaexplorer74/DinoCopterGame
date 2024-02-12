@@ -1,8 +1,8 @@
-# DinoCopterGame v1.0.0.0 (pre-pre-pre alpha; DinoTaxi project codename)
+# DinoCopter v1.0.0.0 (pre-pre-pre alpha; DinoTaxi project codename)
 
 ![DinoTaxi](Images/logo.png)
 
-A "original" game (dos game Ugh! remake, indeed) written by Fern's Blossom Studio with MonoGame that targets old sweet WP7. :)
+A "original" game (however, fok of great oldie, dos game Ugh! remake, indeed!!!) written by Fern's Blossom Studio with MonoGame that targets old sweet WP7. :)
 
 My main goal is/was: adapdation for "multi-platform' UWP (xbox, windows 10/11 desktop, and windows 10 mobile with Astoria too).  
 
