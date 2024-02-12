@@ -9,11 +9,13 @@ My main goal is/was: adapdation for "multi-platform' UWP (xbox, windows 10/11 de
 ## Screenshot(s)
 
 ![](Images/shot01.png)
+![](Images/shot02.png)
 
 ## My 2 cents
 - dinocopter.xap R.E.
 - WP7 src code research (very quick, no deep learning yet!)
 - I started to adapt the src code for W10M... 
+- Music theme fixed ("sound on")))
 
 ## Original game scenario
 

@@ -156,7 +156,7 @@ namespace GameManager
 
         protected override void LoadContent()
         {
-            this.mainMenuSong = this.Content.Load<Song>("MainMenuSong");
+            this.mainMenuSong = this.Content.Load<Song>("Sounds/music");//("MainMenuSong");
 
             // Create a new SpriteBatch, which can be used to draw textures.
 
@@ -438,7 +438,7 @@ namespace GameManager
             switch (this.currentGameState)
             {
                 case Game1.GameState.MainMenu:
-                    this.spriteBatch.Draw(this.Content.Load<Texture2D>("MainMenu"),
+                    this.spriteBatch.Draw(this.Content.Load<Texture2D>("480x800/background")/*("MainMenu")*/,
                         new Rectangle(0, 0, 1600, 900), Color.White);
                     //this.btnExit.Draw(this.spriteBatch);
                     //this.btnStartGame.Draw(this.spriteBatch);

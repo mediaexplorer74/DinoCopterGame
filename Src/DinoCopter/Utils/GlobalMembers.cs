@@ -1432,12 +1432,14 @@ namespace GameManager.Utils
         "whirl"
       }
     };
+
     public static bool IsLite = false;
     public static int LiteLevels = 4;
     public static bool HasAds = true;
     public static bool HasCheat = false;
     public static bool IsFreeVersion = false;
     public static Point TileSize;
+
     public static float[,] starsTimes = new float[30, 2]
     {
       {
@@ -1561,6 +1563,7 @@ namespace GameManager.Utils
         180f
       }
     };
+
     public static SoundEffect SfxButtonHover;
     public static SoundEffectInstance SfxButtonHoverInstance;
     public static SoundEffect SfxButtonRelease;
@@ -1585,9 +1588,15 @@ namespace GameManager.Utils
 
     static GlobalMembers() => GlobalMembers.TileSize = new Point(48f, 48f);
 
-    public static float FromPx(float a) => a / GlobalMembers.TileSize.X;
+    public static float FromPx(float a)
+    {
+        return a / GlobalMembers.TileSize.X;
+    }
 
-    public static float ToPx(float a) => a * GlobalMembers.TileSize.X;
+    public static float ToPx(float a)
+    {
+        return a * GlobalMembers.TileSize.X;
+    }
 
     public static float GetTimeForStars(int starsNum, int level)
     {

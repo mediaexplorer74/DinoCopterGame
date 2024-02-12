@@ -134,12 +134,14 @@ namespace GameManager.GameElements
       float y1 = GlobalMembers.FromPx(GlobalMembers.TileSize.X * 13f) * time;
       float x = GlobalMembers.FromPx(GlobalMembers.TileSize.X * 6f) * time;
       bool flag = false;
+
       if (KeyHelper.KeysState[AbsKey.Left] == GameManager.Utils.State.Down)
       {
         Player player = this;
         player.Speed = player.Speed - new Point(x, 0.0f);
         flag = true;
       }
+
       if (KeyHelper.KeysState[AbsKey.Right] == GameManager.Utils.State.Down)
       {
         Player player = this;

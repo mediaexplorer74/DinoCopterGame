@@ -185,7 +185,9 @@ namespace GameManager.GameElements
     {
       if (sh != GlobalMembers.Shape.ShapePlatform)
         return;
+
       GameManager.GraphicsSystem.Point pos = s.GetPos();
+
       s.SetPos(new GameManager.GraphicsSystem.Point(pos.X, pos.Y + s.GetHeight() * 3f));
     }
 
@@ -1096,6 +1098,7 @@ namespace GameManager.GameElements
       this.Level = Game.GameState.Level;
       this.DropStone = Game.GameState.DropStone;
       this.LostReason = Game.GameState.LostReason;
+
       for (int index = 0; index < Game.GameState.StonePos.Count; ++index)
       {
         Sprite stone = Stone.CreateStone(Game.GameState.StonePos[index]);
@@ -1103,6 +1106,7 @@ namespace GameManager.GameElements
         (stone as Stone).State = Game.GameState.StoneState[index];
         this.AddSprite(stone, 2);
       }
+
       for (int index = 0; index < Game.GameState.FruitPos.Count; ++index)
       {
         Sprite fruit = Fruit.CreateFruit(Game.GameState.FruitPos[index]);
@@ -1112,6 +1116,7 @@ namespace GameManager.GameElements
         this.AddSprite(fruit, 2);
       }
       int index1 = 0;
+
       for (int index2 = 0; index2 < this.GetSpriteLayer(3).Count; ++index2)
       {
         if (this.GetSpriteLayer(3)[index2].TypeId == 3)
@@ -1122,6 +1127,7 @@ namespace GameManager.GameElements
           chaser.WereHit = Game.GameState.ChaserWereHit[index1++];
         }
       }
+      
       this.Player.SetPos(Game.GameState.PlayerPos);
       (this.Player as GameManager.GameElements.Player).FirstCrash = Game.GameState.FirstCrash;
       (this.Player as GameManager.GameElements.Player).CopterAnimPhase = Game.GameState.CopterAnimPhase;
@@ -1132,6 +1138,7 @@ namespace GameManager.GameElements
       (this.Player as GameManager.GameElements.Player).FloatsOnWater = Game.GameState.FloatsOnWater;
       (this.Player as GameManager.GameElements.Player).PassengersIn = Game.GameState.PassengersIn;
       (this.Player as GameManager.GameElements.Player).MaxPassengers = Game.GameState.MaxPassengers;
+      
       for (int index3 = 0; index3 < 10; ++index3)
       {
         if (Game.GameState.ThereIsPassenger[index3])

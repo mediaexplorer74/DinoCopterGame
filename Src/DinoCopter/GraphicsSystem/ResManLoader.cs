@@ -58,7 +58,9 @@ namespace GameManager.GraphicsSystem
     {
       foreach (KeyValuePair<Rh, string> image in GlobalMembers.Images)
       {
-        Texture2D texture2D = DispManager.Content.Load<Texture2D>(string.Format("{0}/{1}", (object) Util.FilePrefix, (object) image.Value));
+        Texture2D texture2D = DispManager.Content.Load<Texture2D>(string.Format("{0}/{1}",
+            (object) Util.FilePrefix, (object) image.Value));
+
         Paintable paintable = new Paintable(PType.Unloaded)
         {
           ResourceId = image.Value,
@@ -66,13 +68,17 @@ namespace GameManager.GraphicsSystem
             KeepPixelData = false
           }
         };
+
         this.Resources[image.Value] = paintable;
         paintable.PImage.W = (float) texture2D.Width;
         paintable.PImage.H = (float) texture2D.Height;
         paintable.PImage.TextureWidth = 1;
+
         while (paintable.PImage.TextureWidth < texture2D.Width)
           paintable.PImage.TextureWidth <<= 1;
+
         paintable.PImage.TextureHeight = 1;
+        
         while (paintable.PImage.TextureHeight < texture2D.Height)
           paintable.PImage.TextureHeight <<= 1;
       }
@@ -92,6 +98,7 @@ namespace GameManager.GraphicsSystem
         }
       }
       this.ToLoadNum = this.ToLoad.Count;
+
       if (this.ToLoadNum == 0)
         return;
       foreach (string key in this.ToLoad.Keys)

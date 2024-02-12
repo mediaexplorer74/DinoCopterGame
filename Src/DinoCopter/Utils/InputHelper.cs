@@ -79,7 +79,10 @@ namespace GameManager.Utils
 
     public bool IsCursorValid => this._cursorIsValid;
 
-    public void LoadContent() => this._viewport = DispManager.GraphicsDev.Viewport;
+    public void LoadContent()
+    {
+        this._viewport = DispManager.GraphicsDev.Viewport;
+    }
 
     public void Update(float gameTime)
     {

@@ -124,11 +124,20 @@ namespace GameManager.GraphicsSystem
     {
     }
 
-    public bool isNeedsHorizontalRotate() => DispManager.RotateHorizontal;
+        public bool isNeedsHorizontalRotate()
+        {
+            return DispManager.RotateHorizontal;
+        }
 
-    private bool IsHorizontal() => DispManager.Horizontal;
+        private bool IsHorizontal()
+    {
+        return DispManager.Horizontal;
+    }
 
-    private bool IsNeedsRotate() => this.NeedsRotate;
+    private bool IsNeedsRotate()
+    {
+        return this.NeedsRotate;
+    }
 
     public DispManager(bool _horizontal)
     {
@@ -145,6 +154,7 @@ namespace GameManager.GraphicsSystem
       this.LastUpdate = 0L;
       this.NeedsRotate = false;
       this.RegisterTouchCallbacks();
+
       if (DispManager.Horizontal
                 && (double) GlobalMembers.ScreenWidth < (double) GlobalMembers.ScreenHeight 
                 || !DispManager.Horizontal 
@@ -170,9 +180,12 @@ namespace GameManager.GraphicsSystem
 
     public int GetWidth() => this.Width;
 
-    public Disp GetDisp() => this.Current;
+        public Disp GetDisp()
+        {
+            return this.Current;
+        }
 
-    public void InitDraw(SpriteBatch spriteBatch)
+        public void InitDraw(SpriteBatch spriteBatch)
     {
       this.TranslatePos.X = this.TranslatePos.Y = 0.0f;
       this.ResetClipStack(spriteBatch);
@@ -185,9 +198,12 @@ namespace GameManager.GraphicsSystem
       this.Load.Paint(GlobalMembers.ScreenWidth / 2f, GlobalMembers.ScreenHeight / 2f, 18, spriteBatch);
     }
 
-    public void SetNextDisp(Disp next) => this.Next = next;
+        public void SetNextDisp(Disp next)
+        {
+            this.Next = next;
+        }
 
-    public void Render(SpriteBatch spriteBatch)
+        public void Render(SpriteBatch spriteBatch)
     {
       if (this.Current == null)
       {
@@ -302,9 +318,15 @@ namespace GameManager.GraphicsSystem
       this.TranslatePos.Y += y;
     }
 
-    public void Translate(Point p) => this.TranslatePos += p;
+    public void Translate(Point p)
+    {
+        this.TranslatePos += p;
+    }
 
-    public Point GetTranslate() => new Point(this.TranslatePos);
+    public Point GetTranslate()
+    {
+        return new Point(this.TranslatePos);
+    }
 
     public void Dispose()
     {
@@ -338,21 +360,33 @@ namespace GameManager.GraphicsSystem
       this.PointersReleased[id] = new Point(x, y);
       this.PointersCurrent.Remove(id);
       this.PointersPressed.Remove(id);
+
       if (this.Current == null)
         return;
+
       this.Current.PointerReleased(new Point(x, y), id);
     }
 
-    public Dictionary<int, Point> GetPointersPressed() => this.PointersPressed;
+    public Dictionary<int, Point> GetPointersPressed()
+    {
+        return this.PointersPressed;
+    }
 
-    public Dictionary<int, Point> GetPointersCurrent() => this.PointersCurrent;
+    public Dictionary<int, Point> GetPointersCurrent()
+    {
+        return this.PointersCurrent;
+    }
 
-    public Dictionary<int, Point> GetPointersReleased() => this.PointersReleased;
+    public Dictionary<int, Point> GetPointersReleased()
+    {
+        return this.PointersReleased;
+    }
 
     public static void PlayMusic(Song music)
     {
       if (GlobalMembers.LeaveZuneOn)
         return;
+
       MediaPlayer.IsRepeating = true;
       MediaPlayer.Volume = GlobalMembers.Save.GetMusicVolume();
       MediaPlayer.Play(music);
@@ -365,7 +399,10 @@ namespace GameManager.GraphicsSystem
       MediaPlayer.Stop();
     }
 
-    public static void ResumeMusic() => MediaPlayer.Resume();
+    public static void ResumeMusic()
+    {
+        MediaPlayer.Resume();
+    }
 
     public static bool IsMusicPlaying()
     {
@@ -386,17 +423,19 @@ namespace GameManager.GraphicsSystem
       SoundEffect.MasterVolume = vol;
     }
 
-        public DispManager GetManager()
-        {
-            return GlobalMembers.Manager;
-        }
-
-        public void RegisterTouchCallbacks()
+    public DispManager GetManager()
     {
+        return GlobalMembers.Manager;
+    }
+
+    public void RegisterTouchCallbacks()
+    {
+        //
     }
 
     public void UnregisterTouchCallbacks()
     {
+       //
     }
 
     private void clipRect(float x, float y, float w, float h, SpriteBatch spriteBatch)
