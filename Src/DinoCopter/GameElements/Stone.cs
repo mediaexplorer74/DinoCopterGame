@@ -1,4 +1,4 @@
-﻿// GameManager.GameElements.Stone
+﻿// GameManager.Stone
 
 using GameManager.GameLogic;
 using GameManager.GraphicsSystem;
@@ -6,7 +6,7 @@ using GameManager.Utils;
 using Microsoft.Xna.Framework.Graphics;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Stone : Sprite
   {

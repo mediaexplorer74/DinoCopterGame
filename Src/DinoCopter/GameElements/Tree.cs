@@ -1,11 +1,11 @@
-﻿// GameManager.GameElements.Tree
+﻿// GameManager.Tree
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using Microsoft.Xna.Framework.Graphics;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Tree : Sprite
   {

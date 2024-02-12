@@ -1,4 +1,4 @@
-﻿// GameManager.Game1 (DinoCopterGame)
+﻿// GameManager.OldGame1 (DinoCopterGame)
 
 using System;
 

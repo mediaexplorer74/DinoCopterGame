@@ -1,11 +1,11 @@
-﻿// GameManager.GameElements.Dust
+﻿// GameManager.Dust
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using System;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Dust : Sprite
   {

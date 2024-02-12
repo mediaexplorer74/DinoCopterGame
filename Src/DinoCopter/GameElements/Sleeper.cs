@@ -1,4 +1,4 @@
-﻿// GameManager.GameElements.Sleeper
+﻿// GameManager.Sleeper
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   public class Sleeper : Sprite
   {

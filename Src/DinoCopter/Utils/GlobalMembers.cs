@@ -1,6 +1,6 @@
 ﻿// GameManager.Utils.GlobalMembers
 
-using GameManager.GameElements;
+using GameManager;
 using GameManager.GameLogic;
 using GameManager.GraphicsSystem;
 using Microsoft.Xna.Framework.Audio;
@@ -424,7 +424,7 @@ namespace GameManager.Utils
       GlobalMembers.Shape.ShapeFullRect,
       GlobalMembers.Shape.ShapeFullRect
     };
-    public static Game Game;
+    public static Game1 Game;
     public static GameSave Save;
     public static string[] TutorialImgs = new string[8]
     {

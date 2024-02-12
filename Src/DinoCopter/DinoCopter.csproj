@@ -134,7 +134,7 @@
     <Compile Include="GameElements\Dust.cs" />
     <Compile Include="GameElements\DustSpawner.cs" />
     <Compile Include="GameElements\Fruit.cs" />
-    <Compile Include="GameElements\Game.cs" />
+    <Compile Include="Game1.cs" />
     <Compile Include="GameElements\Lava.cs" />
     <Compile Include="GameElements\Passenger.cs" />
     <Compile Include="GameElements\Player.cs" />

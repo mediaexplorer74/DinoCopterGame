@@ -1,4 +1,4 @@
-﻿// GameManager.GameElements.Game
+﻿// GameManager.Game1
 
 using GameManager.GameLogic;
 using GameManager.GraphicsSystem;
@@ -11,11 +11,20 @@ using System.Collections.Generic;
 using System.IO;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
-  public class Game : Disp
+  public class Game1 : Disp
   {
-    public static GameSerialized GameState;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        Vector2 baseScreenSize = new Vector2(800, 600);
+
+        private Matrix globalTransformation;
+        int backbufferWidth, backbufferHeight;
+
+        public static GameSerialized GameState;
+
     public static bool IsSerialized;
     public Paintable[] StationsCloudSigns = new Paintable[6];
     public Paintable[] StationsIndicatorSigns = new Paintable[6];
@@ -145,7 +154,7 @@ namespace GameManager.GameElements
 
     public Paintable IndicatorWater { get; private set; }
 
-    public Game()
+    public Game1()
       : base(8)
     {
       this.TriceratopsRun = new List<Paintable>();
@@ -197,7 +206,7 @@ namespace GameManager.GameElements
       float num1 = GlobalMembers.Game.TilesImg.GetWidth() / 16f;
       float num2 = num1 * (float) (blockId % 16);
       float num3 = num1 * (float) (blockId / 16);
-      switch (Game.GetShape(blockId))
+      switch (Game1.GetShape(blockId))
       {
         case GlobalMembers.Shape.ShapePlatform:
           coords[0] = num2;
@@ -236,13 +245,31 @@ namespace GameManager.GameElements
         if (passenger1 != null)
         {
           Passenger passenger2 = passenger1 as Passenger;
-          if ((this.Player as GameManager.GameElements.Player).GetPassengersIn() == 0 && ((double) passenger2.GetPos().Y + (double) passenger2.GetHeight() / 2.0 > (double) num2 || (double) passenger2.GetPos().Y + (double) passenger2.GetHeight() / 2.0 < (double) y || (double) passenger2.GetPos().X + (double) passenger2.GetWidth() / 2.0 > (double) num1 || (double) passenger2.GetPos().X + (double) passenger2.GetWidth() / 2.0 < (double) x) && (passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateFloat || passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateWait))
-            this.PaintIndicator(passenger2.GetPos() + passenger2.GetSize() / 2f - this.ViewPos - this.ViewSize / 2f, passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateFloat ? Paintable.CreateInvisibleRect(1f, 1f) : this.StationsCloudSigns[passenger2.GetFromStation()], passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateFloat ? this.IndicatorWater : this.IndicatorWaiting, spriteBatch);
+          if ((this.Player as GameManager.Player).GetPassengersIn() == 0 
+                        && ((double) passenger2.GetPos().Y
+                        + (double) passenger2.GetHeight() / 2.0 > (double) num2
+                        || (double) passenger2.GetPos().Y + (double) passenger2.GetHeight() / 2.0 < (double) y 
+                        || (double) passenger2.GetPos().X + (double) passenger2.GetWidth() / 2.0 > (double) num1
+                        || (double) passenger2.GetPos().X + (double) passenger2.GetWidth() / 2.0 < (double) x)
+                        && (passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateFloat 
+                        || passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateWait))
+            this.PaintIndicator
+            (
+                passenger2.GetPos() + passenger2.GetSize() / 2f 
+                - this.ViewPos - this.ViewSize / 2f, 
+                passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateFloat
+                ? Paintable.CreateInvisibleRect(1f, 1f) 
+                : this.StationsCloudSigns[passenger2.GetFromStation()], 
+                passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateFloat
+                ? this.IndicatorWater
+                : this.IndicatorWaiting, spriteBatch 
+            );
         }
       }
     }
 
-    public void PaintIndicator(GameManager.GraphicsSystem.Point vec, Paintable p, Paintable ind, SpriteBatch spriteBatch)
+    public void PaintIndicator(GameManager.GraphicsSystem.Point vec, Paintable p,
+        Paintable ind, SpriteBatch spriteBatch)
     {
       if ((double) Math.Abs(vec.X) > (double) this.ViewSize.X / 2.0)
         vec *= this.ViewSize.X * 0.5f / Math.Abs(vec.X);
@@ -253,25 +280,38 @@ namespace GameManager.GameElements
       if ((double) Math.Abs(vec.X - this.ViewSize.X / 2f) < 1.0 / 1000.0)
       {
         float px = (float) (int) GlobalMembers.ToPx(this.ViewSize.Y / 2f + vec.Y);
-        Paintable.CreateRotated(ind, new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f), 0.0f).Paint(GlobalMembers.ToPx(this.ViewSize.X), px - 25f, 34, spriteBatch);
+        Paintable.CreateRotated(ind, 
+            new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, 
+            ind.GetHeight() / 2f), 0.0f).Paint(GlobalMembers.ToPx(this.ViewSize.X), px - 25f, 34, spriteBatch);
+
         p.Paint(GlobalMembers.ToPx(this.ViewSize.X) - x, px, 18, spriteBatch);
       }
       else if ((double) Math.Abs(vec.X + this.ViewSize.X / 2f) < 1.0 / 1000.0)
       {
         float px = (float) (int) GlobalMembers.ToPx(this.ViewSize.Y / 2f + vec.Y);
-        Paintable.CreateRotated(ind, new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f), 3.14159274f).Paint(0.0f, px - 25f, 10, spriteBatch);
+        Paintable.CreateRotated(ind,
+            new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f),
+            3.14159274f).Paint(0.0f, px - 25f, 10, spriteBatch);
         p.Paint(x, px, 18, spriteBatch);
       }
       else if (Math.Abs((double) num - Math.PI / 2.0) < 0.78539818525314331)
       {
-        Paintable.CreateRotated(ind, new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f), -1.57079637f).Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X), GlobalMembers.ToPx(this.ViewSize.Y) - 27f, 17, spriteBatch);
-        p.Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X), (float) ((double) GlobalMembers.ToPx(this.ViewSize.Y) - (double) x + (double) ind.GetHeight() / 4.0), 18, spriteBatch);
+        Paintable.CreateRotated(ind, 
+            new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f),
+            -1.57079637f).Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X),
+            GlobalMembers.ToPx(this.ViewSize.Y) - 27f, 17, spriteBatch);
+
+        p.Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X), 
+            (float) ((double) GlobalMembers.ToPx(this.ViewSize.Y) - (double) x + (double) ind.GetHeight() / 4.0), 
+            18, spriteBatch);
       }
       else
       {
         if (Math.Abs((double) num - 3.0 * Math.PI / 2.0) >= 0.78539818525314331)
           return;
-        Paintable.CreateRotated(ind, new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f), 1.57079637f).Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X), -23f, 20, spriteBatch);
+        Paintable.CreateRotated(ind, 
+            new GameManager.GraphicsSystem.Point(ind.GetWidth() / 2f, ind.GetHeight() / 2f),
+            1.57079637f).Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X), -23f, 20, spriteBatch);
         p.Paint(GlobalMembers.ToPx(this.ViewSize.X / 2f + vec.X), x - ind.GetHeight() / 4f, 18, spriteBatch);
       }
     }
@@ -292,7 +332,7 @@ namespace GameManager.GameElements
 
     public Disp CreateGame(int _levelNum)
     {
-      Game game = new Game();
+      Game1 game = new Game1();
       game.Level = _levelNum;
       GlobalMembers.Game = game;
       Disp next = (Disp) game;
@@ -312,6 +352,7 @@ namespace GameManager.GameElements
       float num1 = 1f;
       float num2 = 1f;
       GameManager.GraphicsSystem.Point p = new GameManager.GraphicsSystem.Point(this.ViewSize);
+
       this.ViewSize = new GameManager.GraphicsSystem.Point(this.ViewSize.X * num1, this.ViewSize.Y * num2);
       this.ViewPos = this.Player.GetPos() + this.Player.GetSize() / 2f - this.ViewSize * 0.5f;
       if ((double) this.ViewPos.X < 0.0)
@@ -786,11 +827,11 @@ namespace GameManager.GameElements
             this.Fg[x][y] = num;
             if (num != (short) -1)
             {
-              int layer = Game.GetShape((int) num) == GlobalMembers.Shape.ShapeNone ? 0 : 1;
+              int layer = Game1.GetShape((int) num) == GlobalMembers.Shape.ShapeNone ? 0 : 1;
               Sprite sprite = !Lava.IsLava((int) num) ? (!this.IsKilling((int) num) ? Sprite.CreateSprite(-2, new GameManager.GraphicsSystem.Point((float) x, (float) y)) : Lava.CreateLava(new GameManager.GraphicsSystem.Point((float) x, (float) y), (int) num)) : Lava.CreateLava(new GameManager.GraphicsSystem.Point((float) x, (float) y), (int) num);
               this.AddSprite(sprite, layer);
               sprite.SetPaintable(this.CreateView((int) num));
-              this.ApplyShape(sprite, Game.GetShape((int) num));
+              this.ApplyShape(sprite, Game1.GetShape((int) num));
             }
           }
         }
@@ -820,7 +861,7 @@ namespace GameManager.GameElements
           switch (num2)
           {
             case 1:
-              this.Player = GameManager.GameElements.Player.CreatePlayer();
+              this.Player = GameManager.Player.CreatePlayer();
               this.AddSprite(this.Player, 5);
               this.Player.SetPos(point2);
               if (this.Level == 13)
@@ -834,7 +875,7 @@ namespace GameManager.GameElements
               this.AddSprite(Chaser.CreateChaser(point2), 3);
               break;
             case 4:
-              this.AddSprite(GameManager.GameElements.Pterodactyl.CreatePterodactyl(point2), 3);
+              this.AddSprite(GameManager.Pterodactyl.CreatePterodactyl(point2), 3);
               break;
             case 5:
               bool right = binaryReader.ReadBoolean();
@@ -843,7 +884,7 @@ namespace GameManager.GameElements
               sleeper.SetPos(point2);
               break;
             case 6:
-              if (!Game.IsSerialized)
+              if (!Game1.IsSerialized)
               {
                 this.AddSprite(Stone.CreateStone(point2), 2);
                 break;
@@ -903,10 +944,10 @@ namespace GameManager.GameElements
       Sprite sprite5 = Sprite.CreateSprite(-2, new GameManager.GraphicsSystem.Point(0.0f, this.MapSize.Y));
       sprite5.SetPaintable(Paintable.CreateInvisibleRect(GlobalMembers.ToPx(this.MapSize.X), GlobalMembers.ToPx(1f)));
       this.AddSprite(sprite5, 1);
-      if (!Game.IsSerialized)
+      if (!Game1.IsSerialized)
         return;
       this.GameFromSerialization();
-      Game.IsSerialized = false;
+      Game1.IsSerialized = false;
     }
 
     public override void OnHide()
@@ -963,9 +1004,9 @@ namespace GameManager.GameElements
     public GameManager.GraphicsSystem.Point GetPlatformSize(int x, int y)
     {
       GameManager.GraphicsSystem.Point platformSize = new GameManager.GraphicsSystem.Point((float) x, (float) x);
-      while ((double) platformSize.X > 0.0 && Game.GetShape((int) this.Fg[(int) platformSize.X - 1][y - 1]) != GlobalMembers.Shape.ShapeNone && Game.GetShape((int) this.Fg[(int) platformSize.X - 1][y]) == GlobalMembers.Shape.ShapeNone)
+      while ((double) platformSize.X > 0.0 && Game1.GetShape((int) this.Fg[(int) platformSize.X - 1][y - 1]) != GlobalMembers.Shape.ShapeNone && Game1.GetShape((int) this.Fg[(int) platformSize.X - 1][y]) == GlobalMembers.Shape.ShapeNone)
         --platformSize.X;
-      while ((double) platformSize.Y < (double) this.MapSize.X - 1.0 && Game.GetShape((int) this.Fg[(int) platformSize.Y + 1][y - 1]) != GlobalMembers.Shape.ShapeNone && Game.GetShape((int) this.Fg[(int) platformSize.Y + 1][y]) == GlobalMembers.Shape.ShapeNone)
+      while ((double) platformSize.Y < (double) this.MapSize.X - 1.0 && Game1.GetShape((int) this.Fg[(int) platformSize.Y + 1][y - 1]) != GlobalMembers.Shape.ShapeNone && Game1.GetShape((int) this.Fg[(int) platformSize.Y + 1][y]) == GlobalMembers.Shape.ShapeNone)
         ++platformSize.Y;
       return platformSize;
     }
@@ -983,7 +1024,7 @@ namespace GameManager.GameElements
       this.Win();
     }
 
-    ~Game()
+    ~Game1()
     {
       this.Bg = (short[][]) null;
       this.Fg = (short[][]) null;
@@ -1084,35 +1125,35 @@ namespace GameManager.GameElements
 
     public void GameFromSerialization()
     {
-      this.FirstLoad = Game.GameState.FirstLoad;
-      this.HasLose = Game.GameState.HasLose;
-      this.HasWon = Game.GameState.HasWon;
-      this.PassengersDelivered = Game.GameState.PassengersDelivered;
-      this.PassengersToDeliver = Game.GameState.PassengersToDeliver;
-      this.Energy = Game.GameState.Energy;
-      this.WaterLevel = Game.GameState.WaterLevel;
-      this.WaterLevelRise = Game.GameState.WaterLevelRise;
-      this.GameTime = Game.GameState.GameTime;
-      this.MoveDir = Game.GameState.MoveDir;
-      this.Stones = Game.GameState.Stones;
-      this.Level = Game.GameState.Level;
-      this.DropStone = Game.GameState.DropStone;
-      this.LostReason = Game.GameState.LostReason;
+      this.FirstLoad = Game1.GameState.FirstLoad;
+      this.HasLose = Game1.GameState.HasLose;
+      this.HasWon = Game1.GameState.HasWon;
+      this.PassengersDelivered = Game1.GameState.PassengersDelivered;
+      this.PassengersToDeliver = Game1.GameState.PassengersToDeliver;
+      this.Energy = Game1.GameState.Energy;
+      this.WaterLevel = Game1.GameState.WaterLevel;
+      this.WaterLevelRise = Game1.GameState.WaterLevelRise;
+      this.GameTime = Game1.GameState.GameTime;
+      this.MoveDir = Game1.GameState.MoveDir;
+      this.Stones = Game1.GameState.Stones;
+      this.Level = Game1.GameState.Level;
+      this.DropStone = Game1.GameState.DropStone;
+      this.LostReason = Game1.GameState.LostReason;
 
-      for (int index = 0; index < Game.GameState.StonePos.Count; ++index)
+      for (int index = 0; index < Game1.GameState.StonePos.Count; ++index)
       {
-        Sprite stone = Stone.CreateStone(Game.GameState.StonePos[index]);
-        (stone as Stone).OnGround = Game.GameState.StoneOnGround[index];
-        (stone as Stone).State = Game.GameState.StoneState[index];
+        Sprite stone = Stone.CreateStone(Game1.GameState.StonePos[index]);
+        (stone as Stone).OnGround = Game1.GameState.StoneOnGround[index];
+        (stone as Stone).State = Game1.GameState.StoneState[index];
         this.AddSprite(stone, 2);
       }
 
-      for (int index = 0; index < Game.GameState.FruitPos.Count; ++index)
+      for (int index = 0; index < Game1.GameState.FruitPos.Count; ++index)
       {
-        Sprite fruit = Fruit.CreateFruit(Game.GameState.FruitPos[index]);
-        (fruit as Fruit).OnGround = Game.GameState.FruitOnGround[index];
-        (fruit as Fruit).Type = Game.GameState.FruitType[index];
-        (fruit as Fruit).SetPaintable(Paintable.Copy(GlobalMembers.Game.Food[Game.GameState.FruitType[index]]));
+        Sprite fruit = Fruit.CreateFruit(Game1.GameState.FruitPos[index]);
+        (fruit as Fruit).OnGround = Game1.GameState.FruitOnGround[index];
+        (fruit as Fruit).Type = Game1.GameState.FruitType[index];
+        (fruit as Fruit).SetPaintable(Paintable.Copy(GlobalMembers.Game.Food[Game1.GameState.FruitType[index]]));
         this.AddSprite(fruit, 2);
       }
       int index1 = 0;
@@ -1122,42 +1163,42 @@ namespace GameManager.GameElements
         if (this.GetSpriteLayer(3)[index2].TypeId == 3)
         {
           Chaser chaser = this.GetSpriteLayer(3)[index2] as Chaser;
-          chaser.SetState(Game.GameState.ChaserState[index1]);
-          chaser.StateChangeTime = Game.GameState.ChaserStateChangeTime[index1];
-          chaser.WereHit = Game.GameState.ChaserWereHit[index1++];
+          chaser.SetState(Game1.GameState.ChaserState[index1]);
+          chaser.StateChangeTime = Game1.GameState.ChaserStateChangeTime[index1];
+          chaser.WereHit = Game1.GameState.ChaserWereHit[index1++];
         }
       }
       
-      this.Player.SetPos(Game.GameState.PlayerPos);
-      (this.Player as GameManager.GameElements.Player).FirstCrash = Game.GameState.FirstCrash;
-      (this.Player as GameManager.GameElements.Player).CopterAnimPhase = Game.GameState.CopterAnimPhase;
-      (this.Player as GameManager.GameElements.Player).WhirlAnimPhase = Game.GameState.WhirlAnimPhase;
-      (this.Player as GameManager.GameElements.Player).OnGround = Game.GameState.OnGround;
-      (this.Player as GameManager.GameElements.Player).WaterFloatEnergyStart = Game.GameState.WaterFloatEnergyStart;
-      (this.Player as GameManager.GameElements.Player).WaterFloatStart = Game.GameState.WaterFloatStart;
-      (this.Player as GameManager.GameElements.Player).FloatsOnWater = Game.GameState.FloatsOnWater;
-      (this.Player as GameManager.GameElements.Player).PassengersIn = Game.GameState.PassengersIn;
-      (this.Player as GameManager.GameElements.Player).MaxPassengers = Game.GameState.MaxPassengers;
+      this.Player.SetPos(Game1.GameState.PlayerPos);
+      (this.Player as GameManager.Player).FirstCrash = Game1.GameState.FirstCrash;
+      (this.Player as GameManager.Player).CopterAnimPhase = Game1.GameState.CopterAnimPhase;
+      (this.Player as GameManager.Player).WhirlAnimPhase = Game1.GameState.WhirlAnimPhase;
+      (this.Player as GameManager.Player).OnGround = Game1.GameState.OnGround;
+      (this.Player as GameManager.Player).WaterFloatEnergyStart = Game1.GameState.WaterFloatEnergyStart;
+      (this.Player as GameManager.Player).WaterFloatStart = Game1.GameState.WaterFloatStart;
+      (this.Player as GameManager.Player).FloatsOnWater = Game1.GameState.FloatsOnWater;
+      (this.Player as GameManager.Player).PassengersIn = Game1.GameState.PassengersIn;
+      (this.Player as GameManager.Player).MaxPassengers = Game1.GameState.MaxPassengers;
       
       for (int index3 = 0; index3 < 10; ++index3)
       {
-        if (Game.GameState.ThereIsPassenger[index3])
+        if (Game1.GameState.ThereIsPassenger[index3])
         {
-          this.Spawns[index3].IsPassangerAlive = Game.GameState.IsPassangerAlive[index3];
-          this.Spawns[index3].PassengersSpawned = Game.GameState.PassengersSpawned[index3];
-          this.Spawns[index3].MaxPassengersSpawned = Game.GameState.MaxPassengersSpawned[index3];
-          GameManager.GraphicsSystem.Point passengerPo = Game.GameState.PassengerPos[index3];
-          if (this.Spawns[index3].Passenger == null && Game.GameState.PassengerState[index3] != GlobalMembers.PassengerState.PassengerStateHide)
+          this.Spawns[index3].IsPassangerAlive = Game1.GameState.IsPassangerAlive[index3];
+          this.Spawns[index3].PassengersSpawned = Game1.GameState.PassengersSpawned[index3];
+          this.Spawns[index3].MaxPassengersSpawned = Game1.GameState.MaxPassengersSpawned[index3];
+          GameManager.GraphicsSystem.Point passengerPo = Game1.GameState.PassengerPos[index3];
+          if (this.Spawns[index3].Passenger == null && Game1.GameState.PassengerState[index3] != GlobalMembers.PassengerState.PassengerStateHide)
           {
-            this.Spawns[index3].Passenger = Passenger.CreatePassenger(new GameManager.GraphicsSystem.Point(passengerPo.X, passengerPo.Y), Game.GameState.PassengerType[index3], Game.GameState.FromStation[index3]);
+            this.Spawns[index3].Passenger = Passenger.CreatePassenger(new GameManager.GraphicsSystem.Point(passengerPo.X, passengerPo.Y), Game1.GameState.PassengerType[index3], Game1.GameState.FromStation[index3]);
             this.AddSprite(this.Spawns[index3].Passenger, 4);
-            this.Spawns[index3].Passenger.SetPos(Game.GameState.PassengerPos[index3]);
-            (this.Spawns[index3].Passenger as Passenger).PassengerType = Game.GameState.PassengerType[index3];
-            (this.Spawns[index3].Passenger as Passenger).SetState(Game.GameState.PassengerState[index3]);
-            (this.Spawns[index3].Passenger as Passenger).StateChangeTime = Game.GameState.StateChangeTime[index3];
-            (this.Spawns[index3].Passenger as Passenger).FromStation = Game.GameState.FromStation[index3];
-            (this.Spawns[index3].Passenger as Passenger).TargetStation = Game.GameState.TargetStation[index3];
-            (this.Spawns[index3].Passenger as Passenger).FloatStart = Game.GameState.FloatStart[index3];
+            this.Spawns[index3].Passenger.SetPos(Game1.GameState.PassengerPos[index3]);
+            (this.Spawns[index3].Passenger as Passenger).PassengerType = Game1.GameState.PassengerType[index3];
+            (this.Spawns[index3].Passenger as Passenger).SetState(Game1.GameState.PassengerState[index3]);
+            (this.Spawns[index3].Passenger as Passenger).StateChangeTime = Game1.GameState.StateChangeTime[index3];
+            (this.Spawns[index3].Passenger as Passenger).FromStation = Game1.GameState.FromStation[index3];
+            (this.Spawns[index3].Passenger as Passenger).TargetStation = Game1.GameState.TargetStation[index3];
+            (this.Spawns[index3].Passenger as Passenger).FloatStart = Game1.GameState.FloatStart[index3];
           }
         }
       }

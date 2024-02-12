@@ -1,4 +1,4 @@
-﻿// GameManager.GameElements.Player
+﻿// GameManager.Player
 
 
 using GameManager.GameLogic;
@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Player : Sprite
   {

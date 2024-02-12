@@ -1,11 +1,11 @@
-﻿// GameManager.GameElements.Pterodactyl
+﻿// GameManager.Pterodactyl
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using Microsoft.Xna.Framework.Graphics;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Pterodactyl : Sprite
   {

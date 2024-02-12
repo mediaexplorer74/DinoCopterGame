@@ -1,11 +1,11 @@
-﻿// GameManager.GameElements.Fruit
+﻿// GameManager.Fruit
 
 using GameManager.GameLogic;
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Fruit : Sprite
   {

@@ -1,9 +1,9 @@
-﻿// GameManager.GameElements.Lava
+﻿// GameManager.Lava
 
 using GameManager.GraphicsSystem;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   internal class Lava : Sprite
   {

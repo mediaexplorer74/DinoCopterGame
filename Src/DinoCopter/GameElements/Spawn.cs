@@ -1,10 +1,10 @@
-﻿// GameManager.GameElements.Spawn
+﻿// GameManager.Spawn
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 
 #nullable disable
-namespace GameManager.GameElements
+namespace GameManager
 {
   public class Spawn
   {
@@ -18,7 +18,7 @@ namespace GameManager.GameElements
 
     public int Left { get; set; }
 
-    public Game Game { get; set; }
+    public Game1 Game { get; set; }
 
     public Sprite Passenger { get; set; }
 
@@ -30,9 +30,9 @@ namespace GameManager.GameElements
 
     public int MaxPassengersSpawned { get; set; }
 
-    public Spawn() => this.Game = (Game) null;
+    public Spawn() => this.Game = (Game1) null;
 
-    public Spawn(Point pos, Game game)
+    public Spawn(Point pos, Game1 game)
     {
       this.Pos = pos;
       this.Game = game;
@@ -85,13 +85,13 @@ namespace GameManager.GameElements
 
     public bool spawn()
     {
-      bool flag = !(this.Passenger is GameManager.GameElements.Passenger passenger) || passenger.GetState() == GlobalMembers.PassengerState.PassengerStateHide || passenger.GetState() == GlobalMembers.PassengerState.PassengerStateSink;
+      bool flag = !(this.Passenger is GameManager.Passenger passenger) || passenger.GetState() == GlobalMembers.PassengerState.PassengerStateHide || passenger.GetState() == GlobalMembers.PassengerState.PassengerStateSink;
       if (flag && this.IsPassangerAlive)
         this.DisappearTime = this.Game.GetGameTime();
       this.IsPassangerAlive = !flag;
       if (!this.IsPassangerAlive && (double) this.Game.GetGameTime() - (double) this.DisappearTime > 15.0 && (double) this.Station * 5.0 < (double) this.Game.GetGameTime() && (this.MaxPassengersSpawned < 0 || this.PassengersSpawned < this.MaxPassengersSpawned) && (double) this.Pos.Y > (double) this.Game.GetWaterLevel() + 0.5)
       {
-        this.Passenger = GameManager.GameElements.Passenger.CreatePassenger(new Point(this.Pos.X, this.Pos.Y), Util.Random.Next(3), this.Station);
+        this.Passenger = GameManager.Passenger.CreatePassenger(new Point(this.Pos.X, this.Pos.Y), Util.Random.Next(3), this.Station);
         this.Game.AddSprite(this.Passenger, 4);
         ++this.PassengersSpawned;
       }
