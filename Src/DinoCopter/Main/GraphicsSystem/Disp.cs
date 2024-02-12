@@ -48,9 +48,12 @@ namespace GameManager.GraphicsSystem
       this.ViewSize = new Point(GlobalMembers.FromPx(this.Width), GlobalMembers.FromPx(this.Height));
     }
 
-    public void Display() => GlobalMembers.Manager.SetNextDisp(this.Ref);
+        public void Display()
+        {
+            GlobalMembers.Manager.SetNextDisp(this.Ref);
+        }
 
-    public float GetWidth() => this.Width;
+        public float GetWidth() => this.Width;
 
     public float GetHeight() => this.Height;
 
@@ -99,16 +102,23 @@ namespace GameManager.GraphicsSystem
       this.GameTime += time;
     }
 
-    public float GetGameTime() => this.GameTime;
+        public float GetGameTime()
+        {
+            return this.GameTime;
+        }
 
-    public virtual void Render(SpriteBatch spriteBatch)
+        public virtual void Render(SpriteBatch spriteBatch)
     {
       Point translate = GlobalMembers.Manager.GetTranslate();
       for (int index = 0; index < this.LayersNum; ++index)
       {
         foreach (Sprite sprite in this.Sprites[index])
         {
-          if (Util.RectsOverlaps(GlobalMembers.FromPx(-translate.X), GlobalMembers.FromPx(-translate.Y), GlobalMembers.FromPx(-translate.X) + this.ViewSize.X, GlobalMembers.FromPx(-translate.Y) + this.ViewSize.Y, sprite.Pos.X, sprite.Pos.Y, sprite.Pos.X + sprite.GetWidth(), sprite.Pos.Y + sprite.GetHeight()))
+          if (Util.RectsOverlaps(GlobalMembers.FromPx(-translate.X), 
+              GlobalMembers.FromPx(-translate.Y), GlobalMembers.FromPx(-translate.X) + this.ViewSize.X,
+              GlobalMembers.FromPx(-translate.Y) + this.ViewSize.Y, 
+              sprite.Pos.X, sprite.Pos.Y, sprite.Pos.X + sprite.GetWidth(), 
+              sprite.Pos.Y + sprite.GetHeight()))
             sprite.Render(spriteBatch);
         }
       }
@@ -121,7 +131,10 @@ namespace GameManager.GraphicsSystem
         for (int index2 = 0; index2 < this.Sprites[index1].Count; ++index2)
         {
           Sprite sprite = this.Sprites[index1][index2];
-          if ((double) GlobalMembers.FromPx(pos.X) >= (double) sprite.GetPos().X && (double) GlobalMembers.FromPx(pos.X) < (double) sprite.GetPos().X + (double) sprite.GetWidth() && (double) GlobalMembers.FromPx(pos.Y) < (double) sprite.GetPos().Y + (double) sprite.GetHeight() && (double) GlobalMembers.FromPx(pos.Y) >= (double) sprite.GetPos().Y)
+          if ((double) GlobalMembers.FromPx(pos.X) >= (double) sprite.GetPos().X 
+          && (double) GlobalMembers.FromPx(pos.X) < (double) sprite.GetPos().X + (double) sprite.GetWidth() 
+          && (double) GlobalMembers.FromPx(pos.Y) < (double) sprite.GetPos().Y + (double) sprite.GetHeight() 
+          && (double) GlobalMembers.FromPx(pos.Y) >= (double) sprite.GetPos().Y)
             return sprite;
         }
       }
@@ -144,8 +157,14 @@ namespace GameManager.GraphicsSystem
       }
     }
 
-    public SpriteGrid GetGrid(int layer) => this.Grids[layer];
+        public SpriteGrid GetGrid(int layer)
+        {
+            return this.Grids[layer];
+        }
 
-    public List<Sprite> GetSpriteLayer(int layer) => this.Sprites[layer];
-  }
+        public List<Sprite> GetSpriteLayer(int layer)
+        {
+            return this.Sprites[layer];
+        }
+    }
 }

@@ -1,18 +1,14 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: GameManager.GraphicsSystem.DispManager
-// Assembly: GameManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: B3F40C3B-C6E1-4F5E-A59A-127A12A38B73
-// Assembly location: C:\Users\Admin\Desktop\RE\DinoCopter\GameManager.dll
+﻿// GameManager.GraphicsSystem.DispManager
 
 using GameManager.GameLogic;
 using GameManager.Utils;
-using Microsoft.Advertising.Mobile.Xna;
-using Microsoft.Devices;
-using Microsoft.Phone.Tasks;
+//using Microsoft.Advertising.Mobile.Xna;
+//using Microsoft.Devices;
+//using Microsoft.Phone.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
+//using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Media;
@@ -39,7 +35,7 @@ namespace GameManager.GraphicsSystem
     public static ContentManager Content;
     public static BasicEffect BasicEffect;
     public static bool AdsVisible = false;
-    private DrawableAd bannerAd;
+    //private DrawableAd bannerAd;
 
     public static bool IsAskingToTurnOnMusic { get; set; }
 
@@ -75,42 +71,55 @@ namespace GameManager.GraphicsSystem
 
     public bool IsLoadScreen { get; set; }
 
+    // tranformTouch
     private Point tranformTouch(Point p)
     {
-      p.X = (float) (int) ((double) p.X * (double) GlobalMembers.ScreenWidth / (double) Math.Max(1, DispManager.GraphicsDev.Viewport.Width));
-      p.Y = (float) (int) ((double) p.Y * (double) GlobalMembers.ScreenHeight / (double) Math.Max(1, DispManager.GraphicsDev.Viewport.Height));
+      p.X = (float) (int) ((double) p.X * (double) GlobalMembers.ScreenWidth 
+                / (double) Math.Max(1, DispManager.GraphicsDev.Viewport.Width));
+      p.Y = (float) (int) ((double) p.Y * (double) GlobalMembers.ScreenHeight
+                / (double) Math.Max(1, DispManager.GraphicsDev.Viewport.Height));
       if (this.GetManager().IsNeedsRotate())
       {
         p.X = (float) ((int) GlobalMembers.ScreenWidth - 1) - p.X;
         p.Y = (float) ((int) GlobalMembers.ScreenHeight - 1) - p.Y;
       }
       return new Point(p.X, (float) (this.GetManager().GetHeight() - 1) - p.Y);
-    }
+    }//tranformTouch
 
+    // InitAds
     public void InitAds()
     {
-      Rectangle rectangle = new Rectangle((int) ((double) GlobalMembers.ScreenWidth - 480.0) / 2, 100, 480, 80);
+      Rectangle rectangle = new Rectangle((int) ((double) GlobalMembers.ScreenWidth - 480.0) / 2,
+          100, 480, 80);
       DispManager.AdsVisible = false;
-    }
+    }//InitAds
 
+
+    // ShowAds
     public void ShowAds()
     {
       if (!GlobalMembers.HasAds)
         return;
       DispManager.AdsVisible = true;
-    }
+    }//ShowAds
 
+
+    // HideAds
     public void HideAds()
     {
       if (!GlobalMembers.HasAds)
         return;
       DispManager.AdsVisible = false;
-    }
+    }//HideAds
 
+
+        // RefreshAd
     public void RefreshAd()
     {
-    }
+    }//RefreshAd
 
+
+    // DestroyAds
     public void DestroyAds()
     {
     }
@@ -136,7 +145,10 @@ namespace GameManager.GraphicsSystem
       this.LastUpdate = 0L;
       this.NeedsRotate = false;
       this.RegisterTouchCallbacks();
-      if (DispManager.Horizontal && (double) GlobalMembers.ScreenWidth < (double) GlobalMembers.ScreenHeight || !DispManager.Horizontal && (double) GlobalMembers.ScreenHeight < (double) GlobalMembers.ScreenWidth)
+      if (DispManager.Horizontal
+                && (double) GlobalMembers.ScreenWidth < (double) GlobalMembers.ScreenHeight 
+                || !DispManager.Horizontal 
+                && (double) GlobalMembers.ScreenHeight < (double) GlobalMembers.ScreenWidth)
       {
         float screenWidth = GlobalMembers.ScreenWidth;
         GlobalMembers.ScreenWidth = GlobalMembers.ScreenHeight;
@@ -144,8 +156,10 @@ namespace GameManager.GraphicsSystem
       }
       this.Width = (int) GlobalMembers.ScreenWidth;
       this.Height = (int) GlobalMembers.ScreenHeight;
-      this.ScaleX = (float) Math.Max(1, DispManager.GraphicsDev.Viewport.Width) / GlobalMembers.ScreenWidth;
-      this.ScaleY = (float) Math.Max(1, DispManager.GraphicsDev.Viewport.Height) / GlobalMembers.ScreenHeight;
+      this.ScaleX = (float) Math.Max(1, DispManager.GraphicsDev.Viewport.Width)
+                / GlobalMembers.ScreenWidth;
+      this.ScaleY = (float) Math.Max(1, DispManager.GraphicsDev.Viewport.Height) 
+                / GlobalMembers.ScreenHeight;
       this.InitAds();
       this._inputHelper = new InputHelper();
       KeyHelper.InputHelper = this._inputHelper;
@@ -214,13 +228,16 @@ namespace GameManager.GraphicsSystem
         switch (GlobalMembers.PressEvents[index, 0])
         {
           case 0:
-            this.PointerPress(GlobalMembers.PressEvents[index, 1], (float) GlobalMembers.PressEvents[index, 2], (float) GlobalMembers.PressEvents[index, 3]);
+            this.PointerPress(GlobalMembers.PressEvents[index, 1], 
+                (float) GlobalMembers.PressEvents[index, 2], (float) GlobalMembers.PressEvents[index, 3]);
             break;
           case 1:
-            this.PointerMove(GlobalMembers.PressEvents[index, 1], (float) GlobalMembers.PressEvents[index, 2], (float) GlobalMembers.PressEvents[index, 3]);
+            this.PointerMove(GlobalMembers.PressEvents[index, 1], 
+                (float) GlobalMembers.PressEvents[index, 2], (float) GlobalMembers.PressEvents[index, 3]);
             break;
           case 2:
-            this.PointerRelease(GlobalMembers.PressEvents[index, 1], (float) GlobalMembers.PressEvents[index, 2], (float) GlobalMembers.PressEvents[index, 3]);
+            this.PointerRelease(GlobalMembers.PressEvents[index, 1],
+                (float) GlobalMembers.PressEvents[index, 2], (float) GlobalMembers.PressEvents[index, 3]);
             break;
         }
       }
@@ -255,13 +272,17 @@ namespace GameManager.GraphicsSystem
       else
       {
         --this.StackPos;
-        this.clipRect(this.ClipStack[this.StackPos, 0], this.ClipStack[this.StackPos, 1], this.ClipStack[this.StackPos, 2], this.ClipStack[this.StackPos, 3], this.ClipMatrixStack[this.StackPos], spriteBatch);
+        this.clipRect(this.ClipStack[this.StackPos, 0], this.ClipStack[this.StackPos, 1],
+            this.ClipStack[this.StackPos, 2], this.ClipStack[this.StackPos, 3], 
+            this.ClipMatrixStack[this.StackPos], spriteBatch);
       }
     }
 
     public void PeekClip(SpriteBatch spriteBatch)
     {
-      this.clipRect(this.ClipStack[this.StackPos - 1, 0], this.ClipStack[this.StackPos - 1, 1], this.ClipStack[this.StackPos - 1, 2], this.ClipStack[this.StackPos - 1, 3], this.ClipMatrixStack[this.StackPos - 1], spriteBatch);
+      this.clipRect(this.ClipStack[this.StackPos - 1, 0], this.ClipStack[this.StackPos - 1, 1],
+          this.ClipStack[this.StackPos - 1, 2], this.ClipStack[this.StackPos - 1, 3], 
+          this.ClipMatrixStack[this.StackPos - 1], spriteBatch);
     }
 
     public void ResetClipStack(SpriteBatch spriteBatch)
@@ -270,7 +291,10 @@ namespace GameManager.GraphicsSystem
       this.StackPos = 0;
     }
 
-    public void Vibrate() => VibrateController.Default.Start(TimeSpan.FromMilliseconds(1000.0));
+    public void Vibrate()
+    {
+        // VibrateController.Default.Start(TimeSpan.FromMilliseconds(1000.0));
+    }
 
     public void Translate(float x, float y)
     {
@@ -362,9 +386,12 @@ namespace GameManager.GraphicsSystem
       SoundEffect.MasterVolume = vol;
     }
 
-    public DispManager GetManager() => GlobalMembers.Manager;
+        public DispManager GetManager()
+        {
+            return GlobalMembers.Manager;
+        }
 
-    public void RegisterTouchCallbacks()
+        public void RegisterTouchCallbacks()
     {
     }
 
@@ -389,14 +416,23 @@ namespace GameManager.GraphicsSystem
       this.ActualClip[1] = y;
       this.ActualClip[2] = w;
       this.ActualClip[3] = h;
-      Rectangle rectangle = new Rectangle((int) x, (int) ((double) GlobalMembers.ScreenHeight - (double) y - (double) h), (int) w, (int) h);
+
+      Rectangle rectangle = new Rectangle
+        (
+            (int) x, 
+            (int) ((double) GlobalMembers.ScreenHeight - (double) y - (double) h),
+            (int) w, 
+            (int) h
+        );
+
       spriteBatch.End();
       spriteBatch.GraphicsDevice.RasterizerState = new RasterizerState()
       {
         ScissorTestEnable = true
       };
       spriteBatch.GraphicsDevice.ScissorRectangle = rectangle;
-      spriteBatch.Begin(SpriteSortMode.Immediate, (BlendState) null, (SamplerState) null, (DepthStencilState) null, spriteBatch.GraphicsDevice.RasterizerState);
+      spriteBatch.Begin(SpriteSortMode.Immediate, (BlendState) null, (SamplerState) null,
+          (DepthStencilState) null, spriteBatch.GraphicsDevice.RasterizerState);
     }
 
     private void CreateLoadingImage()
@@ -425,22 +461,31 @@ namespace GameManager.GraphicsSystem
               ++GlobalMembers.CurrentPressEvent;
               GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 0] = 2;
               GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 1] = touchLocation.Id;
-              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 2] = (int) touchLocation.Position.X;
-              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 3] = (int) ((double) GlobalMembers.ScreenHeight - 1.0 - (double) touchLocation.Position.Y);
+              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 2] = 
+                                (int) touchLocation.Position.X;
+              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 3] =
+                                (int) ((double) GlobalMembers.ScreenHeight - 1.0
+                                  - (double) touchLocation.Position.Y);
               continue;
             case TouchLocationState.Pressed:
               ++GlobalMembers.CurrentPressEvent;
               GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 0] = 0;
               GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 1] = touchLocation.Id;
-              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 2] = (int) touchLocation.Position.X;
-              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 3] = (int) ((double) GlobalMembers.ScreenHeight - 1.0 - (double) touchLocation.Position.Y);
+              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 2] =
+                                (int) touchLocation.Position.X;
+              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 3] = 
+                                (int) ((double) GlobalMembers.ScreenHeight - 1.0 
+                                  - (double) touchLocation.Position.Y);
               continue;
             case TouchLocationState.Moved:
               ++GlobalMembers.CurrentPressEvent;
               GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 0] = 1;
               GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 1] = touchLocation.Id;
-              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 2] = (int) touchLocation.Position.X;
-              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 3] = (int) ((double) GlobalMembers.ScreenHeight - 1.0 - (double) touchLocation.Position.Y);
+              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 2] =
+                                (int) touchLocation.Position.X;
+              GlobalMembers.PressEvents[GlobalMembers.CurrentPressEvent - 1, 3] =
+                                (int) ((double) GlobalMembers.ScreenHeight - 1.0 
+                                  - (double) touchLocation.Position.Y);
               continue;
             default:
               continue;
@@ -449,63 +494,83 @@ namespace GameManager.GraphicsSystem
       }
     }
 
-    public void PlaySound(SoundEffect sound) => sound.Play();
+    public void PlaySound(SoundEffect sound)
+    {
+        sound.Play();
+    }
 
-    public static bool IsNetworkAvailable() => NetworkInterface.GetIsNetworkAvailable();
+    public static bool IsNetworkAvailable()
+    {
+        return NetworkInterface.GetIsNetworkAvailable();
+    }
 
     public static void GoToWebsite(string url)
     {
-      new WebBrowserTask() { URL = url }.Show();
+      //new WebBrowserTask() { URL = url }.Show();
     }
 
-    public static void RateApp(string url) => new MarketplaceReviewTask().Show();
+        public static void RateApp(string url)
+        {
+            //new MarketplaceReviewTask().Show();
+        }
 
+
+    // GoToMarketplace
     public static void GoToMarketplace(string searchText)
     {
-      new MarketplaceSearchTask()
-      {
-        SearchTerms = searchText
-      }.Show();
-    }
+        //new MarketplaceSearchTask()
+        //{
+        //  SearchTerms = searchText
+        //}.Show();
+    }//GoToMarketplace
 
-    public static void BuyFullVersion() => throw new NotImplementedException();
 
+    // BuyFullVersion
+    public static void BuyFullVersion()
+    {
+        //
+    }//BuyFullVersion
+
+
+    // PromptPurchase
     private static void PromptPurchase(IAsyncResult ar)
     {
-      int? nullable1 = Guide.EndShowMessageBox(ar);
-      if (!nullable1.HasValue)
-        return;
-      int? nullable2 = nullable1;
-      if ((nullable2.GetValueOrDefault() != 0 ? 0 : (nullable2.HasValue ? 1 : 0)) == 0)
-        return;
-      Guide.ShowMarketplace(PlayerIndex.One);
+      //int? nullable1 = Guide.EndShowMessageBox(ar);
+      //if (!nullable1.HasValue)
+      //  return;
+      //int? nullable2 = nullable1;
+      //if ((nullable2.GetValueOrDefault() != 0 ? 0 : (nullable2.HasValue ? 1 : 0)) == 0)
+      //  return;
+      //Guide.ShowMarketplace(PlayerIndex.One);
     }
 
     public static void AskForPermissionToTurnOffZune()
     {
-      DispManager.IsAskingToTurnOnMusic = true;
-      Guide.BeginShowMessageBox("Do you want to leave Zune music on?", "Click OK to leave music on.", (IEnumerable<string>) new List<string>()
-      {
-        "Yes",
-        "No"
-      }, 0, MessageBoxIcon.None, new AsyncCallback(DispManager.PromptMusic), (object) null);
+      //DispManager.IsAskingToTurnOnMusic = true;
+      //Guide.BeginShowMessageBox("Do you want to leave Zune music on?",
+      //"Click OK to leave music on.",
+      //(IEnumerable<string>) new List<string>()
+      //{
+      //  "Yes",
+      //  "No"
+      //}, 0, MessageBoxIcon.None, new AsyncCallback(DispManager.PromptMusic), (object) null);
     }
 
     private static void PromptMusic(IAsyncResult ar)
     {
-      DispManager.IsAskingToTurnOnMusic = false;
-      int? nullable1 = Guide.EndShowMessageBox(ar);
-      if (nullable1.HasValue)
-      {
-        int? nullable2 = nullable1;
-        if ((nullable2.GetValueOrDefault() != 0 ? 0 : (nullable2.HasValue ? 1 : 0)) != 0)
-        {
-          GlobalMembers.LeaveZuneOn = true;
-          DispManager.SetMusicVolume(0.0f);
-          return;
-        }
-      }
-      GlobalMembers.LeaveZuneOn = false;
+      //DispManager.IsAskingToTurnOnMusic = false;
+      //int? nullable1 = Guide.EndShowMessageBox(ar);
+      //if (nullable1.HasValue)
+      //{
+      //  int? nullable2 = nullable1;
+      //  if ((nullable2.GetValueOrDefault() != 0 ? 0 : (nullable2.HasValue ? 1 : 0)) != 0)
+      //  {
+      //    GlobalMembers.LeaveZuneOn = true;
+      //    DispManager.SetMusicVolume(0.0f);
+      //    return;
+      //  }
+      //}
+      //GlobalMembers.LeaveZuneOn = false;
       DispManager.StopMusic();
       DispManager.TurnOnStartupMusic();
     }
@@ -518,26 +583,26 @@ namespace GameManager.GraphicsSystem
 
     public static void AskToExitTheGame()
     {
-      Guide.BeginShowMessageBox("Do you want to exit the game?", "Click OK to exit.", (IEnumerable<string>) new List<string>()
-      {
-        "Yes",
-        "No"
-      }, 0, MessageBoxIcon.None, new AsyncCallback(DispManager.PromptExit), (object) null);
+      //Guide.BeginShowMessageBox("Do you want to exit the game?", "Click OK to exit.", (IEnumerable<string>) new List<string>()
+      //{
+      //  "Yes",
+      //  "No"
+      //}, 0, MessageBoxIcon.None, new AsyncCallback(DispManager.PromptExit), (object) null);
     }
 
     private static void PromptExit(IAsyncResult ar)
     {
-      int? nullable1 = Guide.EndShowMessageBox(ar);
-      if (nullable1.HasValue)
-      {
-        int? nullable2 = nullable1;
-        if ((nullable2.GetValueOrDefault() != 0 ? 0 : (nullable2.HasValue ? 1 : 0)) != 0)
-        {
+      //int? nullable1 = Guide.EndShowMessageBox(ar);
+      //if (nullable1.HasValue)
+      //{
+      //  int? nullable2 = nullable1;
+      //  if ((nullable2.GetValueOrDefault() != 0 ? 0 : (nullable2.HasValue ? 1 : 0)) != 0)
+      //  {
           DispManager.ExitGame = true;
           return;
-        }
-      }
-      DispManager.ExitGame = false;
+      //  }
+      //}
+      //DispManager.ExitGame = false;
     }
 
     public static void GotToMainMenu()

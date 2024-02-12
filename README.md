@@ -1,4 +1,4 @@
-# DinoCopterGame v1.0.0.0
+# DinoCopterGame v1.0.0.0 (pre-pre-pre alpha; DinoTaxi project codename)
 
 ![DinoTaxi](Images/logo.png)
 
@@ -16,7 +16,7 @@ Draft (still exploring src Content compilation process... fonts generation, text
 
 ## Requirements
 * MonoGame v3.7 (or higher)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/) (or higher)
+* [Visual Studio 2022 Community Edition](https://visualstudio.microsoft.com/) (or 2022 Preview)
 
 
 ## . 

@@ -148,6 +148,7 @@
     <Compile Include="Main\GameLogic\Main.cs" />
     <Compile Include="Main\GameLogic\Menu.cs" />
     <Compile Include="Main\GameLogic\MenuItem.cs" />
+    <Compile Include="Main\GameObject.cs" />
     <Compile Include="Main\GraphicsSystem\BMFont.cs" />
     <Compile Include="Main\GraphicsSystem\Disp.cs" />
     <Compile Include="Main\GraphicsSystem\DispManager.cs" />

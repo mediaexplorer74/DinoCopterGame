@@ -11,10 +11,18 @@ namespace GameManager.GameLogic
 {
   public class MenuItem : Sprite
   {
-    public static Paintable ScrollBarTop = Paintable.CreateFilledRect(2f, 10f, Util.ConvertIntToColor(2164228351U));
-    public static Paintable ScrollBarBottom = Paintable.CreateFilledRect(2f, 10f, Util.ConvertIntToColor(2155937791U));
-    public static Paintable ScrollBarMid = Paintable.CreateFilledRect(2f, 10f, Util.ConvertIntToColor(4278190335U));
-    public static Paintable ScrollSelector = Paintable.CreateFilledRect(4f, 4f, Util.ConvertIntToColor(16711935U));
+    public static Paintable ScrollBarTop = 
+            Paintable.CreateFilledRect(2f, 10f, Util.ConvertIntToColor(2164228351U));
+
+    public static Paintable ScrollBarBottom = 
+            Paintable.CreateFilledRect(2f, 10f, Util.ConvertIntToColor(2155937791U));
+
+    public static Paintable ScrollBarMid = 
+            Paintable.CreateFilledRect(2f, 10f, Util.ConvertIntToColor(4278190335U));
+
+    public static Paintable ScrollSelector = 
+            Paintable.CreateFilledRect(4f, 4f, Util.ConvertIntToColor(16711935U));
+
     private readonly string _label;
     public int UserData;
     private Paintable _focused;

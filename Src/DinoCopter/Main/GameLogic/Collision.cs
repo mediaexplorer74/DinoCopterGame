@@ -27,7 +27,9 @@ namespace GameManager.GameLogic
       Point point = m1 - m2;
       float num1 = r1 + r2;
       float num2 = point.Len();
-      return (double) num2 < (double) num1 ? new Collision(r1 + r2 - num2, (m1 - m2).Normalised()) : new Collision();
+      return (double) num2 < (double) num1 
+                ? new Collision(r1 + r2 - num2, (m1 - m2).Normalised())
+                : new Collision();
     }
 
     public static float CollisionPointCircleSegment(Point s, Point p1, Point d)

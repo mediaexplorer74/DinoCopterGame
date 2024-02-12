@@ -246,13 +246,16 @@ namespace GameManager
                     foreach (GameObject gameObject in Game1.objectsToRemove)
                         Game1.gameObjects.Remove(gameObject);
                     Game1.objectsToRemove.Clear();
+
                     this.btnStartGame.Update(this.Content, state2);
                     this.btnExit.Update(this.Content, state2);
                     this.btnCreateProfile.Update(this.Content, state2);
+                    
                     if (this.btnStartGame.isClicked)
                         this.currentGameState = Game1.GameState.Playing;
                     if (this.btnExit.isClicked)
                         this.Exit();
+                    
                     using (Connection connection = new Connection())
                     {
                         if (this.btnCreateProfile.isClicked)
@@ -335,7 +338,8 @@ namespace GameManager
                                         connection.OpenCon();
                                         this.player.Level = 3;
                                         connection.UpdateRow<character>(this.player);
-                                        Game1.objectsToRemove.AddRange((IEnumerable<GameObject>)Game1.gameObjects);
+                                        Game1.objectsToRemove.AddRange(
+                                            (IEnumerable<GameObject>)Game1.gameObjects);
                                         Game1.spawnList.Clear();
                                         this.level = 3;
                                         this.canInitialize = true;
@@ -355,7 +359,8 @@ namespace GameManager
                                         connection.OpenCon();
                                         this.player.Level = 2;
                                         connection.UpdateRow<character>(this.player);
-                                        Game1.objectsToRemove.AddRange((IEnumerable<GameObject>)Game1.gameObjects);
+                                        Game1.objectsToRemove.AddRange(
+                                            (IEnumerable<GameObject>)Game1.gameObjects);
                                         Game1.spawnList.Clear();
                                         this.level = 2;
                                         this.canInitialize = true;
@@ -406,7 +411,8 @@ namespace GameManager
             this.GraphicsDevice.Clear(Color.Coral);
 
             //this.spriteBatch.Begin();
-            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, globalTransformation);
+            spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, 
+                globalTransformation);
 
 
             switch (this.currentGameState)
