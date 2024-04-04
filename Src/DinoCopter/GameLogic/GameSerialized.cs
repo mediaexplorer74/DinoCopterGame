@@ -1,6 +1,6 @@
 ﻿// GameManager.GameLogic.GameSerialized
 
-using GameManager;
+using GameManager.GameElements;
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using System.Collections.Generic;
@@ -104,7 +104,7 @@ namespace GameManager.GameLogic
     {
     }
 
-    public GameSerialized(Game1 currentGame)
+    public GameSerialized(MyGame currentGame)
     {
       this.GameTime = currentGame.GameTime;
       this.FirstLoad = currentGame.FirstLoad;

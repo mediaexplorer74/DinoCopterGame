@@ -99,7 +99,10 @@ namespace GameManager.GameLogic
       };
     }
 
-    public string GetLabel() => this._label;
+    public string GetLabel()
+    {
+        return this._label;
+    }
 
     public void SetImg(Paintable img)
     {
@@ -153,7 +156,10 @@ namespace GameManager.GameLogic
 
     public override float GetWidth()
     {
-      return this.TypeId == -10003 ? GlobalMembers.FromPx(Math.Max(this._width, (float) ((double) this._padH * 2.0 + (this._formated != null ? (double) this._formated.GetWidth() : 0.0)))) : GlobalMembers.FromPx(this._width);
+      return this.TypeId == -10003 ? GlobalMembers.FromPx(Math.Max(this._width, 
+          (float) ((double) this._padH * 2.0 +
+          (this._formated != null ? (double) this._formated.GetWidth() : 0.0))))
+                : GlobalMembers.FromPx(this._width);
     }
 
     public override float GetHeight()

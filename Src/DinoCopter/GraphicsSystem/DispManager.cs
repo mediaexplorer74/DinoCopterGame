@@ -124,12 +124,12 @@ namespace GameManager.GraphicsSystem
     {
     }
 
-    public bool isNeedsHorizontalRotate()
-    {
-        return DispManager.RotateHorizontal;
-    }
+        public bool isNeedsHorizontalRotate()
+        {
+            return DispManager.RotateHorizontal;
+        }
 
-    private bool IsHorizontal()
+        private bool IsHorizontal()
     {
         return DispManager.Horizontal;
     }
@@ -180,12 +180,12 @@ namespace GameManager.GraphicsSystem
 
     public int GetWidth() => this.Width;
 
-    public Disp GetDisp()
-    {
-        return this.Current;
-    }
+        public Disp GetDisp()
+        {
+            return this.Current;
+        }
 
-    public void InitDraw(SpriteBatch spriteBatch)
+        public void InitDraw(SpriteBatch spriteBatch)
     {
       this.TranslatePos.X = this.TranslatePos.Y = 0.0f;
       this.ResetClipStack(spriteBatch);
@@ -198,12 +198,12 @@ namespace GameManager.GraphicsSystem
       this.Load.Paint(GlobalMembers.ScreenWidth / 2f, GlobalMembers.ScreenHeight / 2f, 18, spriteBatch);
     }
 
-    public void SetNextDisp(Disp next)
-    {
-        this.Next = next;
-    }
+        public void SetNextDisp(Disp next)
+        {
+            this.Next = next;
+        }
 
-    public void Render(SpriteBatch spriteBatch)
+        public void Render(SpriteBatch spriteBatch)
     {
       if (this.Current == null)
       {

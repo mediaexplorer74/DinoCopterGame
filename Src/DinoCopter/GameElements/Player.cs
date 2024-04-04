@@ -1,4 +1,4 @@
-﻿// GameManager.Player
+﻿// GameManager.GameElements.Player
 
 
 using GameManager.GameLogic;
@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   internal class Player : Sprite
   {
@@ -35,7 +35,7 @@ namespace GameManager
     {
       this.PassengersIn = 0;
       this.MaxPassengers = 1;
-      this.Img = GlobalMembers.Game.Copter[0];
+      this.Img = GlobalMembers.MGame.Copter[0];
     }
 
     public static Sprite CreatePlayer()
@@ -52,7 +52,7 @@ namespace GameManager
 
     public bool IsFloatsOnWater()
     {
-      return this.FloatsOnWater && (double) GlobalMembers.Game.GetGameTime() - (double) this.WaterFloatStart > 1.0;
+      return this.FloatsOnWater && (double) GlobalMembers.MGame.GetGameTime() - (double) this.WaterFloatStart > 1.0;
     }
 
     public bool IsOnGround()
@@ -62,15 +62,15 @@ namespace GameManager
 
     public override void OnAdd()
     {
-      this.Size = new Point(GlobalMembers.FromPx(GlobalMembers.Game.Copter[0].GetWidth()), 
-          GlobalMembers.FromPx(GlobalMembers.Game.Copter[0].GetHeight()
-                                + GlobalMembers.Game.Whirl[0].GetHeight()));
+      this.Size = new Point(GlobalMembers.FromPx(GlobalMembers.MGame.Copter[0].GetWidth()), 
+          GlobalMembers.FromPx(GlobalMembers.MGame.Copter[0].GetHeight()
+                                + GlobalMembers.MGame.Whirl[0].GetHeight()));
     }
 
     public override void OnCollision(Sprite s)
     {
       if (s.GetTypeId() == 4)
-        GlobalMembers.Game.Lose(3);
+        GlobalMembers.MGame.Lose(3);
       if (s.GetTypeId() == 100)
       {
         Player player = this;
@@ -83,7 +83,7 @@ namespace GameManager
       }
       if (s.GetTypeId() == 8)
       {
-        GlobalMembers.Game.AddEnergy(0.25f);
+        GlobalMembers.MGame.AddEnergy(0.25f);
         s.Remove();
       }
       if (s.GetTypeId() != -2 && s.GetTypeId() != 10)
@@ -93,10 +93,10 @@ namespace GameManager
           this.GetPos() - this.GetOldPos() - s.GetPos() + s.GetOldPos());
 
       if ((double) (collision.Normal * this.Speed.Dot(collision.Normal)).Len() >= 5.0)
-        GlobalMembers.Game.Lose(0);
+        GlobalMembers.MGame.Lose(0);
 
       if (s.GetTypeId() == 10 && (s as Lava).Kills(collision.Normal))
-        GlobalMembers.Game.Lose(0);
+        GlobalMembers.MGame.Lose(0);
 
       if ((double) this.Speed.Dot(collision.Normal) < 0.0)
       {
@@ -108,27 +108,27 @@ namespace GameManager
       if ((double) this.Speed.Len() > 0.5 && this.FirstCrash)
       {
         GlobalMembers.SfxGroundHitInstance.Play();
-        if (GlobalMembers.Game.HasLose)
+        if (GlobalMembers.MGame.HasLose)
           this.FirstCrash = false;
       }
       if ((double) collision.Normal.Y > 0.0)
         this.OnGround = true;
-      GlobalMembers.Game.EnterTutorial(2);
+      GlobalMembers.MGame.EnterTutorial(2);
     }
 
     public override void Update(float time)
     {
       if (!this.FloatsOnWater)
       {
-        this.FloatsOnWater = (double) this.GetPos().Y < (double) GlobalMembers.Game.WaterLevel
-          && (double) this.GetPos().Y + (double) this.GetHeight() > (double) GlobalMembers.Game.WaterLevel;
+        this.FloatsOnWater = (double) this.GetPos().Y < (double) GlobalMembers.MGame.WaterLevel
+          && (double) this.GetPos().Y + (double) this.GetHeight() > (double) GlobalMembers.MGame.WaterLevel;
 
         if (this.FloatsOnWater)
-          this.WaterFloatStart = GlobalMembers.Game.GetGameTime();
+          this.WaterFloatStart = GlobalMembers.MGame.GetGameTime();
       }
       else
-        this.FloatsOnWater = (double) this.GetPos().Y < (double) GlobalMembers.Game.WaterLevel
-          && (double) this.GetPos().Y + (double) this.GetHeight() > (double) GlobalMembers.Game.WaterLevel;
+        this.FloatsOnWater = (double) this.GetPos().Y < (double) GlobalMembers.MGame.WaterLevel
+          && (double) this.GetPos().Y + (double) this.GetHeight() > (double) GlobalMembers.MGame.WaterLevel;
 
       this.OnGround = false;
       float y1 = GlobalMembers.FromPx(GlobalMembers.TileSize.X * 13f) * time;
@@ -161,30 +161,30 @@ namespace GameManager
         flag = true;
       }
 
-      if (!flag && GlobalMembers.Game.GetMoveDir().NonZero())
+      if (!flag && GlobalMembers.MGame.GetMoveDir().NonZero())
       {
         flag = true;
         Player player = this;
-        player.Speed = player.Speed + new Point(GlobalMembers.Game.GetMoveDir().X * x, 
-            GlobalMembers.Game.GetMoveDir().Y * y1);
+        player.Speed = player.Speed + new Point(GlobalMembers.MGame.GetMoveDir().X * x, 
+            GlobalMembers.MGame.GetMoveDir().Y * y1);
       }
 
       Player player1 = this;
       player1.Speed = player1.Speed * 0.99f;
 
       Player player2 = this;
-      player2.Speed = player2.Speed + GlobalMembers.Game.GetGravity(this.Ref) * time;
+      player2.Speed = player2.Speed + GlobalMembers.MGame.GetGravity(this.Ref) * time;
       float y2 = this.GetPos().Y;
 
-      if ((double) y2 < (double) GlobalMembers.Game.GetWaterLevel() 
-                && (double) this.OldPos.Y >= (double) GlobalMembers.Game.GetWaterLevel()
-                && !GlobalMembers.Game.HasLose)
+      if ((double) y2 < (double) GlobalMembers.MGame.GetWaterLevel() 
+                && (double) this.OldPos.Y >= (double) GlobalMembers.MGame.GetWaterLevel()
+                && !GlobalMembers.MGame.HasLose)
         GlobalMembers.Manager.PlaySound(GlobalMembers.SfxSplash);
 
-      if ((double) y2 < (double) GlobalMembers.Game.GetWaterLevel())
+      if ((double) y2 < (double) GlobalMembers.MGame.GetWaterLevel())
       {
         float num = Math.Min(2000f, 
-            (float) (((double) GlobalMembers.Game.GetWaterLevel() 
+            (float) (((double) GlobalMembers.MGame.GetWaterLevel() 
                             - (double) y2) * 2000.0) * time / this.GetWidth());
         this.Speed.Y += time * num;
       }
@@ -209,33 +209,33 @@ namespace GameManager
     public override void Render(SpriteBatch spriteBatch)
     {
       Point pos = this.GetPos();
-      GlobalMembers.Game.Copter[(int) ((double) this.CopterAnimPhase / 1900.0 
-          * (double) GlobalMembers.Game.Copter.Count / 2.0) + (this.PassengersIn > 0 ? 1 : 0)
-          * GlobalMembers.Game.Copter.Count / 2].Paint(GlobalMembers.ToPx(pos.X),
+      GlobalMembers.MGame.Copter[(int) ((double) this.CopterAnimPhase / 1900.0 
+          * (double) GlobalMembers.MGame.Copter.Count / 2.0) + (this.PassengersIn > 0 ? 1 : 0)
+          * GlobalMembers.MGame.Copter.Count / 2].Paint(GlobalMembers.ToPx(pos.X),
           GlobalMembers.ToPx(pos.Y), 12, spriteBatch);
 
-      GlobalMembers.Game.Whirl[(int) ((double) this.WhirlAnimPhase / 30000.0 
-          * (double) GlobalMembers.Game.Whirl.Count)].Paint(GlobalMembers.ToPx(pos.X + this.GetWidth() / 2f),
-          GlobalMembers.ToPx(pos.Y) + GlobalMembers.Game.Copter[0].GetHeight(), 20, spriteBatch);
+      GlobalMembers.MGame.Whirl[(int) ((double) this.WhirlAnimPhase / 30000.0 
+          * (double) GlobalMembers.MGame.Whirl.Count)].Paint(GlobalMembers.ToPx(pos.X + this.GetWidth() / 2f),
+          GlobalMembers.ToPx(pos.Y) + GlobalMembers.MGame.Copter[0].GetHeight(), 20, spriteBatch);
       for (int index = 0; index < 10; ++index)
       {
-        Sprite passenger1 = GlobalMembers.Game.Spawns[index].GetPassenger();
+        Sprite passenger1 = GlobalMembers.MGame.Spawns[index].GetPassenger();
         if (passenger1 != null)
         {
           Passenger passenger2 = passenger1 as Passenger;
           if (passenger2.GetState() == GlobalMembers.PassengerState.PassengerStateInChopper)
           {
-            Point point1 = new Point(GlobalMembers.Game.Spawns[passenger2.GetTargetStation()].GetPlatform().X,
-                GlobalMembers.Game.Spawns[passenger2.GetTargetStation()].GetPlatform().Y + 1f)
+            Point point1 = new Point(GlobalMembers.MGame.Spawns[passenger2.GetTargetStation()].GetPlatform().X,
+                GlobalMembers.MGame.Spawns[passenger2.GetTargetStation()].GetPlatform().Y + 1f)
                             + passenger2.GetSize() / 2f;
             Point point2 = this.GetPos() + this.GetSize() / 2f;
             Point point3 = point1 - point2;
             if ((double) point3.Len() > 3.0)
             {
               float angle = 6.28318548f - point3.Angle();
-              Paintable rotated = Paintable.CreateRotated(GlobalMembers.Game.ArrowImg,
-                  new Point(GlobalMembers.Game.ArrowImg.GetWidth() / 2f, 
-                  GlobalMembers.Game.ArrowImg.GetHeight() / 2f), angle);
+              Paintable rotated = Paintable.CreateRotated(GlobalMembers.MGame.ArrowImg,
+                  new Point(GlobalMembers.MGame.ArrowImg.GetWidth() / 2f, 
+                  GlobalMembers.MGame.ArrowImg.GetHeight() / 2f), angle);
 
               Point point4 = point3.Normalised() * 2f + point2;
               rotated.Paint(GlobalMembers.ToPx(point4.X), GlobalMembers.ToPx(point4.Y), 18, spriteBatch);

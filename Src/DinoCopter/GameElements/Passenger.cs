@@ -1,4 +1,4 @@
-﻿// GameManager.Passenger
+﻿// GameManager.GameElements.Passenger
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   internal class Passenger : Sprite
   {
@@ -36,43 +36,43 @@ namespace GameManager
       if (this.State == GlobalMembers.PassengerState.PassengerStateSink)
         return;
       this.State = newState;
-      this.StateChangeTime = GlobalMembers.Game.GetGameTime();
+      this.StateChangeTime = GlobalMembers.MGame.GetGameTime();
       switch (this.State)
       {
         case GlobalMembers.PassengerState.PassengerStateShow:
-          this.SetPaintable(Paintable.CreateModulate(GlobalMembers.Game.PassengerStand[this.PassengerType][0], new Color(1f, 1f, 1f, 0.0f), new Color(1f, 1f, 1f, 1f), 1f));
+          this.SetPaintable(Paintable.CreateModulate(GlobalMembers.MGame.PassengerStand[this.PassengerType][0], new Color(1f, 1f, 1f, 0.0f), new Color(1f, 1f, 1f, 1f), 1f));
           break;
         case GlobalMembers.PassengerState.PassengerStateGoToStation:
         case GlobalMembers.PassengerState.PassengerStateGoIn:
         case GlobalMembers.PassengerState.PassengerStateGoOut:
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.PassengerWalkAnim[this.PassengerType]));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.PassengerWalkAnim[this.PassengerType]));
           break;
         case GlobalMembers.PassengerState.PassengerStateWait:
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.PassengerStandAnim[this.PassengerType]));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.PassengerStandAnim[this.PassengerType]));
           break;
         case GlobalMembers.PassengerState.PassengerStateTellStation:
           this.GenerateStation();
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.PassengerSpeakAnim[this.PassengerType]));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.PassengerSpeakAnim[this.PassengerType]));
           break;
         case GlobalMembers.PassengerState.PassengerStateHide:
-          this.SetPaintable(Paintable.CreateModulate(GlobalMembers.Game.PassengerStand[this.PassengerType][0], new Color(1f, 1f, 1f, 1f), new Color(1f, 1f, 1f, 0.0f), 1f));
+          this.SetPaintable(Paintable.CreateModulate(GlobalMembers.MGame.PassengerStand[this.PassengerType][0], new Color(1f, 1f, 1f, 1f), new Color(1f, 1f, 1f, 0.0f), 1f));
           this.SetLiveTime(1f);
           break;
         case GlobalMembers.PassengerState.PassengerStateFall:
-          GlobalMembers.Game.EnterTutorial(7);
-          if (!GlobalMembers.Game.HasLose)
+          GlobalMembers.MGame.EnterTutorial(7);
+          if (!GlobalMembers.MGame.HasLose)
             GlobalMembers.Manager.PlaySound(GlobalMembers.SfxPassengerHit);
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.PassengerSinkAnim[this.PassengerType]));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.PassengerSinkAnim[this.PassengerType]));
           break;
         case GlobalMembers.PassengerState.PassengerStateFloat:
         case GlobalMembers.PassengerState.PassengerStateSwimTo:
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.PassengerSwimAnim[this.PassengerType]));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.PassengerSwimAnim[this.PassengerType]));
           break;
         case GlobalMembers.PassengerState.PassengerStateFloatTellStation:
           this.GenerateStation();
           break;
         case GlobalMembers.PassengerState.PassengerStateSink:
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.PassengerSinkAnim[this.PassengerType]));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.PassengerSinkAnim[this.PassengerType]));
           this.SetSpeed(new Point(0.0f, -2f));
           break;
       }
@@ -80,18 +80,18 @@ namespace GameManager
 
     private void GenerateStation()
     {
-      if (this.TargetStation != -1 && GlobalMembers.Game.Spawns[this.TargetStation].CanTakePassenger())
+      if (this.TargetStation != -1 && GlobalMembers.MGame.Spawns[this.TargetStation].CanTakePassenger())
         return;
       int maxValue = -1;
       for (int index = 0; index < 10; ++index)
       {
-        if (GlobalMembers.Game.Spawns[index].CanTakePassenger())
+        if (GlobalMembers.MGame.Spawns[index].CanTakePassenger())
           ++maxValue;
       }
       int num = new Random().Next(0, maxValue);
       for (int index = 0; index < 10; ++index)
       {
-        if (GlobalMembers.Game.Spawns[index].CanTakePassenger() && index != this.FromStation)
+        if (GlobalMembers.MGame.Spawns[index].CanTakePassenger() && index != this.FromStation)
         {
           if (num == 0)
           {
@@ -128,38 +128,38 @@ namespace GameManager
       {
         case GlobalMembers.PassengerState.PassengerStateTellStation:
         case GlobalMembers.PassengerState.PassengerStateFloatTellStation:
-          bool flag = (double) this.GetPos().X > (double) GlobalMembers.Game.Player.GetPos().X;
-          GlobalMembers.Game.Cloud.Mirror = flag;
-          GlobalMembers.Game.Cloud.Paint(GlobalMembers.ToPx(this.GetPos().X + this.GetWidth() / 2f), GlobalMembers.ToPx(this.GetPos().Y + this.GetHeight()), 4 | (flag ? 32 : 8), spriteBatch);
-          GlobalMembers.Game.Cloud.Mirror = false;
-          GlobalMembers.Game.StationsCloudSigns[this.TargetStation].Paint(GlobalMembers.ToPx(this.GetPos().X + this.GetWidth() / 2f) + (float) ((double) GlobalMembers.Game.Cloud.GetWidth() / 2.0 * (flag ? -1.0 : 1.0)), (float) ((double) GlobalMembers.ToPx(this.GetPos().Y + this.GetHeight()) + (double) GlobalMembers.Game.Cloud.GetHeight() - (double) GlobalMembers.Game.Cloud.GetWidth() / 2.0), 18, spriteBatch);
+          bool flag = (double) this.GetPos().X > (double) GlobalMembers.MGame.Player.GetPos().X;
+          GlobalMembers.MGame.Cloud.Mirror = flag;
+          GlobalMembers.MGame.Cloud.Paint(GlobalMembers.ToPx(this.GetPos().X + this.GetWidth() / 2f), GlobalMembers.ToPx(this.GetPos().Y + this.GetHeight()), 4 | (flag ? 32 : 8), spriteBatch);
+          GlobalMembers.MGame.Cloud.Mirror = false;
+          GlobalMembers.MGame.StationsCloudSigns[this.TargetStation].Paint(GlobalMembers.ToPx(this.GetPos().X + this.GetWidth() / 2f) + (float) ((double) GlobalMembers.MGame.Cloud.GetWidth() / 2.0 * (flag ? -1.0 : 1.0)), (float) ((double) GlobalMembers.ToPx(this.GetPos().Y + this.GetHeight()) + (double) GlobalMembers.MGame.Cloud.GetHeight() - (double) GlobalMembers.MGame.Cloud.GetWidth() / 2.0), 18, spriteBatch);
           break;
       }
     }
 
     public override void Update(float time)
     {
-      Player player1 = (Player) GlobalMembers.Game.GetPlayer();
-      Sprite player2 = GlobalMembers.Game.GetPlayer();
+      Player player1 = (Player) GlobalMembers.MGame.GetPlayer();
+      Sprite player2 = GlobalMembers.MGame.GetPlayer();
       Point pos1 = this.GetPos();
       Point pos2 = player2.GetPos();
       base.Update(time);
       switch (this.State)
       {
         case GlobalMembers.PassengerState.PassengerStateShow:
-          if ((double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime >= 1.0)
+          if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime >= 1.0)
           {
             this.SetState(GlobalMembers.PassengerState.PassengerStateGoToStation);
             break;
           }
           break;
         case GlobalMembers.PassengerState.PassengerStateGoToStation:
-          Point platform = GlobalMembers.Game.GetSpawns()[this.FromStation].GetPlatform();
-          if ((double) GlobalMembers.Game.GetSpawns()[this.FromStation].GetPos().X < (double) platform.X)
+          Point platform = GlobalMembers.MGame.GetSpawns()[this.FromStation].GetPlatform();
+          if ((double) GlobalMembers.MGame.GetSpawns()[this.FromStation].GetPos().X < (double) platform.X)
             platform.X -= 2f;
           else
             platform.X += 2f;
-          platform.X = Math.Min((float) GlobalMembers.Game.GetSpawns()[this.FromStation].GetRight(), Math.Max(platform.X, (float) GlobalMembers.Game.GetSpawns()[this.FromStation].GetLeft()));
+          platform.X = Math.Min((float) GlobalMembers.MGame.GetSpawns()[this.FromStation].GetRight(), Math.Max(platform.X, (float) GlobalMembers.MGame.GetSpawns()[this.FromStation].GetLeft()));
           float num1 = (float) ((double) platform.X + 0.5 - (double) this.GetPos().X - (double) this.GetWidth() / 2.0);
           if ((double) Math.Abs(num1) > 0.10000000149011612)
           {
@@ -170,16 +170,16 @@ namespace GameManager
           this.SetState(GlobalMembers.PassengerState.PassengerStateWait);
           break;
         case GlobalMembers.PassengerState.PassengerStateWait:
-          if (GlobalMembers.Game.GetSpawns()[this.FromStation].IsOnStation(player2) && player1.AcceptMorePassengers())
+          if (GlobalMembers.MGame.GetSpawns()[this.FromStation].IsOnStation(player2) && player1.AcceptMorePassengers())
           {
             this.SetState(GlobalMembers.PassengerState.PassengerStateTellStation);
             break;
           }
           break;
         case GlobalMembers.PassengerState.PassengerStateTellStation:
-          if (GlobalMembers.Game.GetSpawns()[this.FromStation].IsOnStation(player2) && player1.AcceptMorePassengers())
+          if (GlobalMembers.MGame.GetSpawns()[this.FromStation].IsOnStation(player2) && player1.AcceptMorePassengers())
           {
-            if ((double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime >= 3.0)
+            if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime >= 3.0)
             {
               this.SetState(GlobalMembers.PassengerState.PassengerStateGoIn);
               break;
@@ -189,7 +189,7 @@ namespace GameManager
           this.SetState(GlobalMembers.PassengerState.PassengerStateWait);
           break;
         case GlobalMembers.PassengerState.PassengerStateGoIn:
-          if (GlobalMembers.Game.GetSpawns()[this.FromStation].IsOnStation(player2) && player1.AcceptMorePassengers())
+          if (GlobalMembers.MGame.GetSpawns()[this.FromStation].IsOnStation(player2) && player1.AcceptMorePassengers())
           {
             float num2 = (float) ((double) player2.GetPos().X + (double) player2.GetWidth() / 2.0 - (double) this.GetPos().X - (double) this.GetWidth() / 2.0);
             if ((double) Math.Abs(num2) > 0.05000000074505806)
@@ -209,8 +209,8 @@ namespace GameManager
           this.SetState(GlobalMembers.PassengerState.PassengerStateGoToStation);
           break;
         case GlobalMembers.PassengerState.PassengerStateInChopper:
-          this.SetPos(player2.GetPos() + new Point((float) (((double) GlobalMembers.Game.GetPlayer().GetWidth() - (double) this.GetWidth()) / 2.0), 0.0f));
-          if (GlobalMembers.Game.GetSpawns()[this.TargetStation].IsOnStation(player2))
+          this.SetPos(player2.GetPos() + new Point((float) (((double) GlobalMembers.MGame.GetPlayer().GetWidth() - (double) this.GetWidth()) / 2.0), 0.0f));
+          if (GlobalMembers.MGame.GetSpawns()[this.TargetStation].IsOnStation(player2))
           {
             this.SetState(GlobalMembers.PassengerState.PassengerStateGoOut);
             player1.PassengerOut();
@@ -218,7 +218,7 @@ namespace GameManager
           }
           break;
         case GlobalMembers.PassengerState.PassengerStateGoOut:
-          float num3 = (float) ((double) GlobalMembers.Game.GetSpawns()[this.TargetStation].GetPos().X + 0.5 - (double) this.GetPos().X - (double) this.GetWidth() / 2.0);
+          float num3 = (float) ((double) GlobalMembers.MGame.GetSpawns()[this.TargetStation].GetPos().X + 0.5 - (double) this.GetPos().X - (double) this.GetWidth() / 2.0);
           if ((double) Math.Abs(num3) >= (double) Math.Abs(this.Speed.X * time))
           {
             this.SetSpeed(new Point(((double) num3 < 0.0 ? -1f : 1f) * 2f, 0.0f));
@@ -228,19 +228,19 @@ namespace GameManager
           this.SetState(GlobalMembers.PassengerState.PassengerStateHide);
           break;
         case GlobalMembers.PassengerState.PassengerStateHide:
-          if ((double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime >= 1.0)
+          if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime >= 1.0)
           {
-            GlobalMembers.Game.PassengerDelivered();
+            GlobalMembers.MGame.PassengerDelivered();
             this.Remove();
             break;
           }
           break;
         case GlobalMembers.PassengerState.PassengerStateFall:
           Passenger passenger = this;
-          passenger.Speed = passenger.Speed + GlobalMembers.Game.GetGravity(this.Ref) * time;
+          passenger.Speed = passenger.Speed + GlobalMembers.MGame.GetGravity(this.Ref) * time;
           break;
         case GlobalMembers.PassengerState.PassengerStateFloat:
-          if ((double) GlobalMembers.Game.GetGameTime() - (double) this.FloatStart >= 15.0)
+          if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.FloatStart >= 15.0)
           {
             this.SetState(GlobalMembers.PassengerState.PassengerStateSink);
             this.SetSpeed(new Point(0.0f, -2f));
@@ -254,7 +254,7 @@ namespace GameManager
         case GlobalMembers.PassengerState.PassengerStateFloatTellStation:
           if (player1.IsFloatsOnWater() && player1.AcceptMorePassengers())
           {
-            if ((double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime >= 3.0)
+            if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime >= 3.0)
             {
               this.SetState(GlobalMembers.PassengerState.PassengerStateSwimTo);
               break;
@@ -297,17 +297,17 @@ namespace GameManager
         this.SetSpeed(new Point());
         this.SetState(GlobalMembers.PassengerState.PassengerStateFall);
       }
-      if ((double) GlobalMembers.Game.GetWaterLevel() - (double) this.GetPos().Y >= (double) this.GetHeight() * 0.5 && this.State != GlobalMembers.PassengerState.PassengerStateSink && this.State != GlobalMembers.PassengerState.PassengerStateFloatTellStation && this.State != GlobalMembers.PassengerState.PassengerStateSwimTo && this.State != GlobalMembers.PassengerState.PassengerStateFloat && this.State != GlobalMembers.PassengerState.PassengerStateInChopper)
+      if ((double) GlobalMembers.MGame.GetWaterLevel() - (double) this.GetPos().Y >= (double) this.GetHeight() * 0.5 && this.State != GlobalMembers.PassengerState.PassengerStateSink && this.State != GlobalMembers.PassengerState.PassengerStateFloatTellStation && this.State != GlobalMembers.PassengerState.PassengerStateSwimTo && this.State != GlobalMembers.PassengerState.PassengerStateFloat && this.State != GlobalMembers.PassengerState.PassengerStateInChopper)
       {
         this.FloatStart = this.Parent.GetGameTime();
         this.SetState(GlobalMembers.PassengerState.PassengerStateFloat);
         this.SetSpeed(new Point());
       }
       if (this.State == GlobalMembers.PassengerState.PassengerStateFloat || this.State == GlobalMembers.PassengerState.PassengerStateSwimTo || this.State == GlobalMembers.PassengerState.PassengerStateFloatTellStation)
-        this.SetPos(new Point(this.GetPos().X, GlobalMembers.Game.GetWaterLevel() - this.GetHeight() * 0.5f));
-      if ((double) this.GetPos().Y >= (double) GlobalMembers.Game.WaterLevel - 2.0 || this.State == GlobalMembers.PassengerState.PassengerStateInChopper)
+        this.SetPos(new Point(this.GetPos().X, GlobalMembers.MGame.GetWaterLevel() - this.GetHeight() * 0.5f));
+      if ((double) this.GetPos().Y >= (double) GlobalMembers.MGame.WaterLevel - 2.0 || this.State == GlobalMembers.PassengerState.PassengerStateInChopper)
         return;
-      GlobalMembers.Game.Lose(2);
+      GlobalMembers.MGame.Lose(2);
     }
 
     public override void OnAdd()

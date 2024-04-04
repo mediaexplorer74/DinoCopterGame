@@ -10,17 +10,23 @@ namespace GameManager
     {
         public void Draw(SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
-        internal void LoadContent(ContentManager content)
+        public T GetComponent<T>()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return default;
         }
 
-        internal void Update()
+        public void LoadContent(ContentManager content)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            //throw new NotImplementedException();
         }
     }
 }

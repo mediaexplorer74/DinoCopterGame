@@ -1,11 +1,11 @@
-﻿// GameManager.Tree
+﻿// GameManager.GameElements.Tree
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using Microsoft.Xna.Framework.Graphics;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   internal class Tree : Sprite
   {
@@ -22,11 +22,11 @@ namespace GameManager
     private void SetState(GlobalMembers.TreeState newState)
     {
       this.State = newState;
-      this.StateChangeTime = GlobalMembers.Game.GetGameTime();
+      this.StateChangeTime = GlobalMembers.MGame.GetGameTime();
       if (this.State == GlobalMembers.TreeState.TreeStateDontHaveFruit)
-        this.SetPaintable(Paintable.Copy(GlobalMembers.Game.TreeHitAnim));
+        this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.TreeHitAnim));
       else
-        this.SetPaintable(Paintable.Copy(GlobalMembers.Game.TreeStandAnim));
+        this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.TreeStandAnim));
     }
 
     public static Sprite CreateTree(Point pos)
@@ -46,7 +46,7 @@ namespace GameManager
       this.Parent.AddSprite(fruit, 2);
       fruit.SetPos(this.GetPos() + new Point((float) (((double) this.GetWidth() - (double) fruit.GetWidth()) / 2.0), this.GetHeight()));
       fruit.SetSpeed(new Point(0.0f, 3f));
-      if (!GlobalMembers.Game.HasLose)
+      if (!GlobalMembers.MGame.HasLose)
         GlobalMembers.Manager.PlaySound(GlobalMembers.SfxTreeHit);
       return true;
     }
@@ -56,7 +56,7 @@ namespace GameManager
     public override void Update(float time)
     {
       base.Update(time);
-      if (this.State != GlobalMembers.TreeState.TreeStateDontHaveFruit || (double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime < 12.0)
+      if (this.State != GlobalMembers.TreeState.TreeStateDontHaveFruit || (double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime < 12.0)
         return;
       this.SetState(GlobalMembers.TreeState.TreeStateHasFruit);
     }

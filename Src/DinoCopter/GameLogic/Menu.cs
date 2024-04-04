@@ -686,6 +686,7 @@ namespace GameManager.GameLogic
     {
       if ((double) this.GameTime < 1.0 && this.Type == 5)
         return;
+
       pos -= this.Translate;
       this.ChangeTime = this.GameTime - GlobalMembers.MENU_SCROLL_TIME;
       if (this.ActualPoint != (Point) null && (this.SelectedByPointerPress == null || this.SelectedByPointerPress.GetTypeId() != -10002))
@@ -727,7 +728,8 @@ namespace GameManager.GameLogic
         this.LeftSoftKeyPressedByPointer = false;
         GlobalMembers.SfxButtonReleaseInstance.Play();
       }
-      if (this.RightNavi != null && Util.IsPointInRect(pos, new Point(GlobalMembers.ToPx(this.RightNavi.GetPos().X), GlobalMembers.ToPx(this.RightNavi.GetPos().Y)), new Point(GlobalMembers.ToPx(this.RightNavi.Size.X), GlobalMembers.ToPx(this.RightNavi.Size.Y))))
+      if (this.RightNavi != null && Util.IsPointInRect(pos, 
+          new Point(GlobalMembers.ToPx(this.RightNavi.GetPos().X), GlobalMembers.ToPx(this.RightNavi.GetPos().Y)), new Point(GlobalMembers.ToPx(this.RightNavi.Size.X), GlobalMembers.ToPx(this.RightNavi.Size.Y))))
       {
         this.KeyReleased(6);
         this.RightSoftKeyPressedByPointer = false;
@@ -763,6 +765,7 @@ namespace GameManager.GameLogic
     {
       if (this.Type == 11 && Util.IsPointInRect(pos, new Point((float) ((double) this.Width - (double) Paintable.CreateFromResMan("prawy_dolny").GetWidth() / 2.0 - (double) Paintable.CreateFromResMan("facebook").GetWidth() / 2.0), (float) ((double) this.Height / 10.0 - (double) Paintable.CreateFromResMan("facebook").GetHeight() / 2.0)), new Point(Paintable.CreateFromResMan("facebook").GetWidth(), Paintable.CreateFromResMan("facebook").GetHeight())))
         DispManager.GoToWebsite(GlobalMembers.LinkFacebook);
+
       if (this.Type != 11 || !Util.IsPointInRect(pos, new Point((float) ((double) this.Width - (double) Paintable.CreateFromResMan("prawy_dolny").GetWidth() / 2.0 - (double) Paintable.CreateFromResMan("funapp_icon").GetWidth() / 2.0), (float) ((double) this.Height / 10.0 + (double) Paintable.CreateFromResMan("prawy_dolny").GetHeight() + 10.0 - (double) Paintable.CreateFromResMan("funapp_icon").GetHeight() / 2.0)), new Point(Paintable.CreateFromResMan("funapp_icon").GetWidth(), Paintable.CreateFromResMan("funapp_icon").GetHeight())))
         return;
       DispManager.GoToMarketplace(GlobalMembers.LinkFunappMarketplace);
@@ -810,7 +813,7 @@ namespace GameManager.GameLogic
       if (this.Type == 12 || this.Type == 13 || this.Type == 18)
         this.Prev.Display();
       if (this.Type == 3)
-        GlobalMembers.Game.Display();
+        GlobalMembers.MGame.Display();
       if (this.Type == 0 && this.Next != null)
         this.Next.Display();
       if (this.Type == 16 && key == 6)
@@ -824,7 +827,8 @@ namespace GameManager.GameLogic
           Menu.CreateLevelSelect().Display();
         }
         else
-          Menu.createFramedTextDisplayerMenu(new Paintable(), Texts.NotEnoughShells, this.Ref, new Paintable(), Texts.Back).Display();
+          Menu.createFramedTextDisplayerMenu(new Paintable(), Texts.NotEnoughShells, this.Ref, 
+              new Paintable(), Texts.Back).Display();
       }
       if (this.Type != 17)
         return;
@@ -839,14 +843,16 @@ namespace GameManager.GameLogic
         Menu.CreateLevelSelect().Display();
       }
       else
-        Menu.createFramedTextDisplayerMenu(new Paintable(), Texts.NotEnoughShells, this.Ref, new Paintable(), Texts.Back).Display();
+        Menu.createFramedTextDisplayerMenu(new Paintable(), Texts.NotEnoughShells, 
+            this.Ref, new Paintable(), Texts.Back).Display();
     }
 
     public bool HasLefBg() => this.LeftBg != null;
 
     public bool IsFramed()
     {
-      return (double) this.Width != (double) GlobalMembers.Manager.Width || (double) this.Height != (double) GlobalMembers.Manager.Height;
+      return (double) this.Width != (double) GlobalMembers.Manager.Width 
+                || (double) this.Height != (double) GlobalMembers.Manager.Height;
     }
 
     public void AddItem(Sprite mi, int index)
@@ -966,9 +972,12 @@ namespace GameManager.GameLogic
     {
       if (label == Texts.Buy && (this.Type == 18 || this.Type == 9))
         DispManager.GoToWebsite(GlobalMembers.LinkBuy);
+
       if (label == Texts.UnlockForFree)
         Menu.CreateTapJoy(this.Ref).Display();
+      
       int num = label == Texts.CheckACtions ? 1 : 0;
+      
       if (label == Texts.Restore)
       {
         while (this.GetItemsNum() > 0)
@@ -980,8 +989,10 @@ namespace GameManager.GameLogic
         ((Menu) tutorial).Prev = this.Prev;
         tutorial.Display();
       }
+
       if (im.GetTypeId() == -10003)
         GlobalMembers.SfxButtonReleaseInstance.Play();
+
       if (this.Type == 2 && ((MenuItem) im).UserData <= GlobalMembers.Save.CurrentLevel())
       {
         int userData = ((MenuItem) im).UserData;
@@ -999,30 +1010,35 @@ namespace GameManager.GameLogic
           flag = false;
           Menu.CreateBuyMenu(Texts.ProductLevels21To30Description, "DC_levels_21_to_30", this.Ref).Display();
         }
+
         if (!flag)
           return;
-        GlobalMembers.Game.CreateGame(((MenuItem) im).UserData).Display();
+
+        GlobalMembers.MGame.CreateGame(((MenuItem) im).UserData).Display();
       }
       else
       {
         if (label == Texts.Menu)
           Menu.CreateMainMenu().Display();
+
         if (label == Texts.Replay)
         {
           this.Prev = new Disp();
-          GlobalMembers.Game.CreateGame(GlobalMembers.Game.GetLevel()).Display();
+          GlobalMembers.MGame.CreateGame(GlobalMembers.MGame.GetLevel()).Display();
         }
+
         if (label == Texts.Next)
         {
           this.Prev = new Disp();
-          GlobalMembers.Game.CreateGame(GlobalMembers.Game.GetLevel() + 1).Display();
+          GlobalMembers.MGame.CreateGame(GlobalMembers.MGame.GetLevel() + 1).Display();
         }
+        
         if (this.Type == 4)
         {
           if (label == Texts.Yes)
           {
             this.Prev = new Disp();
-            GlobalMembers.Game.CreateGame(GlobalMembers.Game.GetLevel()).Display();
+            GlobalMembers.MGame.CreateGame(GlobalMembers.MGame.GetLevel()).Display();
           }
           if (label == Texts.No)
           {
@@ -1030,17 +1046,19 @@ namespace GameManager.GameLogic
             Menu.CreateLevelSelect().Display();
           }
         }
+        
         if (this.Type == 1)
         {
           for (int index = 0; index < this.Elements.Count; ++index)
           {
             if (im == this.Elements[index])
             {
-              GlobalMembers.Game.CreateGame(index + 1).Display();
+              GlobalMembers.MGame.CreateGame(index + 1).Display();
               break;
             }
           }
         }
+
         if (label == Texts.Music)
         {
           if (DispManager.IsMusicPlaying())
@@ -1065,10 +1083,10 @@ namespace GameManager.GameLogic
           else
           {
             DispManager.SetSoundVolume(0.7f);
-            if (GlobalMembers.Game != null)
+            if (GlobalMembers.MGame != null)
             {
-              for (int index = 0; index < GlobalMembers.Game.SoundSources.Count; ++index)
-                GlobalMembers.Game.SoundSources[index].sound.Volume = 0.7f;
+              for (int index = 0; index < GlobalMembers.MGame.SoundSources.Count; ++index)
+                GlobalMembers.MGame.SoundSources[index].sound.Volume = 0.7f;
             }
           }
           MenuItem menuItem = (MenuItem) im;
@@ -1120,8 +1138,10 @@ namespace GameManager.GameLogic
         else
           this.SetRightNavi(this.CreateNaviLabel("Skip"));
       }
+
       base.Update(time);
-      foreach (KeyValuePair<AbsKey, GameManager.Utils.State> keyValuePair in KeyHelper.KeysState)
+      
+     foreach (KeyValuePair<AbsKey, GameManager.Utils.State> keyValuePair in KeyHelper.KeysState)
       {
         if (keyValuePair.Value == GameManager.Utils.State.Pressed)
           this.KeyPressed((int) keyValuePair.Key);
@@ -1420,7 +1440,7 @@ namespace GameManager.GameLogic
       Sprite label = MenuItem.CreateLabel();
       MenuItem menuItem = (MenuItem) label;
       menuItem.SetImg(Paintable.CreateFromResMan("btn_big_select"));
-      menuItem.SetFormated(Paintable.CreateFormatedPaintable(text, (string[]) null, 0, GlobalMembers.Game.Width, 16, true));
+      menuItem.SetFormated(Paintable.CreateFormatedPaintable(text, (string[]) null, 0, GlobalMembers.MGame.Width, 16, true));
       return label;
     }
 

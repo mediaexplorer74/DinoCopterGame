@@ -1,11 +1,11 @@
-﻿// GameManager.Fruit
+﻿// GameManager.GameElements.Fruit
 
 using GameManager.GameLogic;
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   internal class Fruit : Sprite
   {
@@ -17,7 +17,7 @@ namespace GameManager
       : base(8, pos)
     {
       this.Type = Util.Random.Next(5);
-      this.SetPaintable(Paintable.Copy(GlobalMembers.Game.Food[this.Type]));
+      this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.Food[this.Type]));
     }
 
     public static Sprite CreateFruit(Point pos)
@@ -48,7 +48,7 @@ namespace GameManager
     {
       this.OnGround = false;
       Fruit fruit = this;
-      fruit.Speed = fruit.Speed + GlobalMembers.Game.GetGravity(this.Ref) * time;
+      fruit.Speed = fruit.Speed + GlobalMembers.MGame.GetGravity(this.Ref) * time;
       base.Update(time);
       this.CheckCollisions(1);
     }

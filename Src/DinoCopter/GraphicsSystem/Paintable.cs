@@ -993,7 +993,7 @@ namespace GameManager.GraphicsSystem
           spriteBatch.End();
           for (int index = 0; index < this.PColoredPolygon.PointList.Length; ++index)
           {
-            Paintable._V[index].Position = this.PColoredPolygon.PointList[index].Position - new Vector3(GlobalMembers.Game.ViewPos.X * GlobalMembers.TileSize.X, GlobalMembers.Game.ViewPos.Y * GlobalMembers.TileSize.Y, 0.0f);
+            Paintable._V[index].Position = this.PColoredPolygon.PointList[index].Position - new Vector3(GlobalMembers.MGame.ViewPos.X * GlobalMembers.TileSize.X, GlobalMembers.MGame.ViewPos.Y * GlobalMembers.TileSize.Y, 0.0f);
             Paintable._V[index].Color = this.PColoredPolygon.PointList[index].Color;
           }
           foreach (EffectPass pass in Paintable.effect.CurrentTechnique.Passes)

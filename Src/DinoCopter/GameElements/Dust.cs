@@ -1,11 +1,11 @@
-﻿// GameManager.Dust
+﻿// GameManager.GameElements.Dust
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using System;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   internal class Dust : Sprite
   {
@@ -26,7 +26,7 @@ namespace GameManager
     {
       this.StartDirection = this.GeneralDirection = Util.Randf(6.28318548f);
       this.TargetDirection = 0.0f;
-      this.SetPaintable(Paintable.Copy(GlobalMembers.Game.DustAnim));
+      this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.DustAnim));
       this.DirectionStartTime = this.DirectionEndTime = -1f;
       this.SelfSpeed = new Point();
     }
@@ -54,8 +54,8 @@ namespace GameManager
 
     public override void Update(float time)
     {
-      if ((double) this.GetPos().X > (double) GlobalMembers.Game.GetMapSize().X 
-                || (double) this.GetPos().Y > (double) GlobalMembers.Game.GetMapSize().Y 
+      if ((double) this.GetPos().X > (double) GlobalMembers.MGame.GetMapSize().X 
+                || (double) this.GetPos().Y > (double) GlobalMembers.MGame.GetMapSize().Y 
                 || (double) this.GetPos().Y + (double) this.GetHeight() < 0.0 
                 || (double) this.GetPos().X + (double) this.GetWidth() < 0.0)
       {

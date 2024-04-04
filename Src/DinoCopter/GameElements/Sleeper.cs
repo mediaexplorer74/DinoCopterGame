@@ -1,4 +1,4 @@
-﻿// GameManager.Sleeper
+﻿// GameManager.GameElements.Sleeper
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   public class Sleeper : Sprite
   {
@@ -27,14 +27,14 @@ namespace GameManager
       Sleeper.SfxSnoringInstance.IsLooped = true;
       Sleeper.SfxSnoringInstance.Play();
       this.Right = right;
-      this.SetPaintable(GlobalMembers.Game.SleeperInAnim);
+      this.SetPaintable(GlobalMembers.MGame.SleeperInAnim);
       this.Snore = new SoundSource(Sleeper.SfxSnoringInstance, new Point(this.Pos + this.GetSize() / 2f), 1f, 4f, 8f);
     }
 
     public virtual void SetAnim()
     {
-      this.Wind.SetTypeId(Convert.ToBoolean((int) ((double) GlobalMembers.Game.GetGameTime() / 3.0) % 2) == !this.Right ? 100 : 101);
-      this.SetPaintable(Paintable.Copy((int) ((double) GlobalMembers.Game.GetGameTime() / 3.0) % 2 == 0 ? GlobalMembers.Game.SleeperInAnim : GlobalMembers.Game.SleeperOutAnim));
+      this.Wind.SetTypeId(Convert.ToBoolean((int) ((double) GlobalMembers.MGame.GetGameTime() / 3.0) % 2) == !this.Right ? 100 : 101);
+      this.SetPaintable(Paintable.Copy((int) ((double) GlobalMembers.MGame.GetGameTime() / 3.0) % 2 == 0 ? GlobalMembers.MGame.SleeperInAnim : GlobalMembers.MGame.SleeperOutAnim));
       this.Img.SetAnimationDuration(3f);
     }
 
@@ -49,7 +49,7 @@ namespace GameManager
     public override void Update(float time)
     {
       base.Update(time);
-      if ((int) ((double) GlobalMembers.Game.GetGameTime() / 3.0) == (int) (((double) GlobalMembers.Game.GetGameTime() - (double) time) / 3.0))
+      if ((int) ((double) GlobalMembers.MGame.GetGameTime() / 3.0) == (int) (((double) GlobalMembers.MGame.GetGameTime() - (double) time) / 3.0))
         return;
       this.SetAnim();
     }
@@ -66,7 +66,7 @@ namespace GameManager
       if (!this.Right)
         this.Wind.SetPos(this.GetPos() + new Point(-this.Wind.GetWidth(), 0.0f));
       this.SetAnim();
-      GlobalMembers.Game.SoundSources.Add(this.Snore);
+      GlobalMembers.MGame.SoundSources.Add(this.Snore);
     }
 
     public override void Render(SpriteBatch spriteBatch)
@@ -74,12 +74,12 @@ namespace GameManager
       this.Img.Mirror = this.Right;
       base.Render(spriteBatch);
       this.Img.Mirror = false;
-      GlobalMembers.Game.EnterTutorial(6);
+      GlobalMembers.MGame.EnterTutorial(6);
     }
 
     public override void OnRemove()
     {
-      GlobalMembers.Game.SoundSources.Remove(this.Snore);
+      GlobalMembers.MGame.SoundSources.Remove(this.Snore);
       Sleeper.SfxSnoringInstance.Stop();
     }
   }

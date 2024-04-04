@@ -1,11 +1,11 @@
-﻿// GameManager.Pterodactyl
+﻿// GameManager.GameElements.Pterodactyl
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 using Microsoft.Xna.Framework.Graphics;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   internal class Pterodactyl : Sprite
   {
@@ -19,7 +19,7 @@ namespace GameManager
       : base(4, pos)
     {
       this.Dead = false;
-      this.SetPaintable(GlobalMembers.Game.PterodactylAnim);
+      this.SetPaintable(GlobalMembers.MGame.PterodactylAnim);
       this.StartY = pos.Y;
     }
 
@@ -38,20 +38,20 @@ namespace GameManager
       if (this.Dead)
       {
         Pterodactyl pterodactyl = this;
-        pterodactyl.Speed = pterodactyl.Speed + GlobalMembers.Game.GetGravity(this.Ref) * time;
-        if ((double) GlobalMembers.Game.GetGameTime() - (double) this.DieTime <= 30.0)
+        pterodactyl.Speed = pterodactyl.Speed + GlobalMembers.MGame.GetGravity(this.Ref) * time;
+        if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.DieTime <= 30.0)
           return;
         this.Dead = false;
-        this.SetPos(new Point(GlobalMembers.Game.GetMapSize().X, this.StartY));
+        this.SetPos(new Point(GlobalMembers.MGame.GetMapSize().X, this.StartY));
         this.SetSpeed(new Point(2f, 0.0f));
         this.SetTypeId(4);
       }
       else
       {
-        if ((double) this.Speed.X > 0.0 && (double) this.GetPos().X > (double) GlobalMembers.Game.GetMapSize().X)
+        if ((double) this.Speed.X > 0.0 && (double) this.GetPos().X > (double) GlobalMembers.MGame.GetMapSize().X)
           this.SetPos(new Point(-this.GetWidth(), this.GetPos().Y));
         if ((double) this.Speed.X < 0.0 && (double) this.GetPos().X < (double) this.GetWidth())
-          this.SetPos(new Point(GlobalMembers.Game.GetMapSize().X, this.GetPos().X));
+          this.SetPos(new Point(GlobalMembers.MGame.GetMapSize().X, this.GetPos().X));
         this.CheckCollisions(5);
       }
     }
@@ -59,7 +59,7 @@ namespace GameManager
     public override void Render(SpriteBatch spriteBatch)
     {
       base.Render(spriteBatch);
-      GlobalMembers.Game.EnterTutorial(4);
+      GlobalMembers.MGame.EnterTutorial(4);
     }
 
     public override void OnCollision(Sprite s)
@@ -72,9 +72,9 @@ namespace GameManager
       {
         this.Dead = true;
         this.SetTypeId(0);
-        if (!GlobalMembers.Game.HasLose)
+        if (!GlobalMembers.MGame.HasLose)
           GlobalMembers.Manager.PlaySound(GlobalMembers.SfxPterodactylHit);
-        this.DieTime = GlobalMembers.Game.GetGameTime();
+        this.DieTime = GlobalMembers.MGame.GetGameTime();
       }
       return true;
     }

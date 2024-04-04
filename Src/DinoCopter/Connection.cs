@@ -1,19 +1,36 @@
-﻿// GameManager.OldGame1 (DinoCopterGame)
+﻿// GameManager.Game1 (DinoCopterGame)
 
 using System;
+using System.Collections.Generic;
 
 namespace GameManager
 {
-    internal class Connection
+    public class Connection : IDisposable
     {
-        internal void Dispose()
+        public void Dispose()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
-        internal void OpenCon()
+        public void OpenCon()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+        }
+
+        internal List<T> GetAllRows<T>()
+        {
+            //throw new NotImplementedException();
+            return default;
+        }
+
+        internal void InsertRow<T>(T character)
+        {
+            //throw new NotImplementedException();
+        }
+
+        internal void UpdateRow<T>(T player)
+        {
+            //throw new NotImplementedException();
         }
     }
 }

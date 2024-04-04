@@ -1,10 +1,10 @@
-﻿// GameManager.DustSpawner
+﻿// GameManager.GameElements.DustSpawner
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   public class DustSpawner : Sprite
   {

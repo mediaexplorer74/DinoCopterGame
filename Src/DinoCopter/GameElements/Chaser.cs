@@ -1,4 +1,4 @@
-﻿// GameManager.Chaser
+﻿// GameManager.GameElements.Chaser
 
 using GameManager.GraphicsSystem;
 using GameManager.Utils;
@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 
 #nullable disable
-namespace GameManager
+namespace GameManager.GameElements
 {
   public class Chaser : Sprite
   {
@@ -32,25 +32,25 @@ namespace GameManager
     public void SetState(GlobalMembers.ChaserState newState)
     {
       this.State = newState;
-      this.StateChangeTime = GlobalMembers.Game.GetGameTime();
+      this.StateChangeTime = GlobalMembers.MGame.GetGameTime();
       this.Speed = new Point();
       switch (this.State)
       {
         case GlobalMembers.ChaserState.ChaserStateSleep:
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.TriceratopsEatAnim));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.TriceratopsEatAnim));
           break;
         case GlobalMembers.ChaserState.ChaserStateCaution:
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.TriceratopsLookAnim));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.TriceratopsLookAnim));
           break;
         case GlobalMembers.ChaserState.ChaserStateChase:
-          if (!GlobalMembers.Game.HasLose)
+          if (!GlobalMembers.MGame.HasLose)
             GlobalMembers.Manager.PlaySound(GlobalMembers.SfxTriceratopsRoar[Util.Random.Next(GlobalMembers.SfxTriceratopsRoar.Length)]);
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.TriceratopsRunAnim));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.TriceratopsRunAnim));
           break;
         case GlobalMembers.ChaserState.ChaserStateInjured:
-          if (!GlobalMembers.Game.HasLose)
+          if (!GlobalMembers.MGame.HasLose)
             GlobalMembers.Manager.PlaySound(GlobalMembers.SfxTriceratopsHit);
-          this.SetPaintable(Paintable.Copy(GlobalMembers.Game.TriceratopsInjuredAnim));
+          this.SetPaintable(Paintable.Copy(GlobalMembers.MGame.TriceratopsInjuredAnim));
           break;
       }
     }
@@ -80,12 +80,12 @@ namespace GameManager
 
     public override void Render(SpriteBatch spriteBatch)
     {
-      if (this.IsInRange(GlobalMembers.Game.GetPlayer()) && this.State != GlobalMembers.ChaserState.ChaserStateInjured)
-        this.Mirror = (double) GlobalMembers.Game.GetPlayer().GetPos().X + (double) GlobalMembers.Game.GetPlayer().GetWidth() / 2.0 - (double) this.GetPos().X - (double) this.GetWidth() / 2.0 < 0.0;
+      if (this.IsInRange(GlobalMembers.MGame.GetPlayer()) && this.State != GlobalMembers.ChaserState.ChaserStateInjured)
+        this.Mirror = (double) GlobalMembers.MGame.GetPlayer().GetPos().X + (double) GlobalMembers.MGame.GetPlayer().GetWidth() / 2.0 - (double) this.GetPos().X - (double) this.GetWidth() / 2.0 < 0.0;
       this.Img.Mirror = this.Mirror;
       base.Render(spriteBatch);
       this.Img.Mirror = false;
-      GlobalMembers.Game.EnterTutorial(5);
+      GlobalMembers.MGame.EnterTutorial(5);
     }
 
     public override void Update(float time)
@@ -94,16 +94,16 @@ namespace GameManager
       switch (this.State)
       {
         case GlobalMembers.ChaserState.ChaserStateSleep:
-          if (this.IsInRange(GlobalMembers.Game.GetPlayer()))
+          if (this.IsInRange(GlobalMembers.MGame.GetPlayer()))
           {
             this.SetState(GlobalMembers.ChaserState.ChaserStateCaution);
             break;
           }
           break;
         case GlobalMembers.ChaserState.ChaserStateCaution:
-          if ((double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime > 3.0)
+          if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime > 3.0)
           {
-            if (this.IsInRange(GlobalMembers.Game.GetPlayer()))
+            if (this.IsInRange(GlobalMembers.MGame.GetPlayer()))
             {
               this.SetState(GlobalMembers.ChaserState.ChaserStateChase);
               break;
@@ -113,9 +113,9 @@ namespace GameManager
           }
           break;
         case GlobalMembers.ChaserState.ChaserStateChase:
-          Player player = (Player) GlobalMembers.Game.GetPlayer();
-          Point pos = GlobalMembers.Game.GetPlayer().GetPos();
-          if (this.IsInRange(GlobalMembers.Game.GetPlayer()))
+          Player player = (Player) GlobalMembers.MGame.GetPlayer();
+          Point pos = GlobalMembers.MGame.GetPlayer().GetPos();
+          if (this.IsInRange(GlobalMembers.MGame.GetPlayer()))
           {
             this.SetSpeed(new Point(((double) this.GetPos().X > (double) pos.X ? -1f : 1f) * 3f, 0.0f));
             break;
@@ -123,7 +123,7 @@ namespace GameManager
           this.SetState(GlobalMembers.ChaserState.ChaserStateCaution);
           break;
         case GlobalMembers.ChaserState.ChaserStateInjured:
-          if ((double) GlobalMembers.Game.GetGameTime() - (double) this.StateChangeTime > 10.0)
+          if ((double) GlobalMembers.MGame.GetGameTime() - (double) this.StateChangeTime > 10.0)
           {
             this.SetState(GlobalMembers.ChaserState.ChaserStateCaution);
             break;
@@ -138,7 +138,7 @@ namespace GameManager
     {
       base.OnAdd();
       Point pos = this.GetPos();
-      Point platformSize = GlobalMembers.Game.GetPlatformSize((int) pos.X, (int) pos.Y);
+      Point platformSize = GlobalMembers.MGame.GetPlatformSize((int) pos.X, (int) pos.Y);
       this.Left = (int) platformSize.X;
       this.Right = (int) platformSize.Y;
       this.SetState(GlobalMembers.ChaserState.ChaserStateSleep);

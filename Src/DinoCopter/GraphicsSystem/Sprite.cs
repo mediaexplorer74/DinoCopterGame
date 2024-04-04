@@ -1,6 +1,6 @@
 ﻿// GameManager.GraphicsSystem.Sprite
 
-using GameManager;
+using GameManager.GameElements;
 using GameManager.Utils;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;

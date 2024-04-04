@@ -137,12 +137,12 @@ namespace GameManager.GameLogic
       }
       catch (FileNotFoundException ex)
       {
-                Debug.WriteLine("[i] GameSave - SaveSound - FileNotFoundException ex.: " + ex.Message);
-                storeForApplication.CreateFile("times.sav");
+        Debug.WriteLine("[i] GameSave - SaveSound - FileNotFoundException ex.: " + ex.Message);
+        storeForApplication.CreateFile("times.sav");
       }
       catch (IsolatedStorageException ex2)
       {
-                Debug.WriteLine("[ex] GameSave - SaveSound - IsolatedStorage ex.: " + ex2.Message);
+         Debug.WriteLine("[ex] GameSave - SaveSound - IsolatedStorage ex.: " + ex2.Message);
       }
       
       try
@@ -246,8 +246,8 @@ namespace GameManager.GameLogic
       }
       catch (IsolatedStorageException ex)
       {
-            Debug.WriteLine("[ex] GameSave - SaveSound - IsolatedStorage ex.: " + ex.Message);
-        }
+        Debug.WriteLine("[ex] GameSave - SaveSound - IsolatedStorage ex.: " + ex.Message);
+      }
     }//SetLevelsUnlocked
 
 

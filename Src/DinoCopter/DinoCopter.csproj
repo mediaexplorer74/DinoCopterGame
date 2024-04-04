@@ -124,6 +124,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Button.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="Collider.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="DinoCopterGame.cs" />
     <Compile Include="GamePage.xaml.cs">
@@ -134,7 +137,7 @@
     <Compile Include="GameElements\Dust.cs" />
     <Compile Include="GameElements\DustSpawner.cs" />
     <Compile Include="GameElements\Fruit.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="GameElements\MyGame.cs" />
     <Compile Include="GameElements\Lava.cs" />
     <Compile Include="GameElements\Passenger.cs" />
     <Compile Include="GameElements\Player.cs" />
@@ -170,6 +173,7 @@
     <Compile Include="GraphicsSystem\ResManLoader.cs" />
     <Compile Include="GraphicsSystem\Sprite.cs" />
     <Compile Include="GraphicsSystem\SpriteGrid.cs" />
+    <Compile Include="LevelBuilder.cs" />
     <Compile Include="Utils\AbsKey.cs" />
     <Compile Include="Utils\AppSettings.cs" />
     <Compile Include="Utils\Color.cs" />

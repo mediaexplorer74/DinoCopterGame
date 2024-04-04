@@ -1,3 +1,4 @@
+using GameManager.GameElements;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,7 +21,7 @@ namespace GameManager
     {
 		readonly Game1 _game;
 
-		public GamePage()
+        public GamePage()
         {
             this.InitializeComponent();
 
