@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Let's begin!" StartX="192" StartY="528" Rain="false" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="241" Y="720" WaitX="350">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="2" PassangerID="0" TargetCaveID="1" BaseTravelTime="7" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="769" Y="336" WaitX="600">
+      <PassangerInfos />
+    </Cave>
+  </Caves>
+</CaveLevel>

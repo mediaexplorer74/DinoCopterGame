@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfSoundInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SoundInfo Name="click" FilePath="sound\click" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="hit" FilePath="sound\hit" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="crash" FilePath="sound\crash" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="ghost" FilePath="sound\ghost" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="rain" FilePath="sound\rain" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="night" FilePath="sound\night" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="wind" FilePath="sound\wind" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="yell" FilePath="sound\yell" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="flap" FilePath="sound\flap" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="splashsmall" FilePath="sound\splashsmall" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="splashbig" FilePath="sound\splashbig" Extension=".wav" IsMusic="false" />
+  <SoundInfo Name="music" FilePath="music\Bullet Defender - In Game" Extension=".mp3" IsMusic="true" />
+</ArrayOfSoundInfo>

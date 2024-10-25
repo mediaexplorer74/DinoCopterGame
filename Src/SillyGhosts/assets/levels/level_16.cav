@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="In the Air" StartX="144" StartY="336" Rain="true" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="192" Y="1104" WaitX="288">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="130" PassangerID="0" TargetCaveID="2" BaseTravelTime="15.23" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="480" Y="864" WaitX="520">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="60" PassangerID="1" TargetCaveID="0" BaseTravelTime="14.49" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="864" Y="624" WaitX="960">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="2" TargetCaveID="1" BaseTravelTime="9.2" />
+        <PassangerInfo Time_ms="90" PassangerID="3" TargetCaveID="3" BaseTravelTime="22.15" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="864" Y="240" WaitX="960">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="20" PassangerID="4" TargetCaveID="2" BaseTravelTime="21.13" />
+        <PassangerInfo Time_ms="170" PassangerID="5" TargetCaveID="1" BaseTravelTime="21.23" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

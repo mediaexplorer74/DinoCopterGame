@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Little slalom" StartX="624" StartY="432" Rain="false" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="96" Y="912" WaitX="192">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="1" PassangerID="0" TargetCaveID="2" BaseTravelTime="12.15" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="576" Y="720" WaitX="672">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="30" PassangerID="1" TargetCaveID="3" BaseTravelTime="11.28" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="288" Y="384" WaitX="384">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="55" PassangerID="2" TargetCaveID="1" BaseTravelTime="5.83" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="432" Y="192" WaitX="528">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="80" PassangerID="3" TargetCaveID="0" BaseTravelTime="17.14" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

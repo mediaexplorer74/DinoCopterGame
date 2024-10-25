@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<ArrayOfTextureInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TextureInfo Name="available" FilePath="gfx\available" Extension=".png" SourceX="0" SourceY="0" SizeX="485" SizeY="59">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="background_close" FilePath="gfx\background_close" Extension=".png" SourceX="0" SourceY="0" SizeX="1440" SizeY="800">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="background_far" FilePath="gfx\background_far" Extension=".png" SourceX="0" SourceY="0" SizeX="960" SizeY="576">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="bottom_fog_1" FilePath="gfx\bottom_fog_1" Extension=".png" SourceX="0" SourceY="0" SizeX="48" SizeY="48">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_back" FilePath="gfx\button_back" Extension=".png" SourceX="0" SourceY="0" SizeX="139" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_back_click" FilePath="gfx\button_back_click" Extension=".png" SourceX="0" SourceY="0" SizeX="139" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_buynow" FilePath="gfx\button_buynow" Extension=".png" SourceX="0" SourceY="0" SizeX="330" SizeY="130">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_buynow_click" FilePath="gfx\button_buynow_click" Extension=".png" SourceX="0" SourceY="0" SizeX="330" SizeY="130">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_credits" FilePath="gfx\button_credits" Extension=".png" SourceX="0" SourceY="0" SizeX="175" SizeY="75">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_credits_click" FilePath="gfx\button_credits_click" Extension=".png" SourceX="0" SourceY="0" SizeX="175" SizeY="75">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_easy" FilePath="gfx\button_easy" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="78">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_easy_click" FilePath="gfx\button_easy_click" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="78">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_exit" FilePath="gfx\button_exit" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_exit_click" FilePath="gfx\button_exit_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_finish" FilePath="gfx\button_finish" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_finish_click" FilePath="gfx\button_finish_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_hard" FilePath="gfx\button_hard" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_hard_click" FilePath="gfx\button_hard_click" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_how" FilePath="gfx\button_how" Extension=".png" SourceX="0" SourceY="0" SizeX="270" SizeY="74">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_how_click" FilePath="gfx\button_how_click" Extension=".png" SourceX="0" SourceY="0" SizeX="270" SizeY="74">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_level" FilePath="gfx\button_level" Extension=".png" SourceX="0" SourceY="0" SizeX="160" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_level_click" FilePath="gfx\button_level_click" Extension=".png" SourceX="0" SourceY="0" SizeX="160" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_level_trial" FilePath="gfx\button_level_trial" Extension=".png" SourceX="0" SourceY="0" SizeX="160" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_level_trial_click" FilePath="gfx\button_level_trial_click" Extension=".png" SourceX="0" SourceY="0" SizeX="160" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_menu" FilePath="gfx\button_menu" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_menu_click" FilePath="gfx\button_menu_click" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_music" FilePath="gfx\button_music" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_music_clicked" FilePath="gfx\button_music_clicked" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_mute" FilePath="gfx\button_mute" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_mute_clicked" FilePath="gfx\button_mute_clicked" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_next" FilePath="gfx\button_next" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_next_click" FilePath="gfx\button_next_click" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_nextlevel" FilePath="gfx\button_nextlevel" Extension=".png" SourceX="0" SourceY="0" SizeX="226" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_nextlevel_click" FilePath="gfx\button_nextlevel_click" Extension=".png" SourceX="0" SourceY="0" SizeX="226" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_normal" FilePath="gfx\button_normal" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_normal_click" FilePath="gfx\button_normal_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_prev" FilePath="gfx\button_prev" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_prev_click" FilePath="gfx\button_prev_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_replay" FilePath="gfx\button_replay" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_replay_click" FilePath="gfx\button_replay_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_restart" FilePath="gfx\button_restart" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_restart_click" FilePath="gfx\button_restart_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_restart2" FilePath="gfx\button_restart2" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_restart2_click" FilePath="gfx\button_restart2_click" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_resume" FilePath="gfx\button_resume" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_resume_click" FilePath="gfx\button_resume_click" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="84">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_skip" FilePath="gfx\button_skip" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="74">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_skip_click" FilePath="gfx\button_skip_click" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="74">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_sound" FilePath="gfx\button_sound" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_sound_clicked" FilePath="gfx\button_sound_clicked" Extension=".png" SourceX="0" SourceY="0" SizeX="192" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_start" FilePath="gfx\button_start" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_start_click" FilePath="gfx\button_start_click" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cab" FilePath="gfx\cab" Extension=".png" SourceX="0" SourceY="0" SizeX="64" SizeY="64">
+    <Animations>
+      <Animation Name="flying" Start="0" InRow="4" TotalFrames="12" FPS="10" />
+      <Animation Name="idle" Start="0" InRow="4" TotalFrames="1" FPS="15" />
+    </Animations>
+  </TextureInfo>
+  <TextureInfo Name="cavesign0" FilePath="gfx\cavesign0" Extension=".png" SourceX="0" SourceY="0" SizeX="96" SizeY="96">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cavesign1" FilePath="gfx\cavesign1" Extension=".png" SourceX="0" SourceY="0" SizeX="96" SizeY="96">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cavesign2" FilePath="gfx\cavesign2" Extension=".png" SourceX="0" SourceY="0" SizeX="96" SizeY="96">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cavesign3" FilePath="gfx\cavesign3" Extension=".png" SourceX="0" SourceY="0" SizeX="96" SizeY="96">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cavesign4" FilePath="gfx\cavesign4" Extension=".png" SourceX="0" SourceY="0" SizeX="96" SizeY="96">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cloudsmall1" FilePath="gfx\cloudsmall1" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cloudsmall2" FilePath="gfx\cloudsmall2" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="cloudsmall3" FilePath="gfx\cloudsmall3" Extension=".png" SourceX="0" SourceY="0" SizeX="128" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="credits" FilePath="gfx\credits" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="1800">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="gfx\ground_tex" FilePath="gfx\ground_tex" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="gfx\ground_tex_ice" FilePath="gfx\ground_tex_ice" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="ghost1" FilePath="gfx\ghost1" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations>
+      <Animation Name="idle" Start="0" InRow="8" TotalFrames="8" FPS="10" />
+      <Animation Name="turn_side" Start="8" InRow="8" TotalFrames="4" FPS="10" />
+      <Animation Name="walking" Start="12" InRow="8" TotalFrames="8" FPS="10" />
+      <Animation Name="turn_forward" Start="19" InRow="8" TotalFrames="3" FPS="10" />
+      <Animation Name="fall_begin" Start="22" InRow="8" TotalFrames="2" FPS="10" />
+      <Animation Name="fall" Start="24" InRow="8" TotalFrames="4" FPS="10" />
+      <Animation Name="fall_end" Start="28" InRow="8" TotalFrames="2" FPS="10" />
+    </Animations>
+  </TextureInfo>
+  <TextureInfo Name="ingametut1" FilePath="gfx\ingametut1" Extension=".png" SourceX="0" SourceY="0" SizeX="242" SizeY="142">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="ingametut2" FilePath="gfx\ingametut2" Extension=".png" SourceX="0" SourceY="0" SizeX="238" SizeY="145">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="ingametut3" FilePath="gfx\ingametut3" Extension=".png" SourceX="0" SourceY="0" SizeX="210" SizeY="88">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="joystick" FilePath="gfx\joystick" Extension=".png" SourceX="0" SourceY="0" SizeX="256" SizeY="256">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="lock" FilePath="gfx\lock" Extension=".png" SourceX="0" SourceY="0" SizeX="64" SizeY="64">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="main_header" FilePath="gfx\main_header" Extension=".png" SourceX="0" SourceY="0" SizeX="512" SizeY="256">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="pointer" FilePath="gfx\pointer" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="pointer2" FilePath="gfx\pointer2" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="progressBack" FilePath="gfx\progressBack" Extension=".png" SourceX="0" SourceY="0" SizeX="120" SizeY="46">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="progressFront" FilePath="gfx\progressFront" Extension=".png" SourceX="0" SourceY="0" SizeX="120" SizeY="46">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="rain" FilePath="gfx\rain" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="select_difficulty" FilePath="gfx\select_difficulty" Extension=".png" SourceX="0" SourceY="0" SizeX="512" SizeY="128">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="snow" FilePath="gfx\snow" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="trialshadow" FilePath="gfx\trialshadow" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="350">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="tutorial_0" FilePath="gfx\tutorial_0" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="550">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="tutorial_1" FilePath="gfx\tutorial_1" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="550">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="tutorial_2" FilePath="gfx\tutorial_2" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="550">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="tutorial_3" FilePath="gfx\tutorial_3" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="550">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="tutorial_4" FilePath="gfx\tutorial_4" Extension=".png" SourceX="0" SourceY="0" SizeX="800" SizeY="550">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="wind" FilePath="gfx\wind" Extension=".png" SourceX="0" SourceY="0" SizeX="32" SizeY="32">
+    <Animations />
+  </TextureInfo>
+  <TextureInfo Name="button_windows" FilePath="gfx\button_windows" Extension=".png" SourceX="0" SourceY="0" SizeX="145" SizeY="60" />
+  <TextureInfo Name="button_windows_click" FilePath="gfx\button_windows_click" Extension=".png" SourceX="0" SourceY="0" SizeX="145" SizeY="60" />
+</ArrayOfTextureInfo>

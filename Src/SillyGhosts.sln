@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.34929.205
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SillyGhosts", "SillyGhosts\SillyGhosts.csproj", "{D6EB932E-2DC7-459B-86E5-456EB646FFF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steamworks.Shared", "Steamworks.Shared\Steamworks.Shared.csproj", "{CF3E1E97-8483-402B-A477-13662EC2F8D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steamworks.Engine", "Steamworks.Engine\Steamworks.Engine.csproj", "{C41EA636-FF8C-4060-8D33-11007859D081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steamworks.Physics", "Steamworks.Physics\Steamworks.Physics.csproj", "{075DEE2D-BAE8-49CD-BF2D-0CEEE2FA9F67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Steamworks.Engine.XNA", "Steamworks.Engine.XNA\Steamworks.Engine.XNA.csproj", "{0EBC2076-EEB2-402A-93DC-A9590EC79BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "steamworks.games.game.core", "steamworks.games.game.core\steamworks.games.game.core.csproj", "{94D3C939-0621-4573-8DCF-B2D3C671E8EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6EB932E-2DC7-459B-86E5-456EB646FFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6EB932E-2DC7-459B-86E5-456EB646FFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6EB932E-2DC7-459B-86E5-456EB646FFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6EB932E-2DC7-459B-86E5-456EB646FFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3E1E97-8483-402B-A477-13662EC2F8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3E1E97-8483-402B-A477-13662EC2F8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3E1E97-8483-402B-A477-13662EC2F8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3E1E97-8483-402B-A477-13662EC2F8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41EA636-FF8C-4060-8D33-11007859D081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41EA636-FF8C-4060-8D33-11007859D081}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41EA636-FF8C-4060-8D33-11007859D081}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41EA636-FF8C-4060-8D33-11007859D081}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075DEE2D-BAE8-49CD-BF2D-0CEEE2FA9F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075DEE2D-BAE8-49CD-BF2D-0CEEE2FA9F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075DEE2D-BAE8-49CD-BF2D-0CEEE2FA9F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075DEE2D-BAE8-49CD-BF2D-0CEEE2FA9F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBC2076-EEB2-402A-93DC-A9590EC79BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBC2076-EEB2-402A-93DC-A9590EC79BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBC2076-EEB2-402A-93DC-A9590EC79BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBC2076-EEB2-402A-93DC-A9590EC79BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D3C939-0621-4573-8DCF-B2D3C671E8EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D3C939-0621-4573-8DCF-B2D3C671E8EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D3C939-0621-4573-8DCF-B2D3C671E8EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D3C939-0621-4573-8DCF-B2D3C671E8EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6C15777-BB6D-48A2-87CE-CB57574208FF}
+	EndGlobalSection
+EndGlobal

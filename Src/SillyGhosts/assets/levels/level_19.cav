@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Brace Yourself!" StartX="432" StartY="48" Rain="true" TestOnly="false" Ice="true" Wind="true">
+  <Caves>
+    <Cave CaveID="0" X="48" Y="960" WaitX="144">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="55" PassangerID="0" TargetCaveID="2" BaseTravelTime="9.7" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="1056" Y="720" WaitX="1152">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="90" PassangerID="1" TargetCaveID="3" BaseTravelTime="46.49" />
+        <PassangerInfo Time_ms="155" PassangerID="2" TargetCaveID="0" BaseTravelTime="20.15" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="864" Y="480" WaitX="960">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="230" PassangerID="3" TargetCaveID="0" BaseTravelTime="11.32" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="912" Y="240" WaitX="1008">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="4" TargetCaveID="1" BaseTravelTime="40.47" />
+        <PassangerInfo Time_ms="255" PassangerID="5" TargetCaveID="0" BaseTravelTime="20.02" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Cold days" StartX="336" StartY="96" Rain="false" TestOnly="false" Ice="true" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="144" Y="624" WaitX="240">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="1" PassangerID="0" TargetCaveID="2" BaseTravelTime="11" />
+        <PassangerInfo Time_ms="50" PassangerID="1" TargetCaveID="1" BaseTravelTime="8" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="768" Y="528" WaitX="864">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="30" PassangerID="2" TargetCaveID="0" BaseTravelTime="8" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="240" Y="288" WaitX="336">
+      <PassangerInfos />
+    </Cave>
+  </Caves>
+</CaveLevel>

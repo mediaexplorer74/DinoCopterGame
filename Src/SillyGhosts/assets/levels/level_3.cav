@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="A bit harder..." StartX="450" StartY="288" Rain="false" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="144" Y="720" WaitX="240">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="1" PassangerID="0" TargetCaveID="2" BaseTravelTime="14" />
+        <PassangerInfo Time_ms="50" PassangerID="1" TargetCaveID="1" BaseTravelTime="7" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="720" Y="576" WaitX="816">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="25" PassangerID="2" TargetCaveID="0" BaseTravelTime="6" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="720" Y="144" WaitX="816">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="62" PassangerID="3" TargetCaveID="0" BaseTravelTime="12" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

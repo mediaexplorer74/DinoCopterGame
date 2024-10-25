@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Fly around" StartX="528" StartY="96" Rain="false" TestOnly="false" Ice="false" Wind="true">
+  <Caves>
+    <Cave CaveID="0" X="96" Y="912" WaitX="192">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="40" PassangerID="0" TargetCaveID="2" BaseTravelTime="17.94" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="1296" Y="576" WaitX="1392">
+      <PassangerInfos />
+    </Cave>
+    <Cave CaveID="2" X="384" Y="480" WaitX="300">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="1" TargetCaveID="1" BaseTravelTime="28.12" />
+        <PassangerInfo Time_ms="130" PassangerID="2" TargetCaveID="0" BaseTravelTime="15.38" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="240" Y="240" WaitX="336">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="110" PassangerID="3" TargetCaveID="2" BaseTravelTime="6.52" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="4" X="1056" Y="96" WaitX="1152">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="70" PassangerID="4" TargetCaveID="2" BaseTravelTime="14.25" />
+        <PassangerInfo Time_ms="160" PassangerID="5" TargetCaveID="1" BaseTravelTime="42.29" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

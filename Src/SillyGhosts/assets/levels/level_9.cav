@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Dive in!" StartX="768" StartY="96" Rain="false" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="672" Y="816" WaitX="768">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="35" PassangerID="0" TargetCaveID="2" BaseTravelTime="16.8" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="624" Y="528" WaitX="720">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="15" PassangerID="1" TargetCaveID="0" BaseTravelTime="12.45" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="576" Y="288" WaitX="672">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="1" PassangerID="2" TargetCaveID="3" BaseTravelTime="3.92" />
+        <PassangerInfo Time_ms="80" PassangerID="3" TargetCaveID="0" BaseTravelTime="14.24" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="288" Y="144" WaitX="384">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="50" PassangerID="4" TargetCaveID="1" BaseTravelTime="7.23" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

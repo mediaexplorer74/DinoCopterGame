@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Floating islands" StartX="576" StartY="336" Rain="false" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="480" Y="864" WaitX="576">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="70" PassangerID="0" TargetCaveID="2" BaseTravelTime="7.58" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="48" Y="816" WaitX="144">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="45" PassangerID="1" TargetCaveID="3" BaseTravelTime="16.07" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="336" Y="624" WaitX="432">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="25" PassangerID="2" TargetCaveID="0" BaseTravelTime="9.1" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="672" Y="192" WaitX="768">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="3" TargetCaveID="1" BaseTravelTime="15.25" />
+        <PassangerInfo Time_ms="100" PassangerID="4" TargetCaveID="0" BaseTravelTime="10.86" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

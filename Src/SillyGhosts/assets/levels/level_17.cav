@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Ice fields" StartX="384" StartY="816" Rain="true" TestOnly="false" Ice="true" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="864" Y="1200" WaitX="960">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="135" PassangerID="0" TargetCaveID="4" BaseTravelTime="25.46" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="0" Y="1152" WaitX="50">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="1" TargetCaveID="4" BaseTravelTime="30.17" />
+        <PassangerInfo Time_ms="220" PassangerID="2" TargetCaveID="3" BaseTravelTime="16.16" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="960" Y="768" WaitX="880">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="40" PassangerID="3" TargetCaveID="0" BaseTravelTime="11.39" />
+        <PassangerInfo Time_ms="185" PassangerID="4" TargetCaveID="3" BaseTravelTime="13.85" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="336" Y="624" WaitX="432">
+      <PassangerInfos />
+    </Cave>
+    <Cave CaveID="4" X="1056" Y="336" WaitX="1152">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="70" PassangerID="5" TargetCaveID="1" BaseTravelTime="29.23" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

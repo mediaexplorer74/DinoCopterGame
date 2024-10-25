@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Freeze!" StartX="624" StartY="288" Rain="false" TestOnly="false" Ice="true" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="48" Y="576" WaitX="144">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="1" PassangerID="0" TargetCaveID="1" BaseTravelTime="7" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="768" Y="528" WaitX="864">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="40" PassangerID="1" TargetCaveID="2" BaseTravelTime="9" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="192" Y="240" WaitX="240">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="15" PassangerID="2" TargetCaveID="0" BaseTravelTime="13" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

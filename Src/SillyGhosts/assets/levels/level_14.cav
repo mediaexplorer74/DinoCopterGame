@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Long night" StartX="576" StartY="96" Rain="false" TestOnly="false" Ice="true" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="288" Y="960" WaitX="384">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="20" PassangerID="0" TargetCaveID="1" BaseTravelTime="7" />
+        <PassangerInfo Time_ms="95" PassangerID="1" TargetCaveID="2" BaseTravelTime="13.42" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="960" Y="768" WaitX="1056">
+      <PassangerInfos />
+    </Cave>
+    <Cave CaveID="2" X="864" Y="480" WaitX="960">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="65" PassangerID="2" TargetCaveID="4" BaseTravelTime="7.25" />
+        <PassangerInfo Time_ms="135" PassangerID="3" TargetCaveID="0" BaseTravelTime="13.2" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="240" Y="240" WaitX="336">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="35" PassangerID="4" TargetCaveID="0" BaseTravelTime="13.63" />
+        <PassangerInfo Time_ms="125" PassangerID="5" TargetCaveID="4" BaseTravelTime="5.52" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="4" X="912" Y="144" WaitX="1008">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="6" TargetCaveID="1" BaseTravelTime="13.67" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

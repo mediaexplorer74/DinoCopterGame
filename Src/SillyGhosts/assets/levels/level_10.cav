@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Up &amp; Down" StartX="96" StartY="48" Rain="true" TestOnly="false" Ice="false" Wind="false">
+  <Caves>
+    <Cave CaveID="0" X="48" Y="720" WaitX="144">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="0" PassangerID="0" TargetCaveID="2" BaseTravelTime="9.38" />
+        <PassangerInfo Time_ms="60" PassangerID="1" TargetCaveID="1" BaseTravelTime="27.12" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="960" Y="432" WaitX="1056">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="140" PassangerID="2" TargetCaveID="2" BaseTravelTime="31.33" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="0" Y="192" WaitX="96">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="100" PassangerID="3" TargetCaveID="3" BaseTravelTime="17.73" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="3" X="432" Y="144" WaitX="528">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="20" PassangerID="4" TargetCaveID="2" BaseTravelTime="17.07" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>

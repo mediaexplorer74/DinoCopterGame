@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<CaveLevel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="High crossing" StartX="624" StartY="528" Rain="false" TestOnly="false" Ice="false" Wind="true">
+  <Caves>
+    <Cave CaveID="0" X="576" Y="912" WaitX="480">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="1" PassangerID="0" TargetCaveID="2" BaseTravelTime="14.57" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="1" X="192" Y="864" WaitX="288">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="32" PassangerID="1" TargetCaveID="0" BaseTravelTime="18.55" />
+      </PassangerInfos>
+    </Cave>
+    <Cave CaveID="2" X="192" Y="432" WaitX="288">
+      <PassangerInfos>
+        <PassangerInfo Time_ms="20" PassangerID="2" TargetCaveID="1" BaseTravelTime="7.84" />
+        <PassangerInfo Time_ms="60" PassangerID="3" TargetCaveID="1" BaseTravelTime="7.84" />
+      </PassangerInfos>
+    </Cave>
+  </Caves>
+</CaveLevel>
