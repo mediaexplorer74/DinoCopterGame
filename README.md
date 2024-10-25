@@ -4,7 +4,7 @@
 ![](Images/shot01.png)
 
 ## About
-My "RnD" of cool Silly Gosts (Ugh! remake) for future "attemts" to make my own Ugh! UWP replica ;)
+My "RnD" of cool Silly Gosts (Ugh! remake) for future "attempts" to make my own Ugh! UWP replica ;)
 
 ## My 2 cents
 - .NET Framework 4.8 & Monogame 3.8 support added (for my 12-yeard old Sony Vaio notebook)))
