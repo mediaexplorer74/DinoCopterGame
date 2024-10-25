@@ -1,205 +1,377 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!--Project was exported from assembly: C:\Users\Admin\Desktop\Portable\DoB\DoB.exe-->
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D6EB932E-2DC7-459B-86E5-456EB646FFF4}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <AssemblyName>SillyGhosts</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{125480D8-1B69-4415-A3D4-CA97968CC1BC}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GameManager</RootNamespace>
+    <AssemblyName>SillyGhosts.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
-    <RootNamespace>SillyGhosts</RootNamespace>
-    <TargetFrameworkProfile />
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>SillyGhosts_TemporaryKey.pfx</PackageCertificateKeyFile>
     <LangVersion>latest</LangVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundle>Never</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+    <PackageCertificateThumbprint>1DA91BE9D19BDC8751D414B0BDA82A6A874385BB</PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <!--PackageCertificateThumbprint>
+    </PackageCertificateThumbprint>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks-->
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\WindowsUniversal\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.8.0.1641, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoGame.Framework.WindowsDX.3.8.0.1641\lib\net452\MonoGame.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.4.0.1\lib\net45\SharpDX.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct2D1, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.Direct2D1.4.0.1\lib\net45\SharpDX.Direct2D1.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D11, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.Direct3D11.4.0.1\lib\net45\SharpDX.Direct3D11.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Direct3D9, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.Direct3D9.4.0.1\lib\net45\SharpDX.Direct3D9.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.DXGI, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.DXGI.4.0.1\lib\net45\SharpDX.DXGI.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.Mathematics, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.Mathematics.4.0.1\lib\net45\SharpDX.Mathematics.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.MediaFoundation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.MediaFoundation.4.0.1\lib\net45\SharpDX.MediaFoundation.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.XAudio2, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.XAudio2.4.0.1\lib\net45\SharpDX.XAudio2.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX.XInput, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.XInput.4.0.1\lib\net45\SharpDX.XInput.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Accelerometer.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Glob.cs" />
     <Compile Include="OpenGlDataUtils.cs" />
     <Compile Include="OpenGlPersister.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SteamworksEngineXNA\XNAEngine.cs" />
+    <Compile Include="SteamworksEngineXNA\XNAResources.cs" />
+    <Compile Include="SteamworksEngine\Common\Color.cs" />
+    <Compile Include="SteamworksEngine\Common\DebugCSharpLogger.cs" />
+    <Compile Include="SteamworksEngine\Common\DebugLog.cs" />
+    <Compile Include="SteamworksEngine\Common\Direction.cs" />
+    <Compile Include="SteamworksEngine\Common\GameTime.cs" />
+    <Compile Include="SteamworksEngine\Common\ILogger.cs" />
+    <Compile Include="SteamworksEngine\Common\IObjectPool`1.cs" />
+    <Compile Include="SteamworksEngine\Common\IPositionable.cs" />
+    <Compile Include="SteamworksEngine\Common\ISceneManager.cs" />
+    <Compile Include="SteamworksEngine\Common\IUpdateable.cs" />
+    <Compile Include="SteamworksEngine\Common\IVisibleObject.cs" />
+    <Compile Include="SteamworksEngine\Common\ListObjectPool`1.cs" />
+    <Compile Include="SteamworksEngine\Common\Manager`1.cs" />
+    <Compile Include="SteamworksEngine\Common\MathUtils.cs" />
+    <Compile Include="SteamworksEngine\Common\OverlayScene.cs" />
+    <Compile Include="SteamworksEngine\Common\RectangleF.cs" />
+    <Compile Include="SteamworksEngine\Common\Scene.cs" />
+    <Compile Include="SteamworksEngine\Common\SceneState.cs" />
+    <Compile Include="SteamworksEngine\Common\Vector2.cs" />
+    <Compile Include="SteamworksEngine\Controller\BetterKeyboard.cs" />
+    <Compile Include="SteamworksEngine\Controller\IAnalogController.cs" />
+    <Compile Include="SteamworksEngine\Controller\ITouchSource.cs" />
+    <Compile Include="SteamworksEngine\Controller\Joystick.cs" />
+    <Compile Include="SteamworksEngine\Controller\MouseSource.cs" />
+    <Compile Include="SteamworksEngine\Controller\TouchPanelSource.cs" />
+    <Compile Include="SteamworksEngine\EngineBase.cs" />
+    <Compile Include="SteamworksEngine\Graphics\AnimatedSprite.cs" />
+    <Compile Include="SteamworksEngine\Graphics\Button.cs" />
+    <Compile Include="SteamworksEngine\Graphics\Camera2D.cs" />
+    <Compile Include="SteamworksEngine\Graphics\DrawableRectangle.cs" />
+    <Compile Include="SteamworksEngine\Graphics\DrawableText.cs" />
+    <Compile Include="SteamworksEngine\Graphics\Entity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\FlipDirection.cs" />
+    <Compile Include="SteamworksEngine\Graphics\FontInfo.cs" />
+    <Compile Include="SteamworksEngine\Graphics\FontManager.cs" />
+    <Compile Include="SteamworksEngine\Graphics\IAnimatedEntity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ICamera2D.cs" />
+    <Compile Include="SteamworksEngine\Graphics\IDrawableText.cs" />
+    <Compile Include="SteamworksEngine\Graphics\IEntity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\IEntityFactory.cs" />
+    <Compile Include="SteamworksEngine\Graphics\IFontManager.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ILayeredEntity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ILayerEntity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ISpriteBatch.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ITextureManager.cs" />
+    <Compile Include="SteamworksEngine\Graphics\LayerEntity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ProgressBar.cs" />
+    <Compile Include="SteamworksEngine\Graphics\Sprite.cs" />
+    <Compile Include="SteamworksEngine\Graphics\SteamSpriteFactory.cs" />
+    <Compile Include="SteamworksEngine\Graphics\TextureInfo.cs" />
+    <Compile Include="SteamworksEngine\Graphics\TextureManager.cs" />
+    <Compile Include="SteamworksEngine\Graphics\TMXMapEntity.cs" />
+    <Compile Include="SteamworksEngine\Graphics\ToggleButton.cs" />
+    <Compile Include="SteamworksEngine\Graphics\XNASpriteBatch.cs" />
+    <Compile Include="SteamworksEngine\IDataLoader.cs" />
+    <Compile Include="SteamworksEngine\IGameSettings.cs" />
+    <Compile Include="SteamworksEngine\Resources.cs" />
+    <Compile Include="SteamworksEngine\Sound\ISoundManager.cs" />
+    <Compile Include="SteamworksEngine\Sound\SoundInfo.cs" />
+    <Compile Include="SteamworksEngine\Sound\XNASoundManager.cs" />
+    <Compile Include="SteamworksGameCore\DataLoader.cs" />
+    <Compile Include="SteamworksGameCore\IDataUtils.cs" />
+    <Compile Include="SteamworksGameCore\Interfaces\ICab.cs" />
+    <Compile Include="SteamworksGameCore\Interfaces\ICaveCabDataLoader.cs" />
+    <Compile Include="SteamworksGameCore\Interfaces\IDirectionPointer.cs" />
+    <Compile Include="SteamworksGameCore\Interfaces\IInitializeFromLevel.cs" />
+    <Compile Include="SteamworksGameCore\Interfaces\IPassanger.cs" />
+    <Compile Include="SteamworksGameCore\Interfaces\IPersister.cs" />
+    <Compile Include="SteamworksGameCore\Logic\Cab.cs" />
+    <Compile Include="SteamworksGameCore\Logic\Cave.cs" />
+    <Compile Include="SteamworksGameCore\Logic\CaveCabCore.cs" />
+    <Compile Include="SteamworksGameCore\Logic\CaveLevel.cs" />
+    <Compile Include="SteamworksGameCore\Logic\DirectionPointer.cs" />
+    <Compile Include="SteamworksGameCore\Logic\GameDifficulty.cs" />
+    <Compile Include="SteamworksGameCore\Logic\GameDifficultyNames.cs" />
+    <Compile Include="SteamworksGameCore\Logic\GameProgress.cs" />
+    <Compile Include="SteamworksGameCore\Logic\GameSettings.cs" />
+    <Compile Include="SteamworksGameCore\Logic\Hint.cs" />
+    <Compile Include="SteamworksGameCore\Logic\LoseMessages.cs" />
+    <Compile Include="SteamworksGameCore\Logic\Passanger.cs" />
+    <Compile Include="SteamworksGameCore\Logic\PassangerInfo.cs" />
+    <Compile Include="SteamworksGameCore\Logic\PassangerState.cs" />
+    <Compile Include="SteamworksGameCore\Logic\SceneCreator.cs" />
+    <Compile Include="SteamworksGameCore\Logic\SceneManager.cs" />
+    <Compile Include="SteamworksGameCore\PersisterBase.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Basic\HeaderedScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Basic\TwoBackgroundScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\GameLostScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\GameScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\GameWonScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\HintScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\LeavingGhostsHintOverlayScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\PauseOverlay.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\TakingGhostsHintOverlayScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Game\WaterGhostsHintOverlayScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Menu\CreditsScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Menu\DifficultyMenuScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Menu\LevelsScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Menu\MainMenuScene.cs" />
+    <Compile Include="SteamworksGameCore\Scenes\Menu\TutorialScene.cs" />
+    <Compile Include="SteamworksGameCore\Game1.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\AnimatedPassangerSprite.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\BackgroundNear.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\BackgroundNearMenu.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\ButtonNames.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\FontNames.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\PassangerAnimationState.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\PassangerSprites.cs" />
+    <Compile Include="SteamworksGameCore\Sprites\SpriteNames.cs" />
+    <Compile Include="SteamworksPhysics\Body\EnginePoweredPlatformRigidBody.cs" />
+    <Compile Include="SteamworksPhysics\Body\IEnginePoweredPlatformRigidBody.cs" />
+    <Compile Include="SteamworksPhysics\Body\IRigidBody.cs" />
+    <Compile Include="SteamworksPhysics\Body\PositionableMediator.cs" />
+    <Compile Include="SteamworksPhysics\Body\RigidBody.cs" />
+    <Compile Include="SteamworksPhysics\Collisions\Collision.cs" />
+    <Compile Include="SteamworksPhysics\Collisions\CollisionDirection.cs" />
+    <Compile Include="SteamworksPhysics\Collisions\CollisionExtensions.cs" />
+    <Compile Include="SteamworksPhysics\Collisions\ICollisionDetector.cs" />
+    <Compile Include="SteamworksPhysics\Collisions\TMXMapCollisionDetector.cs" />
+    <Compile Include="SteamworksPhysics\Particles\CloudParticleSystem.cs" />
+    <Compile Include="SteamworksPhysics\Particles\Particle.cs" />
+    <Compile Include="SteamworksPhysics\Particles\ParticleSystem.cs" />
+    <Compile Include="SteamworksPhysics\Particles\RainParticleSystem.cs" />
+    <Compile Include="SteamworksPhysics\Particles\RigidBodyParticle.cs" />
+    <Compile Include="SteamworksPhysics\Particles\SimpleParticle.cs" />
+    <Compile Include="SteamworksPhysics\Particles\SnowParticleSystem.cs" />
+    <Compile Include="SteamworksPhysics\Particles\WindParticleSystem.cs" />
+    <Compile Include="SteamworksShared\Graphics\Animation.cs" />
+    <Compile Include="SteamworksShared\Graphics\ResourceInfo.cs" />
+    <Compile Include="SteamworksShared\Graphics\TextureInfoBase.cs" />
+    <Compile Include="SteamworksShared\Logger.cs" />
+    <Compile Include="SteamworksShared\Map\orientationType.cs" />
+    <Compile Include="SteamworksShared\Map\TMXImagePath.cs" />
+    <Compile Include="SteamworksShared\Map\TMXLayer.cs" />
+    <Compile Include="SteamworksShared\Map\TMXLayerTile.cs" />
+    <Compile Include="SteamworksShared\Map\TMXMapData.cs" />
+    <Compile Include="SteamworksShared\Map\TMXProperty.cs" />
+    <Compile Include="SteamworksShared\Map\TMXTileInTileset.cs" />
+    <Compile Include="SteamworksShared\Map\TMXTileset.cs" />
+    <Compile Include="SteamworksShared\Sound\SoundInfoBase.cs" />
+    <Compile Include="TouchCollectionExtensions.cs" />
+    <Compile Include="VirtualGamePad.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <Content Include="assets\levels\level_0.cav">
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets1\sounds.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\levels\level_1.cav">
+    <Content Include="assets1\sprites.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\levels\level_10.cav">
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-125.png" />
+    <Content Include="Assets\Logo.scale-150.png" />
+    <Content Include="Assets\Logo.scale-200.png" />
+    <Content Include="Assets\Logo.scale-400.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.scale-125.png" />
+    <Content Include="Assets\SmallLogo.scale-150.png" />
+    <Content Include="Assets\SmallLogo.scale-200.png" />
+    <Content Include="Assets\SmallLogo.scale-400.png" />
+    <Content Include="Assets\SmallLogo.targetsize-16.png" />
+    <Content Include="Assets\SmallLogo.targetsize-24.png" />
+    <Content Include="Assets\SmallLogo.targetsize-256.png" />
+    <Content Include="Assets\SmallLogo.targetsize-32.png" />
+    <Content Include="Assets\SmallLogo.targetsize-48.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\WideTile.scale-100.png" />
+    <Content Include="Assets\WideTile.scale-125.png" />
+    <Content Include="Assets\WideTile.scale-150.png" />
+    <Content Include="Assets\WideTile.scale-200.png" />
+    <Content Include="Assets\WideTile.scale-400.png" />
+    <Content Include="Content\music\music.ogg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\levels\level_11.cav">
+    <Content Include="Properties\Default.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="GamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="MonoGame.Framework.WindowsUniversal">
+      <Version>3.8.0.1641</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Sprites\VirtualControlArrow.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\levels\level_12.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_13.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_14.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_15.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_16.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_17.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_18.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_19.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_2.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_3.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_4.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_5.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_6.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_7.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_8.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\levels\level_9.cav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_0.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_1.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_10.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_11.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_12.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_13.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_14.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_15.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_16.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_17.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_18.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_19.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_2.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_3.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_4.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_5.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_6.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_7.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_8.tmx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\maps\level_9.tmx">
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\music\Bullet Defender - In Game.wma">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\bigfont.xnb">
@@ -472,6 +644,9 @@
     <Content Include="Content\mediumfont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\music\Bullet Defender - In Game.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\music\music.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -511,37 +686,101 @@
     <Content Include="Content\sound\yell.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\music\Bullet Defender - In Game.wma">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\music\Bullet Defender - In Game.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\steamworks.games.game.core\steamworks.games.game.core.csproj">
-      <Project>{94d3c939-0621-4573-8dcf-b2d3c671e8ec}</Project>
-      <Name>steamworks.games.game.core</Name>
-    </ProjectReference>
+    <Content Include="assets1\levels\level_0.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_1.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_10.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_11.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_12.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_13.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_14.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_15.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_16.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_17.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_18.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_19.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_2.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_3.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_4.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_5.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_6.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_7.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_8.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\levels\level_9.cav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets1\maps\level_0.tmx" />
+    <Content Include="assets1\maps\level_1.tmx" />
+    <Content Include="assets1\maps\level_10.tmx" />
+    <Content Include="assets1\maps\level_11.tmx" />
+    <Content Include="assets1\maps\level_12.tmx" />
+    <Content Include="assets1\maps\level_13.tmx" />
+    <Content Include="assets1\maps\level_14.tmx" />
+    <Content Include="assets1\maps\level_15.tmx" />
+    <Content Include="assets1\maps\level_16.tmx" />
+    <Content Include="assets1\maps\level_17.tmx" />
+    <Content Include="assets1\maps\level_18.tmx" />
+    <Content Include="assets1\maps\level_19.tmx" />
+    <Content Include="assets1\maps\level_2.tmx" />
+    <Content Include="assets1\maps\level_3.tmx" />
+    <Content Include="assets1\maps\level_4.tmx" />
+    <Content Include="assets1\maps\level_5.tmx" />
+    <Content Include="assets1\maps\level_6.tmx" />
+    <Content Include="assets1\maps\level_7.tmx" />
+    <Content Include="assets1\maps\level_8.tmx" />
+    <Content Include="assets1\maps\level_9.tmx" />
+    <None Include="SillyGhosts_TemporaryKey.pfx" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="assets\sounds.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\sprites.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\music\music.ogg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\MonoGame.Framework.WindowsDX.3.8.0.1641\build\MonoGame.Framework.WindowsDX.targets" Condition="Exists('..\packages\MonoGame.Framework.WindowsDX.3.8.0.1641\build\MonoGame.Framework.WindowsDX.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MonoGame.Framework.WindowsDX.3.8.0.1641\build\MonoGame.Framework.WindowsDX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MonoGame.Framework.WindowsDX.3.8.0.1641\build\MonoGame.Framework.WindowsDX.targets'))" />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!--Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" /-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
   </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

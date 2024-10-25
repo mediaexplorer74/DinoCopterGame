@@ -1,12 +1,11 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: steamworks.games.game.opengl.OpenGlPersister
-// Assembly: Silly Gosts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: FD37877E-4464-40FF-B069-FD996B32AF74
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\Silly Gosts.dll
+﻿// steamworks.games.game.opengl.OpenGlPersister
 
+using SharpDX;
 using steamworks.games.game.core;
 using System;
+using System.Diagnostics;
 using System.IO;
+using Windows.Storage;
 
 #nullable disable
 namespace steamworks.games.game.opengl
@@ -15,18 +14,44 @@ namespace steamworks.games.game.opengl
   {
     public override void Save(byte[] bytesToSave, int saveByteCount, string SaveName)
     {
-      File.WriteAllBytes(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, SaveName), bytesToSave);
-    }
+        StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+        try
+        {
+            //RnD
+            //AppDomain.CurrentDomain.BaseDirectory
+            File.WriteAllBytes(Path.Combine(localFolder.Path, SaveName), bytesToSave);
+        }
+        catch (Exception ex)
+        {
+           Debug.WriteLine("[ex] Save bug: " + ex.Message);
+        }
+    }//Save
 
+
+    // Load
     public override byte[] Load(string SaveName, int saveByteCount)
     {
-      string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, SaveName);
-      return File.Exists(path) ? File.ReadAllBytes(path) : this.GetBytes(saveByteCount);
-    }
+       StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+       //RnD
+       //AppDomain.CurrentDomain.BaseDirectory
+       string path = Path.Combine(localFolder.Path, SaveName);
 
-    public OpenGlPersister()
-      : base()
+       byte[] result = default;
+       
+       try 
+       {
+          result = File.Exists(path) ? File.ReadAllBytes(path) : this.GetBytes(saveByteCount);
+       }
+       catch (Exception ex)
+       {
+          Debug.WriteLine("[ex] Load bug: " + ex.Message);
+       }
+       return result; 
+    }//Load
+
+    public OpenGlPersister() : base()
     {
+       //
     }
   }
 }

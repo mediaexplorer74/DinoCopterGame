@@ -15,7 +15,9 @@ namespace steamworks.games.game.opengl
   {
     public Stream OpenFile(string name)
     {
-      return (Stream) File.OpenRead(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, name));
+            //RnD
+            //AppDomain.CurrentDomain.BaseDirectory
+      return (Stream) File.OpenRead(Path.Combine("", name));
     }
   }
 }
