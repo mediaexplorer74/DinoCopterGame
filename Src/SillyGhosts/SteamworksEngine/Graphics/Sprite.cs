@@ -6,7 +6,7 @@
 
 using Steamworks.Engine.Common;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class Sprite : Entity

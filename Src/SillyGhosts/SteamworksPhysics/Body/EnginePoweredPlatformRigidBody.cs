@@ -8,7 +8,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Physics.Collisions;
 using System;
 
-#nullable disable
+
 namespace Steamworks.Physics.Body
 {
   public class EnginePoweredPlatformRigidBody : 

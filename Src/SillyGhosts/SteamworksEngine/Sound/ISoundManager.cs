@@ -4,7 +4,7 @@
 // MVID: 191680A8-837B-439B-9D59-78E90C7D63A4
 // Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\Steamworks.Engine.dll
 
-#nullable disable
+
 namespace Steamworks.Engine.Sound
 {
   public interface ISoundManager

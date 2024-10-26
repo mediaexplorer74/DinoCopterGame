@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Steamworks.Games.Game.Core.Logic.SceneCreator
-// Assembly: steamworks.games.game.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
+﻿// Steamworks.Games.Game.Core.Logic.SceneCreator
 
 using Steamworks.Engine;
 using Steamworks.Engine.Common;
@@ -15,7 +11,7 @@ using Steamworks.Physics.Collisions;
 using Steamworks.Physics.Particles;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Logic
 {
   public class SceneCreator
@@ -29,10 +25,13 @@ namespace Steamworks.Games.Game.Core.Logic
       foreach (Cave cave in level.Caves)
       {
         cave.PassangerHeight = this.PassangerHeight;
-        cave.WaterLevel = level.CaveMap.height * level.CaveMap.tileheight - level.CaveMap.tileheight / 4;
+        cave.WaterLevel = level.CaveMap.height * level.CaveMap.tileheight 
+                    - level.CaveMap.tileheight / 4;
       }
       GameScene scene = new GameScene(this.Context, level, this.CurrentGameProgress, CurrentDifficulty);
-      scene.Map = (ILayeredEntity) new TMXMapEntity(level.CaveMap, this.Context.ResourceManagers.CurrentTextureManager);
+
+      scene.Map = (ILayeredEntity) new TMXMapEntity(level.CaveMap, 
+          this.Context.ResourceManagers.CurrentTextureManager);
       this.CreateTimerText(scene);
       this.CreateCabSprite(scene);
       this.CreatePointerSprites(scene);
@@ -43,7 +42,9 @@ namespace Steamworks.Games.Game.Core.Logic
       this.CreateProgressBarInScene(scene);
       this.CreateParticles(level, scene);
       this.CreateMenuButton(scene);
-      scene.Camera = (ICamera2D) new Camera2D(new RectangleF(0.0f, 0.0f, this.Context.ScreenWidth, this.Context.ScreenHeight), level.CaveMap.GetMapBounds());
+      scene.Camera = (ICamera2D) new Camera2D(new RectangleF(
+          0.0f, 0.0f, this.Context.ScreenWidth, this.Context.ScreenHeight), 
+          level.CaveMap.GetMapBounds());
       scene.FirstUpdate();
       return (Scene) scene;
     }
@@ -70,11 +71,15 @@ namespace Steamworks.Games.Game.Core.Logic
       if (!level.Rain && !level.Wind && (!level.Ice || !level.Rain))
         return;
       if (level.Ice)
-        scene.Particles = (ParticleSystem) new SnowParticleSystem((this.Context.SpriteFactory.Get("snow") as Sprite).SpriteTextureInfo, 100);
+        scene.Particles = (ParticleSystem) new SnowParticleSystem(
+            (this.Context.SpriteFactory.Get("snow") as Sprite).SpriteTextureInfo, 100);
       else if (level.Rain)
-        scene.Particles = (ParticleSystem) new RainParticleSystem((this.Context.SpriteFactory.Get("rain") as Sprite).SpriteTextureInfo, 1000);
+        scene.Particles = (ParticleSystem) new RainParticleSystem(
+            (this.Context.SpriteFactory.Get("rain") as Sprite).SpriteTextureInfo, 1000);
       else if (level.Wind)
-        scene.Particles = (ParticleSystem) new WindParticleSystem((this.Context.SpriteFactory.Get("wind") as Sprite).SpriteTextureInfo, 10);
+        scene.Particles = (ParticleSystem) new WindParticleSystem(
+            (this.Context.SpriteFactory.Get("wind") as Sprite).SpriteTextureInfo, 10);
+
       if (level.Rain)
       {
         scene.Particles.Y = -64f;
@@ -139,7 +144,10 @@ namespace Steamworks.Games.Game.Core.Logic
 
     private void CreateJoystickSprite(GameScene scene)
     {
-      scene.Joystick = (IAnalogController) new Joystick(this.Context.ResourceManagers.CurrentTextureManager.Get("joystick"), this.Context.TouchSource);
+      scene.Joystick = (IAnalogController) new Joystick(
+          this.Context.ResourceManagers.CurrentTextureManager.Get("joystick"), 
+          this.Context.TouchSource);
+
       scene.Joystick.X = 544f;
       scene.Joystick.Y = 224f;
       scene.Joystick.Width = 256f;
@@ -200,7 +208,8 @@ namespace Steamworks.Games.Game.Core.Logic
 
     public Scene CreateLevelsScene(int levelCount, GameDifficulty CurrentDifficulty)
     {
-      return (Scene) new LevelsScene(this.Context, this.CurrentGameProgress, (int) CurrentDifficulty.Name, levelCount);
+      return (Scene) new LevelsScene(this.Context, this.CurrentGameProgress, 
+          (int) CurrentDifficulty.Name, levelCount);
     }
 
     public MainMenuScene CreateMainMenuScene()
@@ -213,6 +222,9 @@ namespace Steamworks.Games.Game.Core.Logic
       return (Scene) new TutorialScene(this.Context, this.CurrentGameProgress);
     }
 
-    internal Scene CreateCreditsScene() => (Scene) new CreditsScene(this.Context);
+    internal Scene CreateCreditsScene()
+    {
+        return (Scene)new CreditsScene(this.Context);
+    }
   }
 }

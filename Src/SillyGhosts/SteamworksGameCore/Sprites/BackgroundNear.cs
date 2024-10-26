@@ -8,7 +8,7 @@ using Steamworks.Engine;
 using Steamworks.Engine.Graphics;
 using Steamworks.Physics.Particles;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Sprites
 {
   public class BackgroundNear : Entity

@@ -8,7 +8,7 @@ using Steamworks.Shared.Graphics;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Engine.Common
 {
   public class Manager<T> where T : ResourceInfo

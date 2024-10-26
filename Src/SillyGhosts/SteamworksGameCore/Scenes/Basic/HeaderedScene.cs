@@ -7,7 +7,7 @@
 using Steamworks.Engine;
 using Steamworks.Engine.Graphics;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Scenes.Basic
 {
   public abstract class HeaderedScene : TwoBackgroundScene

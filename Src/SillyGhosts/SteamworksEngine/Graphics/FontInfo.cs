@@ -7,7 +7,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Steamworks.Shared.Graphics;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class FontInfo : ResourceInfo

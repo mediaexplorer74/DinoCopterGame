@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-#nullable disable
+
 namespace Steamworks.Engine.Common
 {
   public class DebugCSharpLogger : ILogger

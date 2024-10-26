@@ -7,7 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using Windows.Storage;
 
-#nullable disable
+
 namespace steamworks.games.game.opengl
 {
   public class OpenGlPersister : PersisterBase

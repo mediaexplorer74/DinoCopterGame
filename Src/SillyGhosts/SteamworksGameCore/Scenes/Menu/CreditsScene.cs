@@ -9,7 +9,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Engine.Graphics;
 using Steamworks.Games.Game.Core.Scenes.Basic;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Scenes.Menu
 {
   public class CreditsScene : TwoBackgroundScene

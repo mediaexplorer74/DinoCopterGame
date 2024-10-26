@@ -24,11 +24,12 @@
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-    <AppxBundle>Never</AppxBundle>
-    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
-    <PackageCertificateThumbprint>1DA91BE9D19BDC8751D414B0BDA82A6A874385BB</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>
+    </PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
@@ -151,6 +152,7 @@
     <Compile Include="SteamworksEngine\Controller\IAnalogController.cs" />
     <Compile Include="SteamworksEngine\Controller\ITouchSource.cs" />
     <Compile Include="SteamworksEngine\Controller\Joystick.cs" />
+    <Compile Include="SteamworksEngine\Controller\MultiMouseSource.cs" />
     <Compile Include="SteamworksEngine\Controller\MouseSource.cs" />
     <Compile Include="SteamworksEngine\Controller\TouchPanelSource.cs" />
     <Compile Include="SteamworksEngine\EngineBase.cs" />

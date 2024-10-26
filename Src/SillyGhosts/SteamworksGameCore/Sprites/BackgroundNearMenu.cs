@@ -6,7 +6,7 @@
 
 using Steamworks.Engine;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Sprites
 {
   public class BackgroundNearMenu : BackgroundNear

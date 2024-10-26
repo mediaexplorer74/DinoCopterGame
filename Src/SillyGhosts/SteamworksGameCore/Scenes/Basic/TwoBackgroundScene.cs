@@ -9,7 +9,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Engine.Graphics;
 using Steamworks.Games.Game.Core.Sprites;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Scenes.Basic
 {
   public abstract class TwoBackgroundScene : Scene

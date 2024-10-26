@@ -4,7 +4,7 @@
 // MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
 // Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Sprites
 {
   public class SpriteNames

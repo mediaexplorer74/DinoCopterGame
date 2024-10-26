@@ -6,7 +6,7 @@
 
 using System;
 
-#nullable disable
+
 namespace Steamworks.Engine.Common
 {
   public class RectangleF

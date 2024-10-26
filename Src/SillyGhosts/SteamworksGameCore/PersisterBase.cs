@@ -2,14 +2,17 @@
 
 using Steamworks.Games.Game.Core.Interfaces;
 
-#nullable disable
+
 namespace steamworks.games.game.core
 {
   public abstract class PersisterBase : IPersister
   {
     private byte _defaultValue;
 
-    public PersisterBase(byte defaultValue = 255) => this._defaultValue = defaultValue;
+    public PersisterBase(byte defaultValue = 255)
+    {
+      this._defaultValue = defaultValue;
+    }
 
     public byte DefaultValue
     {

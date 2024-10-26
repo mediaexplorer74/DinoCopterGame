@@ -7,7 +7,7 @@
 using Steamworks.Engine.Common;
 using Steamworks.Shared.Graphics;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class AnimatedSprite : Sprite, IAnimatedEntity, IEntity, IUpdateable, IPositionable

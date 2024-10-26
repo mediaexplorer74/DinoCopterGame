@@ -9,7 +9,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Shared.Graphics;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class TextureInfo : TextureInfoBase

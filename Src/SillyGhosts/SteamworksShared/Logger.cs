@@ -7,7 +7,7 @@
 using System.Diagnostics;
 using System.Text;
 
-#nullable disable
+
 namespace Steamworks.Shared
 {
   public class Logger

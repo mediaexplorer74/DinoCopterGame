@@ -1,12 +1,8 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Steamworks.Games.Game.Core.Logic.GameProgress
-// Assembly: steamworks.games.game.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
+﻿// Steamworks.Games.Game.Core.Logic.GameProgress
 
 using Steamworks.Games.Game.Core.Interfaces;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Logic
 {
   public class GameProgress
@@ -42,7 +38,9 @@ namespace Steamworks.Games.Game.Core.Logic
 
     public int GetLevelScore(int LevelID, int GameDifficultyNameID)
     {
-      return this._scores[GameDifficultyNameID][LevelID] == (int) this._persister.DefaultValue ? 0 : this._scores[GameDifficultyNameID][LevelID];
+      return this._scores[GameDifficultyNameID][LevelID] == (int) this._persister.DefaultValue
+                ? 0 
+                : this._scores[GameDifficultyNameID][LevelID];
     }
 
     public void SetLevelScore(int LevelID, int GameDifficultyNameID, int Score)

@@ -8,7 +8,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Shared.Map;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class TMXMapEntity : Entity, ILayeredEntity, IEntity, IUpdateable, IPositionable

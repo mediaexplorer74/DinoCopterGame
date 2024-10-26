@@ -6,7 +6,7 @@
 
 using Steamworks.Engine.Graphics;
 
-#nullable disable
+
 namespace Steamworks.Engine.Common
 {
   public abstract class OverlayScene : Scene

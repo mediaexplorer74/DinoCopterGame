@@ -9,7 +9,7 @@ using Steamworks.Physics.Collisions;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Physics.Body
 {
   public class RigidBody : IUpdateable, IPositionable, IRigidBody

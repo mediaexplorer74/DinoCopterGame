@@ -1,3 +1,5 @@
+// GamePage
+
 using steamworks.games.game.core;
 using steamworks.games.game.opengl;
 using Steamworks.Games.Game.Core.Interfaces;
@@ -22,9 +24,7 @@ namespace GameManager
 {
     public sealed partial class GamePage : Page
     {
-        //readonly /*Game2*/Game1 _game;
-        readonly Game1 _game;// = new Game1((IDataUtils)new OpenGlDataUtils(),
-              //  (IPersister)new OpenGlPersister());
+        readonly Game1 _game;
 
         public GamePage()
         {
@@ -33,29 +33,12 @@ namespace GameManager
 			// Create the game.
 			var launchArguments = string.Empty;
             
-            _game = MonoGame.Framework.XamlGame<Game1>.Create(//<Game2>.Create(
+            _game = MonoGame.Framework.XamlGame<Game1>.Create(
                 launchArguments, 
                 Window.Current.CoreWindow, 
-                swapChainPanel);
+                swapChainPanel
+            );
         }
     }
 }
 
-/*
- #nullable disable
-namespace steamworks.games.game.opengl
-{
-    public static class Program
-    {
-        [STAThread]
-        private static void Main()
-        {
-            using (Game1 sillyGhostGame = 
-                new Game1((IDataUtils)new OpenGlDataUtils(), 
-                (IPersister)new OpenGlPersister()))
-                sillyGhostGame.Run();
-        }
-    }
-}
-
- */

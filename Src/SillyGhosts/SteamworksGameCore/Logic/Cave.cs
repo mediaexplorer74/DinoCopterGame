@@ -8,7 +8,7 @@ using Steamworks.Engine.Common;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Logic
 {
   public class Cave

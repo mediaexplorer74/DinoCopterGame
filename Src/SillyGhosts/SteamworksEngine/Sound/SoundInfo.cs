@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Media;
 using Steamworks.Shared.Sound;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Engine.Sound
 {
   public class SoundInfo : SoundInfoBase

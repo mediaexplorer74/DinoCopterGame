@@ -1,14 +1,11 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Steamworks.Engine.EngineBase
-// Assembly: Steamworks.Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 191680A8-837B-439B-9D59-78E90C7D63A4
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\Steamworks.Engine.dll
+﻿// Steamworks.Engine.EngineBase
+
 
 using Steamworks.Engine.Common;
 using Steamworks.Engine.Controller;
 using Steamworks.Engine.Graphics;
 
-#nullable disable
+
 namespace Steamworks.Engine
 {
   public abstract class EngineBase
@@ -31,7 +28,8 @@ namespace Steamworks.Engine
       this.ResourceManagers.CreateResourceManagers(Loader);
       this.ResourceManagers.LoadSettings(Settings);
       this.Settings = Settings;
-      this.SpriteFactory = (IEntityFactory) new SteamSpriteFactory(this.ResourceManagers.CurrentTextureManager, this.ResourceManagers.CurrentFontManager);
+      this.SpriteFactory = (IEntityFactory) new SteamSpriteFactory(
+          this.ResourceManagers.CurrentTextureManager, this.ResourceManagers.CurrentFontManager);
       this.Time = new GameTime();
     }
 
@@ -123,6 +121,9 @@ namespace Steamworks.Engine
 
     public abstract void NavigateUrl(string url);
 
-    public void Pause() => this.SceneManager.Pause();
-  }
+    public void Pause()
+    {
+        this.SceneManager.Pause();
+    }
+    }
 }

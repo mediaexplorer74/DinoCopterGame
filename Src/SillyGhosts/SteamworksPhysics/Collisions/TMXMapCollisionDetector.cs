@@ -9,7 +9,7 @@ using Steamworks.Shared.Map;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Physics.Collisions
 {
   public class TMXMapCollisionDetector : ICollisionDetector

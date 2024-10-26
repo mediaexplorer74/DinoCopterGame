@@ -8,7 +8,7 @@ using Steamworks.Engine.Graphics;
 using Steamworks.Games.Game.Core.Interfaces;
 using Steamworks.Games.Game.Core.Logic;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Sprites
 {
   public class AnimatedPassangerSprite : AnimatedSprite

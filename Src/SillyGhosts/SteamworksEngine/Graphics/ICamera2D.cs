@@ -6,7 +6,7 @@
 
 using Microsoft.Xna.Framework;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public interface ICamera2D

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Steamworks.Engine.Common;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class FontManager : Manager<FontInfo>, IFontManager

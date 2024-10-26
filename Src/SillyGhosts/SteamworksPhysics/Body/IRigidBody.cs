@@ -7,7 +7,7 @@
 using Steamworks.Engine.Common;
 using Steamworks.Physics.Collisions;
 
-#nullable disable
+
 namespace Steamworks.Physics.Body
 {
   public interface IRigidBody

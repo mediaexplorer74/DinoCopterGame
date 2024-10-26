@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: steamworks.games.game.core.DataLoader
-// Assembly: steamworks.games.game.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
+﻿// steamworks.games.game.core.DataLoader
 
 using Steamworks.Engine;
 using Steamworks.Engine.Graphics;
@@ -13,7 +9,7 @@ using Steamworks.Shared.Map;
 using System.IO;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace steamworks.games.game.core
 {
   public class DataLoader : ICaveCabDataLoader, IDataLoader

@@ -8,7 +8,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Games.Game.Core.Logic;
 using Steamworks.Physics.Body;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Interfaces
 {
   public interface IPassanger : IUpdateable, IPositionable, IRigidBody

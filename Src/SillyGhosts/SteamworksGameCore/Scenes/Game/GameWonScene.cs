@@ -1,15 +1,11 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Steamworks.Games.Game.Core.Scenes.Game.GameWonScene
-// Assembly: steamworks.games.game.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
+﻿// Steamworks.Games.Game.Core.Scenes.Game.GameWonScene
 
 using Microsoft.Xna.Framework.Input;
 using Steamworks.Engine;
 using Steamworks.Engine.Common;
 using Steamworks.Engine.Graphics;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Scenes.Game
 {
   public class GameWonScene : OverlayScene
@@ -71,9 +67,12 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
       this.Context.SceneManager.SwitchScene("LevelsScene");
     }
 
-    public override void Draw(ISpriteBatch SpriteBatch) => this.RootEntity.Draw(SpriteBatch);
+        public override void Draw(ISpriteBatch SpriteBatch)
+        {
+            this.RootEntity.Draw(SpriteBatch);
+        }
 
-    public override void ProcessInput()
+        public override void ProcessInput()
     {
       base.ProcessInput();
       if (!this.BetterKeyboard.WasPressed(Keys.Enter))

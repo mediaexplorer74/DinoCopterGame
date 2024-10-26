@@ -1,23 +1,34 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: steamworks.games.game.opengl.OpenGlDataUtils
-// Assembly: Silly Gosts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: FD37877E-4464-40FF-B069-FD996B32AF74
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\Silly Gosts.dll
+﻿// steamworks.games.game.opengl.OpenGlDataUtils
 
 using steamworks.games.game.core;
 using System;
+using System.Diagnostics;
 using System.IO;
+//using Windows.Storage;
 
-#nullable disable
+
 namespace steamworks.games.game.opengl
 {
   public class OpenGlDataUtils : IDataUtils
   {
     public Stream OpenFile(string name)
     {
+        //StorageFolder localFolder = ApplicationData.Current.LocalFolder;
+
+        Stream result = default;
+
+        try
+        {
             //RnD
-            //AppDomain.CurrentDomain.BaseDirectory
-      return (Stream) File.OpenRead(Path.Combine("", name));
+            //result = (Stream)File.OpenRead(Path.Combine(localFolder.Path, name)); //?
+            result = (Stream)File.OpenRead(Path.Combine("", name)); //?
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine("[ex] OpenGlDataUtils-File.OpenRead bug: " + ex.Message);
+        }
+
+        return result;
     }
   }
 }

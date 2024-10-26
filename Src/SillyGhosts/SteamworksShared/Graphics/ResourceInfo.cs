@@ -6,7 +6,7 @@
 
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Shared.Graphics
 {
   public class ResourceInfo

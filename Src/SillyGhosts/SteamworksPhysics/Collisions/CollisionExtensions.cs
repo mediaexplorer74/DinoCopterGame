@@ -8,7 +8,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Shared.Map;
 using System;
 
-#nullable disable
+
 namespace Steamworks.Physics.Collisions
 {
   public static class CollisionExtensions

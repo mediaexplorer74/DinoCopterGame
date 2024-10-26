@@ -6,7 +6,7 @@
 
 using System.IO;
 
-#nullable disable
+
 namespace steamworks.games.game.core
 {
   public interface IDataUtils

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Shared.Map
 {
   [XmlRoot(ElementName = "map")]

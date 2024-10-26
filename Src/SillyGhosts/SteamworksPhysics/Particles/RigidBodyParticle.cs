@@ -8,7 +8,7 @@ using Steamworks.Engine.Common;
 using Steamworks.Engine.Graphics;
 using Steamworks.Physics.Body;
 
-#nullable disable
+
 namespace Steamworks.Physics.Particles
 {
   public class RigidBodyParticle : Particle

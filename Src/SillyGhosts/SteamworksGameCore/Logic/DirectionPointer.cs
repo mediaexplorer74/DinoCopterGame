@@ -7,7 +7,7 @@
 using Steamworks.Engine.Common;
 using Steamworks.Games.Game.Core.Interfaces;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Logic
 {
   public class DirectionPointer : IDirectionPointer, IUpdateable, IVisibleObject, IPositionable

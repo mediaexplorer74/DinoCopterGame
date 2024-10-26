@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Steamworks.Games.Game.Core.Scenes.Game.GameScene
-// Assembly: steamworks.games.game.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
+﻿// Steamworks.Games.Game.Core.Scenes.Game.GameScene
 
 using Steamworks.Engine;
 using Steamworks.Engine.Common;
@@ -14,7 +10,7 @@ using Steamworks.Physics.Particles;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Scenes.Game
 {
   public class GameScene : Scene
@@ -116,9 +112,12 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
       return true;
     }
 
-    public override void Loaded() => DebugLog.BeginLevel(this._difficulty.LevelID);
+        public override void Loaded()
+        {
+            DebugLog.BeginLevel(this._difficulty.LevelID);
+        }
 
-    public override void Pause()
+        public override void Pause()
     {
       DebugLog.Alert(nameof (Pause));
       if (!this.IsGameWorldActive)
@@ -139,9 +138,12 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
         base.ProcessInput();
     }
 
-    public override void Unloaded() => this.StopAmbientSound();
+        public override void Unloaded()
+        {
+            this.StopAmbientSound();
+        }
 
-    public override void Update(float elapsedtime_s, float totaltime_s)
+        public override void Update(float elapsedtime_s, float totaltime_s)
     {
       base.Update(elapsedtime_s, totaltime_s);
       this.TimerText.Text = totaltime_s.ToString();
@@ -238,13 +240,19 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
     private void ShowWonSceneOrLevelScene()
     {
       int Score = this.SaveScore();
-      if (this.Context.IsTrial && this.Core.Difficulty.LevelID == 4 || this.Core.Difficulty.LevelID == 19)
+      if 
+      ( 
+          this.Context.IsTrial 
+          && 
+          this.Core.Difficulty.LevelID == 4 || this.Core.Difficulty.LevelID == 19 
+      )
       {
         this.Context.SceneManager.SwitchScene("LevelsScene");
         DebugLog.EndGame();
       }
       else
         this.ShowWonScene(Score);
+
       this.EndGameSceneActive = true;
     }
 
@@ -284,7 +292,10 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
       SpriteBatch.End();
     }
 
-    private void DrawCab(ISpriteBatch SpriteBatch) => this.Cab.Draw(SpriteBatch);
+    private void DrawCab(ISpriteBatch SpriteBatch)
+    {
+        this.Cab.Draw(SpriteBatch);
+    }
 
     private void DrawFogFar(ISpriteBatch SpriteBatch)
     {
@@ -293,7 +304,10 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
       SpriteBatch.End();
     }
 
-    private void DrawFogNear(ISpriteBatch SpriteBatch) => this.Bottom_Fog_Near1.Draw(SpriteBatch);
+    private void DrawFogNear(ISpriteBatch SpriteBatch)
+    {
+        this.Bottom_Fog_Near1.Draw(SpriteBatch);
+    }
 
     private void DrawMap(ISpriteBatch SpriteBatch)
     {
@@ -525,6 +539,7 @@ namespace Steamworks.Games.Game.Core.Scenes.Game
       if (this.Core.IsGameLost)
       {
         this.ShowLostScene();
+
         if (this.Core.PlayerCab.IsCrashed)
           this.Context.ResourceManagers.CurrentSoundManager.PlaySound("crash", true);
         DebugLog.Alert("Crash");

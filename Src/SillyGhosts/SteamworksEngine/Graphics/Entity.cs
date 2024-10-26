@@ -9,7 +9,7 @@ using Steamworks.Engine.Common;
 using System;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Engine.Graphics
 {
   public class Entity : IDisposable, IEntity, IUpdateable, IPositionable

@@ -4,7 +4,7 @@
 // MVID: 4A135BB0-A5B3-40D7-BB59-980AD29572AB
 // Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\Steamworks.Shared.dll
 
-#nullable disable
+
 namespace Steamworks.Shared.Map
 {
   public enum orientationType

@@ -6,7 +6,7 @@
 
 using Steamworks.Engine.Common;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Interfaces
 {
   public interface IDirectionPointer : IUpdateable, IVisibleObject, IPositionable

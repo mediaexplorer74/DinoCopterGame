@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 
 
-#nullable disable
+
 namespace Steamworks.Physics.Particles
 {
   public abstract class ParticleSystem : Entity

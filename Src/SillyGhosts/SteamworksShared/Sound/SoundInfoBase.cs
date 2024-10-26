@@ -7,7 +7,7 @@
 using Steamworks.Shared.Graphics;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Shared.Sound
 {
   public class SoundInfoBase : ResourceInfo

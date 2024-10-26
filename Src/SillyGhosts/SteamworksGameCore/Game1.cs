@@ -13,7 +13,7 @@ using Steamworks.Games.Game.Core.Interfaces;
 using Steamworks.Games.Game.Core.Logic;
 using System;
 
-#nullable disable
+
 namespace steamworks.games.game.core
 {
   public class Game1 : Microsoft.Xna.Framework.Game
@@ -25,11 +25,11 @@ namespace steamworks.games.game.core
     private GameDifficulty CurrentDifficulty;
     private XNAEngine Engine;
     private GraphicsDeviceManager graphics;
-    private bool IsTrial;
+    //private bool IsTrial;
     private SceneManager Manager;
     private SpriteBatch spriteBatch;
-    private /*readonly*/ IDataUtils _dataUtils;
-    private /*readonly*/ IPersister _persister;
+    private readonly IDataUtils _dataUtils;
+    private readonly IPersister _persister;
     private bool _enterWasUp;
 
         /*
@@ -51,12 +51,7 @@ namespace steamworks.games.game.core
     }
         */
 
-    private void Window_ClientSizeChanged(object sender, EventArgs e)
-    {
-      //RnD
-      this.ViewportChanged((double) this.Window.ClientBounds.Height, 
-          (double) this.Window.ClientBounds.Width);
-    }
+   
 
     public Game1()
     {
@@ -89,7 +84,7 @@ namespace steamworks.games.game.core
 
 
         //RnD
-        this.graphics.IsFullScreen = false;//false;
+        this.graphics.IsFullScreen = true;//false;
       
     }
 
@@ -107,18 +102,22 @@ namespace steamworks.games.game.core
 
         this.Engine = new XNAEngine((IDataLoader) Loader, 
             (IGameSettings) new GameSettings(this._persister));
-        
-        this.Engine.ScreenHeight = 580f;
-        this.Engine.ScreenWidth = 800f;
-        
+
+        this.Engine.ScreenHeight = (float)this.graphics.PreferredBackBufferHeight;//580f;
+        this.Engine.ScreenWidth = (float)this.graphics.PreferredBackBufferWidth;//800f;
+
+
         this.Window.ClientSizeChanged 
                     += new EventHandler<EventArgs>(this.Window_ClientSizeChanged);
-        //RnD
+  
         this.ViewportChanged((double) this.Window.ClientBounds.Height, 
             (double) this.Window.ClientBounds.Width);
-        
-        this.Engine.TouchSource = (ITouchSource) new MouseSource();
-        this.Engine.IsTrial = this.IsTrial;
+
+        //RnD : mouse + touchpanel modes "collaboration" :)
+        this.Engine.TouchSource = (ITouchSource)new MultiMouseSource();//MouseSource();
+
+        this.Engine.IsTrial = false;//this.IsTrial;
+
         this.Creator = new SceneCreator();
         this.Creator.Context = (EngineBase) this.Engine;
         this.Creator.PassangerHeight = 32f;
@@ -144,19 +143,21 @@ namespace steamworks.games.game.core
 
     protected override void UnloadContent()
     {
+       //
     }
 
     protected override void Update(Microsoft.Xna.Framework.GameTime gameTime)
     {
       KeyboardState state = Keyboard.GetState();
+
       if ((GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed 
                 || this._escWasUp && state.IsKeyDown(Keys.Escape)) && !this.Manager.Back())
         this.Exit();
+
       this._escWasUp = state.IsKeyUp(Keys.Escape);
       this._enterWasUp = state.IsKeyUp(Keys.Enter);
       base.Update(gameTime);
       
-      //RnD
       this.Manager.Update((float) gameTime.ElapsedGameTime.TotalSeconds);
     }
 
@@ -166,11 +167,16 @@ namespace steamworks.games.game.core
           Microsoft.Xna.Framework.Color.FromNonPremultiplied(66, 32, 140, (int) byte.MaxValue));
       base.Draw(gameTime);
 
-            //RnD
       this.Manager.Draw();
     }
 
-   
+    private void Window_ClientSizeChanged(object sender, EventArgs e)
+    {
+        this.ViewportChanged((double)this.Window.ClientBounds.Height,
+            (double)this.Window.ClientBounds.Width);
+    }
+
+
     protected override void OnDeactivated(object sender, EventArgs args)
     {
       base.OnDeactivated(sender, args);
@@ -184,16 +190,13 @@ namespace steamworks.games.game.core
       this.CurrentDifficulty = (GameDifficulty) null;
     }
 
-    
-    private void DetermineIsTrail()
-    {
-    }
-
+  
     public void ViewportChanged(double height, double width)
     {
       float num = this.Engine.ScreenWidth / this.Engine.ScreenHeight;
       this._viewPortScale = width / height <= (double) num
-                ? (float) width / this.Engine.ScreenWidth : (float) height / this.Engine.ScreenHeight;
+                ? (float) width / this.Engine.ScreenWidth 
+                : (float) height / this.Engine.ScreenHeight;
       this.UpdateScaling();
     }
 
@@ -206,6 +209,11 @@ namespace steamworks.games.game.core
     private void UpdateScaling()
     {
         this.Engine.Scale = this._viewPortScale * this._baseScale;
+    }
+
+
+    private void DetermineIsTrail()
+    {
     }
 
   }

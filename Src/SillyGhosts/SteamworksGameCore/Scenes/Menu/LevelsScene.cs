@@ -1,8 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Steamworks.Games.Game.Core.Scenes.Menu.LevelsScene
-// Assembly: steamworks.games.game.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: 566BA5BF-24DF-44A2-AEB8-7F32FAFED412
-// Assembly location: C:\Users\Admin\Desktop\RE\SillyGhosts\steamworks.games.game.core.dll
+﻿// Steamworks.Games.Game.Core.Scenes.Menu.LevelsScene
 
 using Steamworks.Engine;
 using Steamworks.Engine.Common;
@@ -11,7 +7,7 @@ using Steamworks.Games.Game.Core.Logic;
 using Steamworks.Games.Game.Core.Scenes.Basic;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Games.Game.Core.Scenes.Menu
 {
   public class LevelsScene : TwoBackgroundScene
@@ -47,8 +43,10 @@ namespace Steamworks.Games.Game.Core.Scenes.Menu
       this.DifficultyID = DifficultyID;
       this.LevelCount = LevelCount;
       this.CreateButtons();
+
       if (!Context.IsTrial)
         return;
+
       this.CreateTrialContent();
     }
 
@@ -78,39 +76,46 @@ namespace Steamworks.Games.Game.Core.Scenes.Menu
 
     public override void Button_Clicked(Button sender)
     {
-      if (this.IsExiting)
-        return;
-      DebugLog.Alert("Button clicked: " + sender.Tag?.ToString());
-      if (sender == this.Button_Back)
-      {
-        this.Context.ResourceManagers.CurrentSoundManager.PlaySound("click", true);
-        this.Context.SceneManager.Back();
-        this.IsExiting = true;
-      }
-      else if (sender == this.Button_Windows)
-        this.Context.NavigateUrl("http://windowsphone.com/s?appId=e7d5b108-5fde-4724-8373-6099c614083d");
-      else if (sender.Tag is string)
-      {
-        this.Context.ResourceManagers.CurrentSoundManager.PlaySound("click", true);
-        int num = this.MarketShowed ? 1 : 0;
-      }
-      else
-      {
-        int tag = (int) sender.Tag;
-        if (tag < 0 || this._gameProgress.IsLevelLocked(tag, this.DifficultyID))
+        if (this.IsExiting)
           return;
-        this.Context.ResourceManagers.CurrentSoundManager.PlaySound("click", true);
-        this.NextLevelIndex = tag;
-        this.Context.SceneManager.SwitchSceneWithParams("GameScene", new object[2]
+        DebugLog.Alert("Button clicked: " + sender.Tag?.ToString());
+
+        if (sender == this.Button_Back)
         {
-          (object) this.NextLevelIndex,
-          (object) false
-        });
-        this.IsExiting = true;
-      }
+            this.Context.ResourceManagers.CurrentSoundManager.PlaySound("click", true);
+            this.Context.SceneManager.Back();
+            this.IsExiting = true;
+        }
+        else if (sender == this.Button_Windows)
+        {
+            this.Context.NavigateUrl(
+                "http://windowsphone.com/s?appId=e7d5b108-5fde-4724-8373-6099c614083d");
+        }
+        else if (sender.Tag is string)
+        {
+            this.Context.ResourceManagers.CurrentSoundManager.PlaySound("click", true);
+            int num = this.MarketShowed ? 1 : 0;
+        }
+        else
+        {
+            int tag = (int)sender.Tag;
+            if (tag < 0 || this._gameProgress.IsLevelLocked(tag, this.DifficultyID))
+                return;
+            this.Context.ResourceManagers.CurrentSoundManager.PlaySound("click", true);
+            this.NextLevelIndex = tag;
+            this.Context.SceneManager.SwitchSceneWithParams("GameScene", new object[2]
+            {
+                (object) this.NextLevelIndex,
+                (object) false
+            });
+            this.IsExiting = true;
+        }
     }
 
-    private bool IsAvailableIfTrial(int buttonIndex) => !this.Context.IsTrial || buttonIndex <= 4;
+    private bool IsAvailableIfTrial(int buttonIndex)
+    {
+        return !this.Context.IsTrial || buttonIndex <= 4;
+    }
 
     public void CreateButtons()
     {

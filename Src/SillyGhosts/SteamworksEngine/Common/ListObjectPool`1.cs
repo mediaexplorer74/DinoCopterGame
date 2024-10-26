@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Engine.Common
 {
   public class ListObjectPool<T> : IObjectPool<T> where T : new()

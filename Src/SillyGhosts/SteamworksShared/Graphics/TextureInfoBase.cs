@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-#nullable disable
+
 namespace Steamworks.Shared.Graphics
 {
   public class TextureInfoBase : ResourceInfo

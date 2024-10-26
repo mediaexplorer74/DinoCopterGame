@@ -1,1 +1,5 @@
-MainPackage=C:\Users\Admin\source\repos\!GameDev\W10MGameDevQuickie\Src\P22-Imperception\bin\WindowsUniversal\ARM\Debug\P22-Imperception_1.0.0.0_ARM_Debug.appx
+MainPackage=C:\Users\Admin\source\repos\!GameDev\SillyGhosts-uwp\Src\SillyGhosts\bin\WindowsUniversal\ARM\Debug\SillyGhosts_1.0.0.0_ARM_Debug.appx
+ResourcePack=C:\Users\Admin\source\repos\!GameDev\SillyGhosts-uwp\Src\SillyGhosts\bin\WindowsUniversal\ARM\Debug\SillyGhosts_1.0.0.0_scale-100.appx
+ResourcePack=C:\Users\Admin\source\repos\!GameDev\SillyGhosts-uwp\Src\SillyGhosts\bin\WindowsUniversal\ARM\Debug\SillyGhosts_1.0.0.0_scale-125.appx
+ResourcePack=C:\Users\Admin\source\repos\!GameDev\SillyGhosts-uwp\Src\SillyGhosts\bin\WindowsUniversal\ARM\Debug\SillyGhosts_1.0.0.0_scale-150.appx
+ResourcePack=C:\Users\Admin\source\repos\!GameDev\SillyGhosts-uwp\Src\SillyGhosts\bin\WindowsUniversal\ARM\Debug\SillyGhosts_1.0.0.0_scale-400.appx

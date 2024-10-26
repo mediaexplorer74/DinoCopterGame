@@ -7,7 +7,7 @@
 using Steamworks.Engine.Common;
 using System.Collections.Generic;
 
-#nullable disable
+
 namespace Steamworks.Physics.Collisions
 {
   public interface ICollisionDetector
