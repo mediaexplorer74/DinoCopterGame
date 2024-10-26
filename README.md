@@ -1,4 +1,4 @@
-# Silly Ghosts (Ugh! remake) - uwp branch 
+# Silly Ghosts 1.0.0 - uwp branch 
 ![](Images/logo.png)
 
 ## Screenshot(s)
@@ -16,8 +16,8 @@ My "RnD" of cool Silly Gosts (Ugh! remake) game. This in my 2nd attempt to creat
 
 ## References
 - https://gniriki.itch.io/silly-ghosts Original Silly-Ghosts project
-- https://github.com/gniriki Original Silly-Ghosts' developer
-- Silly Ghosts page (AG.RU) : https://ag.ru/games/silly-ghosts 
+- https://github.com/gniriki Whimsical Wyrm aka gniriki, original Silly-Ghosts C# developer
+- https://ag.ru/games/silly-ghosts Silly Ghosts page (AG.RU) 
 
 
 ## ..
